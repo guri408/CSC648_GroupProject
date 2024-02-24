@@ -1,5 +1,6 @@
 You may store all the required information in the README.md itself EXCEPT for SSH keys.
 These should be stored as files inside the credentials folder in your team’s repository.
+
 2. Add ALL members of your team to this repository. For it to count, they must ACCEPT the invite.
 
 3. Fill out the table below
