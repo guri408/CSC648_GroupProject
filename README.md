@@ -1,12 +1,16 @@
-Task 4: Correctly Populate the Credentials Folder in the Git Repository PLEASE
+You may store all the required information in the README.md itself EXCEPT for SSH keys.
+These should be stored as files inside the credentials folder in your team’s repository.
+2. Add ALL members of your team to this repository. For it to count, they must ACCEPT the invite.
 
-DO NOT DO THIS TASK UNTIL TASK 3 IS COMPLETED AND SW TESTED.
+3. Fill out the table below
 
-The purpose of this task is for your team to convey all the needed information for logging
-into your team’s server and database. Failure to correctly give the required information
-will cause points to be deducted from your team’s M0 grade as well as other milestones as
-well.
+| Student Name | Student Email | GitHub Username |
+|    :---:     |     :---:     |     :---:       |
+| Omar Dajani   |          odajani@sfsu.edu     |           OmarDajani75      |
+| Gurpreet Natt    |         gnatt@sfsu.edu      |       gpreet2          |
+| Gio Jung      |      gjung1@sfsu.edu         |          GioJung97       |
+| Justin Isidro      |       jisidro@sfsu.edu        |        Crific         |
+| Douglas Cheung   |       dcheung5@sfsu.edu        |       NicholasRFrintz          |
+| Gursimran Singh     |        gsingh8@sfsu.edu       |         guri408        |
 
-In your team’s repository, there is a folder named credentials. The folder contains a
-README.md file with a set of instructions and required information. Please read this
-carefully follow ALL instructions give ALL required information.
+## NO code needs to be stored in the root of your repository. You may rename the application folder if you like to your team's application name. But all source code related to your team's application should be stored inside the application folder.
