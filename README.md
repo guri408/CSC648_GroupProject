@@ -10,6 +10,3 @@ well.
 In your team’s repository, there is a folder named credentials. The folder contains a
 README.md file with a set of instructions and required information. Please read this
 carefully follow ALL instructions give ALL required information.
-
-You may store all the required information in the README.md itself EXCEPT for SSH keys.
-These should be stored as files inside the credentials folder in your team’s repository.
