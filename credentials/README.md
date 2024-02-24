@@ -8,15 +8,53 @@
 # Below is a list of items required. Missing items will causes points to be deducted from multiple milestone submissions.
 
 1. Server URL or IP
+
+    ec2-54-183-144-255.us-west-1.compute.amazonaws.com
+
 2. SSH username
+    ubuntu
+
 3. SSH password or key.
+
     <br> If a ssh key is used please upload the key to the credentials folder.
+
 4. Database URL or IP and port used.
+    
     <br><strong> NOTE THIS DOES NOT MEAN YOUR DATABASE NEEDS A PUBLIC FACING PORT.</strong> But knowing the IP and port number will help with SSH tunneling into the database. The default port is more than sufficient for this class.
+
+         3306 - database-1.clggkaim4xdj.us-west-1.rds.amazonaws.com
+
 5. Database username
+    admin
 6. Database password
+    12345678
 7. Database name (basically the name that contains all your tables)
+    database-1
 8. Instructions on how to use the above information.
+Connecting DB to workbench:
+
+Input fields: 
+
+Hostname: database-1.clggkaim4xdj.us-west-1.rds.amazonaws.com
+Port: 3306
+username: admin
+
+password: 12345678 (should prompt you to input this upon trying to connect)
+
+Please do let me know if you are unable to connect to our db. I might have to add a rule in which allows your IP to access it. http://checkip.amazonaws.com/
+
+
+Accessing EC2 server:
+cd (change directory) on terminal / console to where you stored your downloaded .pem file (name should be 648ProjectKey.pem).
+
+while in the proper directory run command:
+ssh -i 648ProjectKey.pem ubuntu@ec2-54-183-144-255.us-west-1.compute.amazonaws.com
+
+    
+username later on might vary depending if multiple users are implemented. 
+general cmd would be ssh -i 648ProjectKey.pem user@ec2-54-183-144-255.us-west-1.compute.amazonaws.com
+
+
 
 # Most important things to Remember
 ## These values need to kept update to date throughout the semester. <br>
