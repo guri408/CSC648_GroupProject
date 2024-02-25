@@ -2,13 +2,13 @@ from flask import Flask, render_template
 
 app = Flask(__name__, static_folder='./css', template_folder='./html')
 
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-#@app.route('/index.html')
+#@app.route('/')
 #def index():
 #    return render_template('index.html')
+
+@app.route('/index.html')
+def index():
+    return render_template('index.html')
 
 @app.route('/about')
 def about():
