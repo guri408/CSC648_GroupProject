@@ -72,9 +72,32 @@ ul {
 
 /* Main content area */
 .main-content {
-    padding: 20px;
-    max-width: 600px;
-    margin: 0 auto
+  flex: 1;
+}
+
+.image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  width: 300px; /* Adjust as needed */
+  height: 300px;
+  border: 1px solid #ccc; /* Add border for visualization */
+}
+
+@media only screen and (max-width: 768px) {
+  /* Adjust layout for smaller screens if needed */
+  .container {
+    flex-direction: column;
+  }
+
+  .image-container {
+    width: 100%;
+    order: -1; /* Place the image container before the main content on smaller screens */
+  }
 }
 
 /* Footer */
