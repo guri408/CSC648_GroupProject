@@ -73,6 +73,9 @@ ul {
 /* Main content area */
 .main-content {
   flex: 1;
+  max-width: 600px;
+  margin: 0 auto; /* This will center the text blocks */
+  padding: 0 20px;
 }
 
 .image-container {
