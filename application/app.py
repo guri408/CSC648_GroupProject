@@ -14,27 +14,27 @@ def index():
 def about():
     return render_template('about/About.html')
 
-@app.route('/about/Justin')
+@app.route('/about/Justin.html')
 def justin():
     return render_template('about/Justin.html')
 
-@app.route('/about/Douglas')
+@app.route('/about/Douglas.html')
 def douglas():
     return render_template('about/Douglas.html')
 
-@app.route('/about/GioJung')
+@app.route('/about/GioJung.html')
 def giojung():
     return render_template('about/GioJung.html')
 
-@app.route('/about/Gurpreet')
+@app.route('/about/Gurpreet.html')
 def gurpreet():
     return render_template('about/Gurpreet.html')
 
-@app.route('/about/Gursimran')
+@app.route('/about/Gursimran.html')
 def gursimran():
     return render_template('about/Gursimran.html')
 
-@app.route('/about/Omar')
+@app.route('/about/Omar.html')
 def omar():
     return render_template('about/Omar.html')
 
