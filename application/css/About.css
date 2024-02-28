@@ -74,7 +74,7 @@ ul {
 .main-content {
   flex: 1;
   max-width: 600px;
-  margin: 0 auto; /* This will center the text blocks */
+  margin: 0 auto;
   padding: 0 20px;
 }
 
