@@ -1,8 +1,5 @@
 /* Reset some default styles */
-body,
-h1,
-p,
-ul {
+body, h1, p, ul {
     margin: 0;
     padding: 0;
     text-align: center;
@@ -10,7 +7,7 @@ ul {
 
 /* Container for the header */
 .header {
-    background-color: #584bad;
+    background-color: #6C22A6;
     /* Purplish blue */
     color: #fff;
     padding: 20px;
@@ -18,7 +15,7 @@ ul {
 
 /* Navigation bar */
 .navbar {
-    background-color: #fafa77;
+    background-color: #FFC436;
     /* Yellow */
     padding: 10px;
 }
@@ -105,7 +102,7 @@ ul {
 
 /* Footer */
 .footer {
-    background-color: #6a5acd;
+    background-color: #6C22A6;
     /* Purplish blue */
     color: #fff;
     padding: 20px;
