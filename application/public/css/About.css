@@ -9,7 +9,7 @@ body, h1, p, ul {
 .header {
     background-color: #6C22A6;
     /* Purplish blue */
-    color: #fff;
+    color: #FFC436;
     padding: 20px;
 }
 
@@ -31,7 +31,7 @@ body, h1, p, ul {
 
 .navbar ul li a {
     text-decoration: none;
-    color: #6a5acd;
+    color: #6C22A6;;
     /* Purplish blue */
 }
 
