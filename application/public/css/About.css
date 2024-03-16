@@ -13,6 +13,50 @@ body, h1, p, ul {
     padding: 20px;
 }
 
+/* Container for the header */
+.header {
+    background-color: #584bad;
+    /* Purplish blue */
+    color: #fff;
+    padding: 20px;
+}
+
+.search-container {
+    padding: 10px;
+}
+
+#category {
+    width: 20%;
+    height: 30px;
+    border: 2px solid #584bad;
+    background-color: white;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
+#searchText {
+    width: 65%;
+    height: 30px;
+    border: 2px solid #584bad;
+    background-color: white;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
+#searchButton {
+    width: 10%;
+    height: 30px;
+    border: 2px solid #584bad;
+    background-color: white;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
+#searchButton:active {
+    background-color: #584bad;
+    color: white;
+}
+
 /* The .demo-notice class styles the demonstration notice header */
 .demo-notice {
     background-color: #ffd700; 
