@@ -5,14 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSC648/848</title>
-    <link rel="stylesheet" href="../public/css/About.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Function to handle search
+        $(document).ready(function () {
+            $('#searchForm').submit(function (event) {
+                event.preventDefault(); // Prevent form submission
+                var category = $('#category').val();
+                var searchText = $('#searchText').val();
+                // Perform search using AJAX and update search results
+                // Your AJAX request and result handling code here
+            });
+        });
+    </script>
 </head>
 
 <body>
-    <body>
-        <div class="demo-notice">
-            SFSU Software Engineering Project CSC 648-848, Spring 2024. For Demonstration Only
-        </div>
+    <div class="demo-notice">
+        SFSU Software Engineering Project CSC 648-848, Spring 2024. For Demonstration Only
+    </div>
     <div class="header">
         <h1>Software Engineering</h1>
         <h1>CSC 648/848 - 03</h1>
@@ -21,9 +33,22 @@
         <p>Team 03</p>
     </div>
 
+    <div class="search-container">
+        <form id="searchForm">
+            <select id="category">
+                <option value="default">Select Category</option>
+                <option value="electronics">Electronics</option>
+                <option value="books">Books</option>
+                <option value="furniture">Furniture</option>
+            </select>
+            <input type="text" id="searchText" name="searchText">
+            <input type="submit" id="searchButton" value="Search">
+        </form>
+    </div>
+
     <div class="navbar">
         <ul>
-            <li><a href="#">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li class="dropdown">
                 <a href="#" class="dropbtn">About</a>
                 <div class="dropdown-content">
@@ -37,6 +62,8 @@
             </li>
         </ul>
     </div>
+
+    <p id="search_outcome"></p>
 
     <div class="main-content">
         <h2>This is the brief description of Team 03</h2>
