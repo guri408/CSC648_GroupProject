@@ -1,55 +1,63 @@
+@font-face {
+    font-family: 'CustomFont';
+    src: url('Roboto_Slab/RobotoSlab-VariableFont_wght.ttf') format('truetype');
+}
+
 /* Reset some default styles */
 body, h1, p, ul {
     margin: 0;
     padding: 0;
     text-align: center;
+    font-family: CustomFont;
 }
 
 /* Container for the header */
 .header {
-    background-color: #6C22A6;
-    /* Purplish blue */
+    /* Gradient background */
+    background: #fef5da;
+    background: linear-gradient(to right, #fef5da 15%, #584bad 70%);
     color: #fff;
     padding: 20px;
+    display: flex;
+    align-items: center; /* Align items vertically in the flex container */
 }
 
-/* Container for the header */
-.header {
-    background-color: #584bad;
-    /* Purplish blue */
-    color: #fff;
-    padding: 20px;
+#logo {
+    max-width: 120px;
+    max-height: 120px;
+    margin-right: 20px; /* Add margin to separate logo from form */
 }
 
-.search-container {
-    padding: 10px;
+#searchForm {
+    flex: 1; /* Take up remaining space in the flex container */
 }
 
-#category {
-    width: 20%;
+#category,
+#searchText,
+#searchButton {
     height: 30px;
-    border: 2px solid #584bad;
-    background-color: white;
     font-family: Arial, sans-serif;
     font-size: 16px;
+    border-radius: 15px; /* Rounded corners */
+    border: 2px solid #584bad; /* Set border color */
+}
+
+/* Adjustments to input elements */
+#category {
+    width: 20%;
+    padding: 0 10px; /* Add some padding for better appearance */
 }
 
 #searchText {
-    width: 65%;
-    height: 30px;
-    border: 2px solid #584bad;
-    background-color: white;
-    font-family: Arial, sans-serif;
-    font-size: 16px;
+    width: 60%;
+    padding: 0 10px; /* Add some padding for better appearance */
 }
 
 #searchButton {
     width: 10%;
-    height: 30px;
-    border: 2px solid #584bad;
-    background-color: white;
-    font-family: Arial, sans-serif;
-    font-size: 16px;
+    border: none; /* Remove border */
+    background-color: #fff; /* Match background color to maintain appearance */
+    padding: 0; /* Reset padding */
 }
 
 #searchButton:active {
@@ -70,8 +78,7 @@ body, h1, p, ul {
 
 /* Navigation bar */
 .navbar {
-    background-color: #FFC436;
-    /* Yellow */
+    background-color: #FFC436; /* Yellow */
     padding: 10px;
 }
 
@@ -86,8 +93,7 @@ body, h1, p, ul {
 
 .navbar ul li a {
     text-decoration: none;
-    color: #6a5acd;
-    /* Purplish blue */
+    color: #6a5acd; /* Purplish blue */
 }
 
 /* Dropdown menu */
@@ -103,8 +109,7 @@ body, h1, p, ul {
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
-    left: -20px;
-    /* Adjust this value as needed */
+    left: -20px; /* Adjust this value as needed */
 }
 
 .dropdown-content a {
@@ -124,47 +129,7 @@ body, h1, p, ul {
 
 /* Main content area */
 .main-content {
-  flex: 1;
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.image-container {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.image {
-  width: 300px; /* Adjust as needed */
-  height: 300px;
-  border: 1px solid #ccc; /* Add border for visualization */
-}
-
-@media only screen and (max-width: 768px) {
-  /* Adjust layout for smaller screens if needed */
-  .container {
-    flex-direction: column;
-  }
-
-  .image-container {
-    width: 100%;
-    order: -1; /* Place the image container before the main content on smaller screens */
-  }
-}
-
-/* Footer */
-.footer {
-    background-color: #6C22A6;
-    /* Purplish blue */
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-}
-
-.right-shift {
-    margin-right: 30px;
-    /* Adjust as needed */
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
