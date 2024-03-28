@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSC648/848</title>
+    <link rel="stylesheet" href="../../public/css/VP.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Function to handle search
+        $(document).ready(function () {
+            $('#searchForm').submit(function (event) {
+                event.preventDefault(); // Prevent form submission
+                var category = $('#category').val();
+                var searchText = $('#searchText').val();
+                // Perform search using AJAX and update search results
+                // Your AJAX request and result handling code here
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="demo-notice">
+        SFSU CSC 648-848 SWE / Spring 2024 / Team 03
+    </div>
+    <div class="header">
+        <img src="../../public/images/From Here to There logo.jpg" alt="Logo" id="logo">
+        <form id="searchForm">
+            <select id="category">
+                <option value="default">Select Category</option>
+                <option value="electronics">Electronics</option>
+                <option value="books">Books</option>
+                <option value="furniture">Furniture</option>
+            </select>
+            <input type="text" id="searchText" name="searchText">
+            <input type="submit" id="searchButton" value="Search">
+        </form>
+    </div>
+
+
+</body>
+
+</html>
