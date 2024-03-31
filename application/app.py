@@ -1,14 +1,16 @@
 from flask import Flask, render_template
+from search import search
 
 app = Flask(__name__, static_folder='./public', template_folder='./html')
+#mysql = MySQL(app)
 
+# Register the Blueprint with the app
+app.register_blueprint(search, url_prefix="")
+
+@app.route('/index.html')
 @app.route('/')
 def index():
     return render_template('index.html')
-
-#@app.route('/index.html')
-#def index():
-#    return render_template('index.html')
 
 @app.route('/about')
 def about():
@@ -37,6 +39,20 @@ def gursimran():
 @app.route('/about/Omar.html')
 def omar():
     return render_template('about/Omar.html')
+
+#@app.route('/about/Search.html')
+#def search_page():
+#    return render_template('about/Search.html')
+
+#@app.route("/livesearch",methods=["POST","GET"])
+#def livesearch():
+#    searchbox = request.form.get("text")
+#    cursor = mysql.connection.cursor()
+#    query = "SELECT p.* FROM Product p JOIN ProductCategory pc ON p.ProductID = pc.ProductID JOIN Category c ON pc.CategoryID = c.CategoryID WHERE c.Name = %s AND (p.Title LIKE %s OR p.Description LIKE %s)"
+#    cursor.execute(query)
+#    result = cursor.fetchall()
+#    return jsonify(result)
+
 
 if __name__ == '__main__':
     app.run(debug=True)

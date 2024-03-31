@@ -1,0 +1,19 @@
+<h3>{{numrows}} Records Found</h3>
+<table class="table table-striped custab">
+  <thead>
+      <tr>
+         <th>Title</th>
+         <th>Description</th>
+         <th>Price</th>
+      </tr>
+  </thead>
+  <tbody>
+{% for row in Product %}  
+   <tr>
+    <td>{{row.Title}}</td>
+    <td>{{row.Description}}</td>
+    <td>{{row.Price}}</td>
+   </tr>
+{% endfor %}
+  </tbody>
+</table>

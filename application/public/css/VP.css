@@ -1,0 +1,112 @@
+@font-face {
+    font-family: 'CustomFont';
+    src: url('Roboto_Slab/RobotoSlab-VariableFont_wght.ttf') format('truetype');
+}
+
+/* Reset some default styles */
+body,
+h1,
+p,
+ul {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: CustomFont;
+}
+
+/* Container for the header */
+.header {
+    /* Gradient background */
+    background: #fef5da;
+    background: linear-gradient(to right, #fef5da 15%, #584bad 70%);
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    /* Align items vertically in the flex container */
+}
+
+#logo {
+    max-width: 120px;
+    max-height: 120px;
+    margin-right: 20px;
+    /* Add margin to separate logo from form */
+}
+
+#searchForm {
+    flex: 1;
+    /* Take up remaining space in the flex container */
+}
+
+#category,
+#searchText,
+#searchButton {
+    height: 30px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    border-radius: 15px;
+    /* Rounded corners */
+    border: 2px solid #584bad;
+    /* Set border color */
+}
+
+/* Adjustments to input elements */
+#category {
+    width: 20%;
+    padding: 0 10px;
+    /* Add some padding for better appearance */
+}
+
+#searchText {
+    width: 60%;
+    padding: 0 10px;
+    /* Add some padding for better appearance */
+}
+
+#searchButton {
+    width: 10%;
+    border: none;
+    /* Remove border */
+    background-color: #fff;
+    /* Match background color to maintain appearance */
+    padding: 0;
+    /* Reset padding */
+}
+
+#searchButton:active {
+    background-color: #584bad;
+    color: white;
+}
+
+/* The .demo-notice class styles the demonstration notice header */
+.demo-notice {
+    background-color: #ffd700;
+    color: #000;
+    text-align: center;
+    padding: 20px 0;
+    font-weight: bold;
+    font-size: 1.2em;
+    border-bottom: 3px solid #000;
+}
+
+/* Navigation bar */
+.navbar {
+    background-color: #FFC436;
+    /* Yellow */
+    padding: 10px;
+}
+
+.navbar ul {
+    list-style-type: none;
+}
+
+.navbar ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #6a5acd;
+    /* Purplish blue */
+}
