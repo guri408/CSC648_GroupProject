@@ -14,14 +14,12 @@ mydb = mysql.connector.connect(
 def search_page():
     return render_template('about/Search.html')
 
-@search.route("/ajaxlivesearch", methods= ["POST", "GET"'])
+@search.route("/ajaxlivesearch", methods=["POST", "GET"])
 def ajaxlivesearch():
     if request.method == 'POST':
         search_word = request.form['query']
         print(search_word)
-
     return jsonify('success')
-
 
 #@search.route("/ajaxlivesearch",methods=["POST","GET"])
 #def ajaxlivesearch():
