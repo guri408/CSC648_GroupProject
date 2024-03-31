@@ -3,38 +3,38 @@ import mysql.connector
 
 search = Blueprint('search', __name__, static_folder='./public', template_folder='./html')
 
-mydb = mysql.connector.connect(
-    host = "localhost",
-    user = "admin",
-    password = "12345678",
-    database = "VerticalPrototype"
+def get_db_connection():
+    return mysql.connector.connect(
+        host = "localhost",
+        user = "admin",
+        password = "12345678",
+        database = "VerticalPrototype"
     )
 
 @search.route('/about/Search.html')
 def search_page():
     return render_template('about/Search.html')
 
-@search.route("/ajaxlivesearch", methods=["POST", "GET"])
+@search.route("/ajaxlivesearch",methods=["POST","GET"])
 def ajaxlivesearch():
+    mydb = get_db_connection()
+    cur = mydb.cursor(dictionary=True)
+    product = []
+    numrows = 0
+
     if request.method == 'POST':
         search_word = request.form['query']
-        print(search_word)
-    return jsonify('success')
+        if search_word == '':
+            query = "SELECT * from Product ORDER BY id"
+            cur.execute(query)
+        else:
+            query = "SELECT * from Product WHERE Title LIKE %s ORDER BY id"
+            cur.execute(query, ('%' + search_word + '%',))
+        product = cur.fetchall()
+        numrows = len(product)
 
-#@search.route("/ajaxlivesearch",methods=["POST","GET"])
-#def ajaxlivesearch():
-#    cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-#    if request.method == 'POST':
-#        search_word = request.form['query']
-#        print(search_word)
-#        if search_word == '':
-#            query = "SELECT * from Product ORDER BY id"
-#            cur.execute(query)
-#            product = cur.fetchall()
-#        else:
-#            query = "SELECT * from Product WHERE Title LIKE '%{}%' ORDERED BY id".format(search_word,search_word,search_word)
-#            cur.execute(query)
-#            numrows = int(cur.rowcount)
-#            product = cur.fetchall()
-#            print(numrows)
+    # Always close cursor and connection when done
+    cur.close()
+    mydb.close()
+    return render_template('about/response.html', product=product, numrows=numrows)
 #    return jsonify({'htmlresponse': render_template('about/response.html', product=product, numrows=numrows)})

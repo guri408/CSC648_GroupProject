@@ -110,3 +110,9 @@ ul {
     color: #6a5acd;
     /* Purplish blue */
 }
+
+.main-content {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
