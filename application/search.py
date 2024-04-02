@@ -11,13 +11,13 @@ def get_db_connection():
         database = "VerticalPrototype"
     )
 
-##test db connection
+#test db connection
 #testdb = get_db_connection()
 #testcur = testdb.cursor()
 #testcur.execute('SELECT * FROM Product')
-#
+
 #product = testcur.fetchall()
-#
+
 #for Product in product:
 #    print(Product)
 
@@ -37,10 +37,10 @@ def ajaxlivesearch():
         search_word = request.form['query']
         print("Received search query:", search_word)
         if search_word == '':
-            query = "SELECT * from Product ORDER BY id"
+            query = "SELECT * from Product"
             cur.execute(query)
         else:
-            query = "SELECT * from Product WHERE Title LIKE %s ORDER BY id"
+            query = "SELECT * from Product WHERE Title LIKE %s"
             cur.execute(query, ('%' + search_word + '%',))
         product = cur.fetchall()
         numrows = len(product)
