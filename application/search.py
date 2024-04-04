@@ -8,7 +8,7 @@ def get_db_connection():
         host = "localhost",
         user = "admin",
         password = "12345678",
-        database = "VerticalPrototype"
+        database = "TestSearch"
     )
 
 #test db connection
@@ -37,15 +37,14 @@ def ajaxlivesearch():
         search_word = request.form['query']
         print("Received search query:", search_word)
         if search_word == '':
-            query = "SELECT * from Product"
+            query = "SELECT * from Listing"
             cur.execute(query)
         else:
-            query = "SELECT * from Product WHERE Title LIKE %s"
+            query = "SELECT * from Listing WHERE ItemName LIKE %s"
             cur.execute(query, ('%' + search_word + '%',))
-        product = cur.fetchall()
+        item = cur.fetchall()
         numrows = len(product)
     # Always close cursor and connection when done
     cur.close()
     mydb.close()
-#    return render_template('about/response.html', product=product, numrows=numrows)
-    return jsonify({'htmlresponse': render_template('about/response.html', product=product, numrows=numrows)})
+    return jsonify({'htmlresponse': render_template('about/response.html', item=item, numrows=numrows)})
