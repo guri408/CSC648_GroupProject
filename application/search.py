@@ -30,7 +30,7 @@ def search_page():
 def ajaxlivesearch():
     mydb = get_db_connection()
     cur = mydb.cursor(dictionary=True)
-    product = []
+    item = []
     numrows = 0
 
     if request.method == 'POST':
@@ -43,7 +43,7 @@ def ajaxlivesearch():
             query = "SELECT * from Listing WHERE ItemName LIKE %s"
             cur.execute(query, ('%' + search_word + '%',))
         item = cur.fetchall()
-        numrows = len(product)
+        numrows = len(item)
     # Always close cursor and connection when done
     cur.close()
     mydb.close()

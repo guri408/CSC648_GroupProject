@@ -17,8 +17,16 @@
     <td>{{row.ItemDescription}}</td>
     <td>{{row.Price}}</td>
     <td>{{row.RentalPrice}}</td>
-    <td>{{row.ThumbnailPhoto}}</td>
-   </tr>
+    <td>
+      {% if row.file_name %}
+          <!-- If Photo contains a path relative to the static directory -->
+         <img src="{{ url_for('static', filename='Product_Images/' + row.file_name) }}" alt="Image for {{ row.ItemName }}">
+        <!--  <img src="{{ url_for('static', filename='Product_Images/row.file_name') }}" alt="Image for {{ row.ItemName }}"> -->
+      {% else %}
+          None
+      {% endif %}
+  </td>
+ </tr>
 {% endfor %}
   </tbody>
 </table>
