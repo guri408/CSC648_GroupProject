@@ -178,3 +178,8 @@ body, h1, p, ul {
 .item-name {
     border: 2px ridge #584bad; /* Set border color */
 }
+
+.productIMG {
+    max-width: 300px;
+    max-height: 300px;
+}
