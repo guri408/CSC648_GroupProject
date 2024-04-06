@@ -48,3 +48,36 @@ def ajaxlivesearch():
     cur.close()
     mydb.close()
     return jsonify({'htmlresponse': render_template('about/response.html', item=item, numrows=numrows)})
+
+
+#
+#@search.route("/ajaxlivesearch",methods=['GET', 'POST'])
+#def ajaxlivesearch():
+#    mydb = get_db_connection()
+#    cur = mydb.cursor(dictionary=True)
+#    item = []
+#    numrows = 0
+#
+#    if request.method == 'POST':
+#        search_word = request.form['query']
+#        category = request.form.get('category')  # Get the category from the request
+#        
+#        print("Received search query:", search_word)
+#        print("Received category:", category)
+#        
+#        # Build the SQL query based on whether a category is specified or not
+#        if category:  # If a category is specified
+#            query = "SELECT * FROM Listing WHERE ItemName LIKE %s AND Category = %s"
+#            cur.execute(query, ('%' + search_word + '%', category))
+#        else:  # If no category is specified
+#            query = "SELECT * FROM Listing WHERE ItemName LIKE %s"
+#            cur.execute(query, ('%' + search_word + '%',))
+#
+#        item = cur.fetchall()
+#        numrows = len(item)
+#    
+#    # Always close cursor and connection when done
+#    cur.close()
+#    mydb.close()
+#    
+#    return jsonify({'htmlresponse': render_template('about/response.html', item=item, numrows=numrows)})
