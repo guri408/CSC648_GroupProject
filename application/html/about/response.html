@@ -1,21 +1,28 @@
 <h3>{{numrows}} Results found</h3>
 <table class="table table-striped custab">
   <tbody>
-{% for row in item %}
-  <div class="item-container">
-    <h2 class="item-name">{{row.ItemName}}</h2>
-    <p>
-      {% if row.file_name %}
-          <!-- If Photo contains a path relative to the static directory -->
-         <img class="productIMG" src="{{ url_for('static', filename='Product_Images/' + row.file_name) }}" alt="Image for {{ row.ItemName }}">
-      {% else %}
-          None
-      {% endif %}
-    </p>
-    <p>Description: {{row.ItemDescription}}</p>
-    <p>Price: {{row.Price}}</p>
-    <p>Rental Price: {{row.RentalPrice}}</p>
-  </div>
-{% endfor %}
+    {% for row in item %}
+    <div class="item-container">
+      <h2 class="item-name">{{row.ItemName}}</h2>
+      <p>
+        {% if row.file_name %}
+        <!-- If Photo contains a path relative to the static directory -->
+        <img class="productIMG" src="{{ url_for('static', filename='Product_Images/' + row.file_name) }}"
+          alt="Image for {{ row.ItemName }}">
+        {% else %}
+        None
+        {% endif %}
+      </p>
+      <p>Description: {{row.ItemDescription}}</p>
+      <p>Price: {{row.Price}}</p>
+      <p>
+        {% if row.RentalPrice %}
+        Rental Price: {{row.RentalPrice}}
+        {% else %}
+        Rental Price: Not Available
+        {% endif %}
+      </p>
+    </div>
+    {% endfor %}
   </tbody>
 </table>

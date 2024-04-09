@@ -4,7 +4,10 @@
 }
 
 /* Reset some default styles */
-body, h1, p, ul {
+body,
+h1,
+p,
+ul {
     margin: 0;
     padding: 0;
     font-family: CustomFont;
@@ -18,24 +21,29 @@ body, h1, p, ul {
     color: #fff;
     padding: 5px;
     display: flex;
-    align-items: center; /* Align items vertically in the flex container */
+    align-items: center;
+    /* Align items vertically in the flex container */
 }
 
 #logo {
     max-width: 120px;
     max-height: 120px;
-    margin-right: 200px; /* Add margin to separate logo from form */
+    margin-right: 200px;
+    /* Add margin to separate logo from form */
     padding-left: 10px;
 }
 
 #searchForm {
-    flex: 1; /* Take up remaining space in the flex container */
+    flex: 1;
+    /* Take up remaining space in the flex container */
 }
 
 #txt-container {
     display: flex;
-    border: 2px solid #584bad; /* Set border color */
-    border-radius: 15px; /* Rounded corners */
+    border: 2px solid #584bad;
+    /* Set border color */
+    border-radius: 15px;
+    /* Rounded corners */
 }
 
 #category,
@@ -44,34 +52,49 @@ body, h1, p, ul {
     height: 30px;
     font-family: Arial, sans-serif;
     font-size: 16px;
-    border-radius: 15px; /* Rounded corners */
+    border-radius: 15px;
+    /* Rounded corners */
     border: 0;
 }
 
 /* Adjustments to input elements */
 #category {
-    width: calc(15% - 1px); /* Adjust width to leave space for the separator line */
-    padding: 0 10px; /* Add some padding for better appearance */
-    border-top-right-radius: 0; /* Remove top-right border radius to connect to searchText */
-    border-bottom-right-radius: 0; /* Remove bottom-right border radius to connect to searchText */
-    border-right: 2px solid #584bad; /* Set border color */
+    width: calc(15% - 1px);
+    /* Adjust width to leave space for the separator line */
+    padding: 0 10px;
+    /* Add some padding for better appearance */
+    border-top-right-radius: 0;
+    /* Remove top-right border radius to connect to searchText */
+    border-bottom-right-radius: 0;
+    /* Remove bottom-right border radius to connect to searchText */
+    border-right: 2px solid #584bad;
+    /* Set border color */
 }
 
 #searchText {
-    width: calc(50% - 1px); /* Adjust width to leave space for the separator line */
-    padding: 0 10px; /* Add some padding for better appearance */
-    border-top-left-radius: 0; /* Remove top-left border radius to connect to category */
-    border-bottom-left-radius: 0; /* Remove bottom-left border radius to connect to category */    
-    border-top-right-radius: 15px; /* Remove top-right border radius to connect to searchText */
-    border-bottom-right-radius: 15px; /* Remove bottom-right border radius to connect to searchText */
+    width: calc(50% - 1px);
+    /* Adjust width to leave space for the separator line */
+    padding: 0 10px;
+    /* Add some padding for better appearance */
+    border-top-left-radius: 0;
+    /* Remove top-left border radius to connect to category */
+    border-bottom-left-radius: 0;
+    /* Remove bottom-left border radius to connect to category */
+    border-top-right-radius: 15px;
+    /* Remove top-right border radius to connect to searchText */
+    border-bottom-right-radius: 15px;
+    /* Remove bottom-right border radius to connect to searchText */
 }
 
 #searchButton {
     margin-left: 10px;
     width: 10%;
-    border: none; /* Remove border */
-    background-color: #fff; /* Match background color to maintain appearance */
-    padding: 0; /* Reset padding */
+    border: none;
+    /* Remove border */
+    background-color: #fff;
+    /* Match background color to maintain appearance */
+    padding: 0;
+    /* Reset padding */
 }
 
 #searchButton:active {
@@ -81,18 +104,19 @@ body, h1, p, ul {
 
 /* The .demo-notice class styles the demonstration notice header */
 .demo-notice {
-    background-color: #ffd700; 
-    color: #000; 
+    background-color: #ffd700;
+    color: #000;
     text-align: center;
-    padding: 20px 0; 
-    font-weight: bold; 
-    font-size: 1.2em; 
+    padding: 20px 0;
+    font-weight: bold;
+    font-size: 1.2em;
     border-bottom: 3px solid #000;
 }
 
 /* Navigation bar */
 .navbar {
-    background-color: #FFC436; /* Yellow */
+    background-color: #FFC436;
+    /* Yellow */
     padding: 10px;
     padding-left: 40px;
 }
@@ -108,7 +132,8 @@ body, h1, p, ul {
 
 .navbar ul li a {
     text-decoration: none;
-    color: #6a5acd; /* Purplish blue */
+    color: #6a5acd;
+    /* Purplish blue */
 }
 
 /* Dropdown menu */
@@ -124,7 +149,8 @@ body, h1, p, ul {
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
-    left: -20px; /* Adjust this value as needed */
+    left: -20px;
+    /* Adjust this value as needed */
 }
 
 .dropdown-content a {
@@ -149,10 +175,11 @@ body, h1, p, ul {
 
 #loginButton a {
     text-decoration: none;
-    color: #6a5acd; /* Purplish blue */
+    color: #6a5acd;
+    /* Purplish blue */
 }
 
-#navblock{
+#navblock {
     width: 90%;
 }
 
@@ -168,18 +195,26 @@ body, h1, p, ul {
 }
 
 .item-container {
-    border-top: 2px ridge #584bad; /* Set border color */
-    border-bottom: 2px ridge #584bad; /* Set border color */
+    border-top: 2px ridge #584bad;
+    /* Set border color */
+    border-bottom: 2px ridge #584bad;
+    /* Set border color */
     padding: 10px;
     margin-top: 10px;
     background: #aca2f3;
 }
 
 .item-name {
-    border: 2px ridge #584bad; /* Set border color */
+    border: 2px ridge #584bad;
+    /* Set border color */
 }
 
 .productIMG {
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.image-container {
     max-width: 300px;
     max-height: 300px;
 }
