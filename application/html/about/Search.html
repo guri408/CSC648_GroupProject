@@ -9,28 +9,28 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function () {
-            // Function to load data
-            load_data();
-            function load_data(query) {
+            function load_data(query, category) { // Accept category as a parameter
                 $.ajax({
                     method: "POST",
                     url: "/ajaxlivesearch",
-                    data: { query: query, category: category },
+                    data: {
+                        query: query,
+                        category: category // Include category in the data sent to the server
+                    },
                     success: function (data) {
                         // Update the content of the result element
-                        $('#result').html(data);
-                        $('#result').append(data.htmlresponse);
+                        $('#result').html(''); // Clear previous results
+                        $('#result').append(data.htmlresponse); // Append new results
                     }
                 });
             }
 
             // Event listener for click event on the search button
-            $('#searchButton').click(function () {
-                event.preventDefault();
-                // Get the value of the search input
-                var search = $('#searchText').val();
-                var category = $('#category').val();
-                load_data(search, category);
+            $('#searchButton').click(function (event) { // Pass event as an argument
+                event.preventDefault(); // Prevent default form submission
+                var search = $('#searchText').val(); // Get the search query
+                var category = $('#category').val(); // Get the selected category
+                load_data(search, category); // Call load_data with search query and category
             });
         });
     </script>
