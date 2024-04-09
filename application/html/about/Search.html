@@ -8,34 +8,32 @@
     <link rel="stylesheet" href="../../public/css/About.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        $(document).ready(function(){
+        $(document).ready(function () {
             // Function to load data
             load_data();
-            function load_data(query)
-            {
+            function load_data(query) {
                 $.ajax({
-                    method:"POST",
-                    url:"/ajaxlivesearch",
-                    data:{query:query},
-                    success:function(data)
-                    {
+                    method: "POST",
+                    url: "/ajaxlivesearch",
+                    data: { query: query, category: category },
+                    success: function (data) {
                         // Update the content of the result element
                         $('#result').html(data);
                         $('#result').append(data.htmlresponse);
                     }
                 });
             }
-    
+
             // Event listener for click event on the search button
-            $('#searchButton').click(function(){
+            $('#searchButton').click(function () {
                 event.preventDefault();
                 // Get the value of the search input
-                var search = $('#searchForm').val();
-               <!--  var category = $('#category').val(); -->
-                load_data(search);
-             });
+                var search = $('#searchText').val();
+                var category = $('#category').val();
+                load_data(search, category);
+            });
         });
-        </script>
+    </script>
 </head>
 
 <body>
