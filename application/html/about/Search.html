@@ -9,28 +9,40 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function () {
-            function load_data(query, category) { // Accept category as a parameter
+            // Function to load data initially
+            load_initial_data();
+
+            function load_initial_data() {
+                $.ajax({
+                    method: "POST",
+                    url: "/ajaxlivesearch",
+                    success: function (data) {
+                        $('#result').html(data.htmlresponse);
+                    }
+                });
+            }
+
+            // Function to load data on search
+            function load_data(query, category) {
                 $.ajax({
                     method: "POST",
                     url: "/ajaxlivesearch",
                     data: {
                         query: query,
-                        category: category // Include category in the data sent to the server
+                        category: category
                     },
                     success: function (data) {
-                        // Update the content of the result element
-                        $('#result').html(''); // Clear previous results
-                        $('#result').append(data.htmlresponse); // Append new results
+                        $('#result').html(data.htmlresponse);
                     }
                 });
             }
 
             // Event listener for click event on the search button
-            $('#searchButton').click(function (event) { // Pass event as an argument
-                event.preventDefault(); // Prevent default form submission
-                var search = $('#searchText').val(); // Get the search query
-                var category = $('#category').val(); // Get the selected category
-                load_data(search, category); // Call load_data with search query and category
+            $('#searchButton').click(function (event) {
+                event.preventDefault();
+                var search = $('#searchText').val();
+                var category = $('#category').val();
+                load_data(search, category);
             });
         });
     </script>
