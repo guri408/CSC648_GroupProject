@@ -7,7 +7,7 @@ padding: 5px;
 display: flex;
 align-items: center; /* Align items vertically in the flex container */
 }
-
+	
 .demo-notice {
 background-color: #ffd700; 
 color: #000; 
@@ -17,7 +17,7 @@ font-weight: bold;
 font-size: 1.2em; 
 border-bottom: 3px solid #000;
 }   
-
+	
 .alert {
 color: #721c24;
 background-color: #f8d7da;
@@ -29,18 +29,23 @@ border-radius: .25rem;
 }
 		      
 .signup-form {
-margin-bottom: 20px;
+padding-top: 15%;	
+padding-bottom: 50px;
+max-width: 600px;
+text-align: center;
+margin: 0 auto;
 }
 		      
-.form-box2 {
+.form-box {
 font-size: 15px;	
-width: 100%;
+width: 50%;
 padding: 10px;
 border: 1px solid #584bad; 
 border-radius: 5px;
 margin-bottom: 15px;
+text-align: center;
 }
-		
+	
 .form-label {
 background: #ffd700;
 border: 10px solid #ffd700; 
@@ -49,12 +54,13 @@ border-radius: 5px;
 		
 .form-button-container {
 text-align: center;
+margin-bottom: 30px;
 }
 		
 .submit-button {
+width: 150px;
+height: 40px;
+font-size: medium;
 background: #ffd700;
-}
-		      
-.login-link {
-margin-top: 20px;
+border-radius: 5px;
 }
