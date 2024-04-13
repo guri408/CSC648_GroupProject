@@ -17,8 +17,13 @@
             <form class="col">
                 <div class="alert" role="alert" style="display: none;"></div>
                 <div class="selling-form">
-                    <input id="itemName" class="form-box" aria-describedby="itemSell" placeholder="Enter Item Name" value="">
-                    <input id="itemPrice" class="form-box" placeholder="Enter Item Price" value="">
+                    <input id="itemName" class="form-box" aria-describedby="itemSell" required placeholder="Enter Item Name" value="">
+                    <input id="itemPrice" class="form-box" required placeholder="Enter Item Price" value="">
+                </div>    
+		    <div>
+            <input id="itemDesc" class="desc-box" placeholder="Enter Item Description (Optional)" value="">
+            </div>
+		    <input type="file" id="itemPic" class="pic-box" required placeholder="Upload Item Image" value="">
 		    <span class="form-label">Category<a href="./Signup.html">Click here</a></span>"
                 <div class="form-button-container">
                     <button type="submit" class="submit-button">Login</button>
