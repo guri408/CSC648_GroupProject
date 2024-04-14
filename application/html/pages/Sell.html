@@ -13,30 +13,32 @@
     <div class="header">
     </div> 
     <div class="container">
-                <div class="alert" role="alert" style="display: none;"></div>
-                <div class="selling-form">
-                    <input id="itemName" class="form-box" aria-describedby="itemSell" required placeholder="Enter Item Name" value="">
-                    <input id="itemPrice" class="form-box" required placeholder="Enter Item Price" value="">
-                </div>
-                <div class="category-select">
-                <select id="category">
-                    <option value="default">Select Category</option>
-                        <option value="electronics">Electronics</option>
-                        <option value="books">Books</option>
-                        <option value="furniture">Furniture</option>
-                    </select>  
-                </div>    
-		    <div class="desc-field">
+        <form action="/submit_item" method="post" enctype="multipart/form-data">
+        <div class="alert" role="alert" style="display: none;"></div>
+        <div class="selling-form">
+            <input id="itemName" class="form-box" aria-describedby="itemSell" required placeholder="Enter Item Name" value="">
+            <input id="itemPrice" class="form-box" required placeholder="Enter Item Price" value="">
+        </div>
+        <div class="category-select">
+            <select id="category">
+                <option value="default">Select Category</option>
+                <option value="electronics">Electronics</option>
+                <option value="books">Books</option>
+                <option value="furniture">Furniture</option>
+            </select>  
+        </div>    
+		<div class="desc-field">
             <input id="itemDesc" class="desc-box" placeholder="Enter Item Description (Optional)" value="">
-            </div>
-            <div class="image-field">
+        </div>
+        <div class="image-field">
 		    <input type="file" id="itemPic" class="pic-box" required placeholder="Upload Item Image" value="">
-            </div>
-                <div class="form-button-container">
-                    <button type="submit" class="cancel-button">Cancel</button>
-                    <button type="submit" class="submit-button">Submit</button>
-                </div>
-            </form>
+        </div>
+        <div class="form-button-container">
+            <button type="submit" class="cancel-button">Cancel</button>
+            <button type="submit" class="submit-button">Submit</button>
+        </div>
+        <div class="post-notice">May Take 24h For Approval</div>
+        </form>
     </div>
 </body>
 </html>
