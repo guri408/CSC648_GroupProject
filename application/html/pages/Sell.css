@@ -27,10 +27,18 @@ margin-bottom: 1rem;
 border: 1px solid transparent;
 border-radius: .25rem;
 }
+
+.selling-form {
+padding-top: 15%;	
+padding-bottom: 50px;
+max-width: 600px;
+text-align: center;
+margin: 0 auto;
+}
 			      
 .form-box {
 font-size: 15px;	
-width: 50%;
+width: 20%;
 padding: 10px;
 border: 1px solid #584bad; 
 border-radius: 5px;
