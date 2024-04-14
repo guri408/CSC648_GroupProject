@@ -30,7 +30,7 @@ border-radius: .25rem;
 
 .selling-form {
 padding-top: 15%;	
-padding-bottom: 50px;
+padding-bottom: 5px;
 max-width: 600px;
 text-align: center;
 margin: 0 auto;
@@ -38,7 +38,7 @@ margin: 0 auto;
 			      
 .form-box {
 font-size: 15px;	
-width: 20%;
+width: 47%;
 padding: 10px;
 border: 1px solid #584bad; 
 border-radius: 5px;
@@ -52,16 +52,30 @@ border: 10px solid #ffd700;
 border-radius: 5px;
 }
 
-.desc-box {
-width: 50%;
-height: 50px;
-padding: 12px 20px;
-box-sizing: border-box;
-border: 2px solid #ccc;
-border-radius: 4px;
-background-color: #f8f8f8;
-resize: none;
+.category-select {	
+padding-bottom: 15px;
 text-align: center;
+}
+
+.desc-field {	
+padding-top: 5px;
+text-align: center;
+}
+
+.desc-box {
+font-size: 15px;	
+width: 30%;
+padding: 10px;
+border: 1px solid #584bad; 
+border-radius: 5px;
+margin-bottom: 15px;
+text-align: center;
+}
+
+.image-field {	
+padding-bottom: 15px;
+text-align: center;
+margin: 0 auto;
 }
 			
 .form-button-container {
