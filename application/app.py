@@ -1,11 +1,14 @@
 from flask import Flask, render_template
 from search import search
+from item_submission import item_bp
 
 app = Flask(__name__, static_folder='./public', template_folder='./html')
 #mysql = MySQL(app)
 
 # Register the Blueprint with the app
 app.register_blueprint(search, url_prefix="")
+app.register_blueprint(item_bp, url_prefix="")
+
 
 @app.route('/index.html')
 @app.route('/')
@@ -40,6 +43,9 @@ def gursimran():
 def omar():
     return render_template('about/Omar.html')
 
+@app.route('/about/Sell.html')
+def sell():
+    return render_template('about/Sell.html')
 #@app.route('/about/Search.html')
 #def search_page():
 #    return render_template('about/Search.html')

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell an Item</title>
+    <link rel="stylesheet" href="../../public/css/Sell.css">
+</head>
+<body>
+    <div class="demo-notice">
+        SFSU Software Engineering Project CSC 648-848, Spring 2024. For Demonstration Only
+    </div>
+    <div class="header">
+    </div>
+    <div class="container">
+        <form action="/submit_item" method="post" enctype="multipart/form-data">
+            <div class="alert" role="alert" style="display: none;"></div>
+            <div class="selling-form">
+                <input id="itemName" name="itemName" class="form-box" aria-describedby="itemSell" required placeholder="Enter Item Name">
+                <input id="itemPrice" name="itemPrice" class="form-box" required placeholder="Enter Item Price">
+            </div>
+            <div class="category-select">
+                <select id="category" name="category">
+                    <option value="default">Select Category</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="books">Books</option>
+                    <option value="furniture">Furniture</option>
+                </select>
+            </div>
+            <div class="desc-field">
+                <input id="itemDesc" name="itemDesc" class="desc-box" placeholder="Enter Item Description (Optional)">
+            </div>
+            <div class="image-field">
+                <input type="file" id="itemPic" name="itemPic" class="pic-box" required>
+            </div>
+            <div class="form-button-container">
+                <button type="reset" class="cancel-button">Cancel</button>
+                <button type="submit" class="submit-button">Submit</button>
+            </div>
+            <div class="post-notice">May Take 24h For Approval</div>
+        </form>
+    </div>
+</body>
+</html>

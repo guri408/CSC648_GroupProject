@@ -1,15 +1,10 @@
 from flask import Blueprint, render_template, request, jsonify
 import mysql.connector
+from db_connection import get_db_connection
+
 
 search = Blueprint('search', __name__, static_folder='./public', template_folder='./html')
 
-def get_db_connection():
-    return mysql.connector.connect(
-        host = "localhost",
-        user = "admin",
-        password = "12345678",
-        database = "TestSearch"
-    )
 
 #test db connection
 #testdb = get_db_connection()
