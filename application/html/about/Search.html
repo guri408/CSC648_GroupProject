@@ -45,6 +45,62 @@
                 var category = $('#category').val();
                 load_data(search, category);
             });
+
+            // Event listener for change events on the filter selects
+            $('#price-r, #name-s').change(function () {
+                filterResults();
+            });
+
+            // Function to filter and display results based on selected options
+            function filterResults() {
+                // Get selected filter options
+                var priceRange = $('#price-r').val();
+                var nameSorting = $('#name-s').val();
+
+                // Get all result items
+                var results = $('.item-container');
+
+                // Apply filtering based on selected options
+                results.each(function () {
+                    var item = $(this);
+
+                    // Apply price range filter
+                    if (priceRange !== 'None') {
+                        var price = parseFloat(item.find('p:nth-child(3)').text().split(':')[1].trim().replace('$', ''));
+                        if (priceRange === 'Over 500' && price <= 500) {
+                            item.hide();
+                            return;
+                        } else if (priceRange === '200 - 499' && !(price >= 200 && price <= 499)) {
+                            item.hide();
+                            return;
+                        } else if (priceRange === 'Less than 200' && price >= 200) {
+                            item.hide();
+                            return;
+                        }
+                    }
+
+                    // Apply name sorting filter
+                    if (nameSorting !== 'None') {
+                        var itemName = item.find('.item-name').text();
+                        var nextItem = item.next('.item-container');
+
+                        if (nameSorting === 'A-Z') {
+                            if (nextItem.length && nextItem.find('.item-name').text().localeCompare(itemName) < 0) {
+                                item.hide();
+                                return;
+                            }
+                        } else if (nameSorting === 'Z-A') {
+                            if (nextItem.length && nextItem.find('.item-name').text().localeCompare(itemName) > 0) {
+                                item.hide();
+                                return;
+                            }
+                        }
+                    }
+
+                    // If no filters match, show the item
+                    item.show();
+                });
+            }
         });
     </script>
 </head>
@@ -85,9 +141,9 @@
             </li>
             <li><a href="Search.html">Go To Search</a></li>
         </ul>
-    <div id="loginButton">
-        <a href="login.html">Login</a>  
-    </div>
+        <div id="loginButton">
+            <a href="login.html">Login</a>
+        </div>
     </div>
 
     <div class="main-content">
@@ -108,7 +164,7 @@
         </div>
 
         <div id="result"></div>
-    <div>
+        <div>
 
 </body>
 
