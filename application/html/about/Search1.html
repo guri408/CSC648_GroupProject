@@ -45,31 +45,6 @@
                 var category = $('#category').val();
                 load_data(search, category);
             });
-
-            // Event listener for change event on the price range dropdown
-            $('#price-r').change(function () {
-                var sortBy = $(this).val();
-                if (sortBy === 'LowHigh') {
-                    sortItems('asc');
-                } else if (sortBy === 'HighLow') {
-                    sortItems('desc');
-                }
-            });
-
-            // Function to sort items based on price
-            function sortItems(direction) {
-                var items = $('.item-container').get();
-                items.sort(function (a, b) {
-                    var priceA = parseFloat($(a).find('.Price').text());
-                    var priceB = parseFloat($(b).find('.Price').text());
-                    if (direction === 'asc') {
-                        return priceA - priceB;
-                    } else {
-                        return priceB - priceA;
-                    }
-                });
-                $('#result').empty().append(items);
-            }
         });
     </script>
 </head>
@@ -110,9 +85,9 @@
             </li>
             <li><a href="Search.html">Go To Search</a></li>
         </ul>
-        <div id="loginButton">
-            <a href="login.html">Login</a>  
-        </div>
+    <div id="loginButton">
+        <a href="login.html">Login</a>  
+    </div>
     </div>
 
     <div class="main-content">
@@ -125,7 +100,8 @@
             </select>
         </div>
         <div id="result"></div>
-    </div>
+    <div>
+
 </body>
 
 </html>
