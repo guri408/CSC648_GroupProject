@@ -12,6 +12,45 @@
             // Function to load data initially
             load_initial_data();
 
+            // Function to load data on search
+            function load_data(query, category) {
+                $.ajax({
+                    method: "POST",
+                    url: "/ajaxlivesearch",
+                    data: { query: query, category: category },
+                    success: function (data) {
+                        $('#result').html(data.htmlresponse);
+                    }
+                });
+            }
+
+            $('#searchButton').click(function (event) {
+                event.preventDefault();
+                var search = $('#searchText').val();
+                var category = $('#category').val();
+                load_data(search, category);
+            });
+
+            $('#price-r').change(function () {
+                var sortBy = $(this).val();
+                console.log("Sorting by:", sortBy); // Debugging
+                if (sortBy === 'LowHigh') {
+                    sortItems('asc');
+                } else if (sortBy === 'HighLow') {
+                    sortItems('desc');
+                }
+            });
+
+            function sortItems(direction) {
+                var items = $('.item-container').get();
+                items.sort(function (a, b) {
+                    var priceA = parseFloat($(a).find('.Price').text().replace('Price: ', ''));
+                    var priceB = parseFloat($(b).find('.Price').text().replace('Price: ', ''));
+                    return direction === 'asc' ? priceA - priceB : priceB - priceA;
+                });
+                $('.custab tbody').empty().append(items);
+            }
+
             function load_initial_data() {
                 $.ajax({
                     method: "POST",
@@ -21,54 +60,6 @@
                         $('#numResultsFound').hide();
                     }
                 });
-            }
-
-            // Function to load data on search
-            function load_data(query, category) {
-                $.ajax({
-                    method: "POST",
-                    url: "/ajaxlivesearch",
-                    data: {
-                        query: query,
-                        category: category
-                    },
-                    success: function (data) {
-                        $('#result').html(data.htmlresponse);
-                    }
-                });
-            }
-
-            // Event listener for click event on the search button
-            $('#searchButton').click(function (event) {
-                event.preventDefault();
-                var search = $('#searchText').val();
-                var category = $('#category').val();
-                load_data(search, category);
-            });
-
-            // Event listener for change event on the price range dropdown
-            $('#price-r').change(function () {
-                var sortBy = $(this).val();
-                if (sortBy === 'LowHigh') {
-                    sortItems('asc');
-                } else if (sortBy === 'HighLow') {
-                    sortItems('desc');
-                }
-            });
-
-            // Function to sort items based on price
-            function sortItems(direction) {
-                var items = $('.item-container').get();
-                items.sort(function (a, b) {
-                    var priceA = parseFloat($(a).find('.Price').text());
-                    var priceB = parseFloat($(b).find('.Price').text());
-                    if (direction === 'asc') {
-                        return priceA - priceB;
-                    } else {
-                        return priceB - priceA;
-                    }
-                });
-                $('#result').empty().append(items);
             }
         });
     </script>
