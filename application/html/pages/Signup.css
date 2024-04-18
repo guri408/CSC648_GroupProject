@@ -1,11 +1,10 @@
 .header {
-/* Gradient background */
 background: #fef5da;
 background: #584bad;
 color: #fff;
 padding: 5px;
 display: flex;
-align-items: center; /* Align items vertically in the flex container */
+align-items: center;
 }
 	
 .demo-notice {
@@ -76,4 +75,8 @@ font-size: 17px;
 -moz-user-select: none;
 -ms-user-select: none;
 user-select: none;
+}
+
+input[type="checkbox"] {
+border: 2px ridge #584bad;
 }

@@ -1,11 +1,10 @@
 .header {
-/* Gradient background */
 background: #fef5da;
 background: #584bad;
 color: #fff;
 padding: 5px;
 display: flex;
-align-items: center; /* Align items vertically in the flex container */
+align-items: center;
 }
 		
 .demo-notice {
@@ -54,10 +53,10 @@ border-radius: 5px;
 
 #category {
 font-size: 14px;	
-width: 13%; /* Adjust width to leave space for the separator line */
-padding: 0 10px; /* Add some padding for better appearance */
-border-top-right-radius: 0; /* Remove top-right border radius to connect to searchText */
-border-bottom-right-radius: 0; /* Remove bottom-right border radius to connect to searchText */
+width: 13%;
+padding: 0 10px;
+border-top-right-radius: 0;
+border-bottom-right-radius: 0;
 }
 
 .category-select {	
