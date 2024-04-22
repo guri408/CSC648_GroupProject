@@ -160,11 +160,32 @@ body, h1, p, ul {
     text-align: right;
 }
 
+.productIMG {
+    max-width: 300px;
+    max-height: 300px;
+}
+
 /* Main content area */
 .main-content {
     max-width: 750px;
     margin: 0 auto;
     padding: 0 20px;
+}
+
+.filters {
+    float: left;
+    width: 150px;
+    border: 2px solid #584bad;
+    margin: 5px;
+    padding: 5px;
+}
+
+#price-r, 
+#name-s,
+#price-a {
+    border-radius: 10px;
+    border: 2px ridge #584bad;
+    margin: 5px 5px 40px 5px;
 }
 
 .item-container {
@@ -173,8 +194,217 @@ body, h1, p, ul {
     padding: 10px;
     margin-top: 10px;
     background: #aca2f3;
+    float: right;
+    width: 550px;
 }
 
 .item-name {
     border: 2px ridge #584bad; /* Set border color */
+    padding-left: 5px;
+}
+
+.image {
+    max-width: 300px;
+    max-height: 300px;
+}
+
+#GTS#searchButton {
+    width: 55%;
+}
+
+#FHTT {
+    color: black;
+}
+
+/* Adjust the dropdown button position */
+#dropdownBtn {
+    display: none; /* Hide the button by default */
+}
+
+#searchForm2 {
+    display: none;
+}
+
+.recent-items {
+    border-top: 2px ridge #584bad; /* Set border color */
+    border-bottom: 2px ridge #584bad; /* Set border color */
+    padding: 0 10px 10px 10px;
+    background: #aca2f3;
+    width: 150px;
+    height: 180px;
+}
+
+.recent-item-name {
+    padding: 5px;
+    font-size: 18px;
+    border-bottom: 2px ridge #584bad; /* Set border color */
+}
+
+.recents {
+    max-width: 120px;
+    max-height: 120px;
+    margin: 12.5px;
+}
+
+@media (max-width: 768px) {
+    /* Hide the original navbar */
+    .navbar, #logo, #searchForm {
+        display: none;
+    }
+
+    .mobile {
+        height: 55px;
+        background: grey;
+    }
+    
+    #searchForm2 {
+        display: block;
+	float: left;
+        width: auto;
+        padding: 10px 5% 10px 5%;
+        /* Gradient background */
+        background: grey;
+	height: 35px;
+    }
+    
+    .main-content {
+	padding-top: 10px;
+    }
+
+    #category,
+    #searchText,
+    #searchButton {
+	width: auto;
+    }
+
+    /* Show the dropdown button */
+    #dropdownBtn {
+        display: block;
+        float: right;
+	width: 20%;
+	height: 55px;
+        background-color: #FFC436; /* Yellow */
+	font-size: 32px;
+	border: none;
+    }
+
+    #dropdownBtn:active {
+        background-color: #bf8e1c;
+        color: white;
+    }
+
+    /* Adjust the dropdown content width */
+    #dropdownContent {
+        width: 100%;
+    }
+}
+
+@media (max-width: 635px) {
+    /* Hide the original navbar */
+    .navbar, #logo, #searchForm {
+        display: none;
+    }
+
+    /* Style the navbar */
+    #navblock {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* Style the navbar links */
+    #navblock li {
+        text-align: center;
+        padding: 10px;
+    }
+
+    #navblock li a {
+        text-decoration: none;
+        color: #6a5acd; /* Purplish blue */
+        display: block;
+    }
+
+    /* Hover effect for navbar links */
+    #navblock li:hover {
+        background-color: #f9f9f9;
+    }
+
+    /* Submenu styles */
+    #navblock .dropdown-content {
+        display: none;
+        position: relative;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+
+    #navblock .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    #navblock .dropdown-content a:hover {
+        background-color: #ddd;
+    }
+
+    #navblock .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .mobile {
+        height: 55px;
+        background: grey;
+    }
+    
+    #searchForm2 {
+        display: block;
+	float: left;
+        width: auto;
+        padding: 10px 5% 10px 5%;
+        /* Gradient background */
+        background: grey;
+	height: 35px;
+    }
+    
+    .main-content {
+	padding-top: 10px;
+    }
+
+    #category,
+    #searchText,
+    #searchButton {
+	width: auto;
+    }
+
+    /* Show the dropdown button */
+    #dropdownBtn {
+        display: block;
+        float: right;
+	width: 10%;
+	height: 55px;
+        background-color: #FFC436; /* Yellow */
+	font-size: 32px;
+	border: none;
+    }
+
+    #dropdownBtn:active {
+	background-color: #bf8e1c;
+        color: white;
+    }
+
+    /* Adjust the dropdown content width */
+    #dropdownContent {
+        width: 100%;
+    }
+}
+@media (max-width: 560px) {
+    #searchForm2 {
+	width: 100%;
+    }
+    #dropdownBtn {
+	width: 100%;
+    }
 }
