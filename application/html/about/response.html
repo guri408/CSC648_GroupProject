@@ -2,27 +2,26 @@
 <table class="table table-striped custab">
   <tbody>
     {% for row in item %}
-    <div class="item-container">
-      <h2 class="item-name">{{row.ItemName}}</h2>
-      <p>
+    <tr class="item-container">
+      <td>
+        <h2 class="item-name">{{row.ItemName}}</h2>
         {% if row.file_name %}
-        <!-- If Photo contains a path relative to the static directory -->
         <img class="productIMG" src="{{ url_for('static', filename='Product_Images/' + row.file_name) }}"
           alt="Image for {{ row.ItemName }}">
         {% else %}
-        None
+        <img class="productIMG" alt="No image available">
         {% endif %}
-      </p>
-      <p>Description: {{row.ItemDescription}}</p>
-      <p>Price: {{row.Price}}</p>
-      <p>
-        {% if row.RentalPrice %}
-        Rental Price: {{row.RentalPrice}}
-        {% else %}
-        Rental Price: Not Available
-        {% endif %}
-      </p>
-    </div>
+        <p>Description: {{row.ItemDescription}}</p>
+        <p class="Price">Price: {{row.Price}}</p>
+        <p>
+          {% if row.RentalPrice %}
+          Rental Price: {{row.RentalPrice}}
+          {% else %}
+          Rental Price: Not Available
+          {% endif %}
+        </p>
+      </td>
+    </tr>
     {% endfor %}
   </tbody>
 </table>

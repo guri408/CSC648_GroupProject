@@ -41,6 +41,16 @@
                 }
             });
 
+            $('#rentalprice-r').change(function () {
+                var sortBy = $(this).val();
+                console.log("Sorting by:", sortBy); // Debugging
+                if (sortBy === 'LowHigh') {
+                    sortItems('asc');
+                } else if (sortBy === 'HighLow') {
+                    sortItems('desc');
+                }
+            });
+
             function sortItems(direction) {
                 var items = $('.item-container').get();
                 items.sort(function (a, b) {
@@ -102,7 +112,7 @@
             <li><a href="Search.html">Go To Search</a></li>
         </ul>
         <div id="loginButton">
-            <a href="login.html">Login</a>  
+            <a href="login.html">Login</a>
         </div>
     </div>
 
@@ -110,6 +120,12 @@
         <div class="filters">
             <p>Price Range:</p>
             <select id="price-r">
+                <option value="None">None</option>
+                <option value="LowHigh">Low to High</option>
+                <option value="HighLow">High to Low</option>
+            </select>
+            <p>Rental Price Range:</p>
+            <select id="rentalprice-r">
                 <option value="None">None</option>
                 <option value="LowHigh">Low to High</option>
                 <option value="HighLow">High to Low</option>

@@ -202,16 +202,18 @@ ul {
     padding: 5px;
 }
 
-#price-r, 
-#name-s {
+#price-r,
+#rentalprice-r {
     border-radius: 10px;
     border: 2px ridge #584bad;
     margin: 5px 5px 40px 5px;
 }
 
 .item-container {
-    border-top: 2px ridge #584bad; /* Set border color */
-    border-bottom: 2px ridge #584bad; /* Set border color */
+    border-top: 2px ridge #584bad;
+    /* Set border color */
+    border-bottom: 2px ridge #584bad;
+    /* Set border color */
     padding: 10px;
     margin-top: 10px;
     background: #aca2f3;

@@ -59,4 +59,4 @@ def ajaxlivesearch():
     # Always close cursor and connection when done
     cur.close()
     mydb.close()
-    return jsonify({'htmlresponse': render_template('about/response1.html', item=item, numrows=numrows)})
+    return jsonify({'htmlresponse': render_template('about/response.html', item=item, numrows=numrows)})
