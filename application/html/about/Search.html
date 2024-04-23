@@ -7,72 +7,77 @@
     <title>CSC648/848</title>
     <link rel="stylesheet" href="../../public/css/About.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            // Function to load data initially
-            load_initial_data();
+<script>
+    $(document).ready(function () {
+        // Function to load data initially
+        load_initial_data();
 
-            // Function to load data on search
-            function load_data(query, category) {
-                $.ajax({
-                    method: "POST",
-                    url: "/ajaxlivesearch",
-                    data: { query: query, category: category },
-                    success: function (data) {
-                        $('#result').html(data.htmlresponse);
-                    }
-                });
-            }
-
-            $('#searchButton').click(function (event) {
-                event.preventDefault();
-                var search = $('#searchText').val();
-                var category = $('#category').val();
-                load_data(search, category);
-            });
-
-            $('#price-r').change(function () {
-                var sortBy = $(this).val();
-                console.log("Sorting by:", sortBy); // Debugging
-                if (sortBy === 'LowHigh') {
-                    sortItems('asc');
-                } else if (sortBy === 'HighLow') {
-                    sortItems('desc');
+        // Function to load data on search
+        function load_data(query, category) {
+            $.ajax({
+                method: "POST",
+                url: "/ajaxlivesearch",
+                data: { query: query, category: category },
+                success: function (data) {
+                    $('#result').html(data.htmlresponse);
                 }
             });
+        }
 
-            $('#rentalprice-r').change(function () {
-                var sortBy = $(this).val();
-                console.log("Sorting by:", sortBy); // Debugging
-                if (sortBy === 'LowHigh') {
-                    sortItems('asc');
-                } else if (sortBy === 'HighLow') {
-                    sortItems('desc');
-                }
-            });
-
-            function sortItems(direction) {
-                var items = $('.item-container').get();
-                items.sort(function (a, b) {
-                    var priceA = parseFloat($(a).find('.Price').text().replace('Price: ', ''));
-                    var priceB = parseFloat($(b).find('.Price').text().replace('Price: ', ''));
-                    return direction === 'asc' ? priceA - priceB : priceB - priceA;
-                });
-                $('.custab tbody').empty().append(items);
-            }
-
-            function load_initial_data() {
-                $.ajax({
-                    method: "POST",
-                    url: "/ajaxlivesearch",
-                    success: function (data) {
-                        $('#result').html(data.htmlresponse);
-                        $('#numResultsFound').hide();
-                    }
-                });
-            }
+        $('#searchButton').click(function (event) {
+            event.preventDefault();
+            var search = $('#searchText').val();
+            var category = $('#category').val();
+            load_data(search, category);
         });
-    </script>
+
+        $('#price-r').change(function () {
+            var sortBy = $(this).val();
+            console.log("Sorting by:", sortBy); // Debugging
+            sortItems(sortBy, 'Price');
+        });
+
+        $('#rentalprice-r').change(function () {
+            var sortBy = $(this).val();
+            console.log("Sorting by:", sortBy); // Debugging
+            sortItems(sortBy, 'RentalPrice');
+        });
+
+        function sortItems(sortOrder, sortType) {
+            var items = $('.item-container').get();
+            items.sort(function (a, b) {
+                var aText = $(a).find('.' + sortType).text().split(': ')[1].trim(); // Ensure we trim any extra whitespace
+                var bText = $(b).find('.' + sortType).text().split(': ')[1].trim();
+
+                // Check if text says "Not Available" and assign -Infinity or Infinity based on sort order
+                var valA = aText === "Not Available" ? (sortOrder === 'LowHigh' ? Infinity : -Infinity) : parseFloat(aText);
+                var valB = bText === "Not Available" ? (sortOrder === 'LowHigh' ? Infinity : -Infinity) : parseFloat(bText);
+
+                if (sortOrder === 'LowHigh') {
+                    return valA - valB;
+                } else {
+                    return valB - valA;
+                }
+            });
+            $('.custab tbody').empty().append(items);
+        }
+
+
+
+        function load_initial_data() {
+            $.ajax({
+                method: "POST",
+                url: "/ajaxlivesearch",
+                success: function (data) {
+                    $('#result').html(data.htmlresponse);
+                    $('#numResultsFound').hide();
+                }
+            });
+        }
+    });
+</script>
+
+
 </head>
 
 <body>
