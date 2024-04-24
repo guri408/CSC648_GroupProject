@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, jsonify
 from search import search
 from item_submission import item_bp
 import mysql.connector
@@ -77,7 +77,7 @@ def recentItemsPost():
     # Always close cursor and connection when done
     cur.close()
     mydb.close()
-    return jsonify({'htmlRecentItemResponse': render_template('pages/RecentItemResponse.html', item=item)})
+    return jsonify({'htmlRecentItemResponse': render_template('RecentItemResponse.html', item=item)})
 
 
 if __name__ == '__main__':
