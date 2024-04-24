@@ -1,18 +1,18 @@
 <table class="table table-striped custab">
     <tbody>
-        {% for row in item|reverse|slice(0, 4) %} {# Iterating backwards and limiting to 4 items #}
+        {% for item in items %}
         <tr class="recent-items">
             <td>
-                <h2 class="item-name">{{ row.ItemName }}</h2>
-                {% if row.file_name %}
-                <img class="productIMG" src="{{ url_for('static', filename='Product_Images/' + row.file_name) }}"
-                    alt="Image for {{ row.ItemName }}">
+                <h2 class="item-name">{{ item.ItemName }}</h2>
+                {% if item.file_name %}
+                <img class="productIMG" src="{{ url_for('static', filename='Product_Images/' + item.file_name) }}"
+                    alt="Image for {{ item.ItemName }}">
                 {% else %}
                 <img class="productIMG" alt="No image available">
                 {% endif %}
             </td>
             <td>
-                <p class="post-date">Posted on: {{ row.PostDate.strftime('%Y-%m-%d') }}</p> {# Formatting the date #}
+                <p class="post-date">Posted on: {{ item.PostDate.strftime('%Y-%m-%d') }}</p>
             </td>
         </tr>
         {% endfor %}
