@@ -1,13 +1,13 @@
-<div class="item-container">
+<div class="recent-area">
     {% for item in items %}
-    <div class="item-row">
-        <div class="item-details">
-            <h2 class="item-name">{{ item.ItemName }}</h2>
+    <div class="recent-items">
+    <div class="item-details">
+            <h2 class="recent-item-name">{{ item.ItemName }}</h2>
             {% if item.file_name %}
-            <img class="productIMG" src="{{ url_for('static', filename='Product_Images/' + item.file_name) }}"
+            <img class="recents" src="{{ url_for('static', filename='Product_Images/' + item.file_name) }}"
                 alt="Image for {{ item.ItemName }}">
             {% else %}
-            <img class="productIMG" alt="No image available">
+            <img class="recents" alt="No image available">
             {% endif %}
         </div>
         <div class="item-date">
