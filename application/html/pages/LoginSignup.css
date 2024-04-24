@@ -95,18 +95,6 @@ h2 {
   margin-bottom: 5px;
 }
 
-/* .btn-primary d-block w-100 {
-  margin-top: -5px;
-} */
-
-.btn {
-  margin-top: 7px;
-}
-
-.btn-two {
-  width: 50%;
-}
-
 p {
   margin-bottom: -7px;
 }
@@ -118,8 +106,4 @@ p {
 input {
   margin-top: 15px;
   margin-bottom: 15px;
-}
-
-.btn-one {
-  width: 50%;
 }
