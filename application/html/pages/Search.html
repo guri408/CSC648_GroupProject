@@ -16,7 +16,7 @@
             function load_data(query, category) {
                 $.ajax({
                     method: "GET",
-                    url: "/ajaxlivesearch",
+                    url: "/searchingPost",
                     data: { query: query, category: category },
                     success: function (data) {
                         $('#result').html(data.htmlresponse);
@@ -67,7 +67,7 @@
             function load_initial_data() {
                 $.ajax({
                     method: "GET",
-                    url: "/ajaxlivesearch",
+                    url: "/searchingPost",
                     success: function (data) {
                         $('#result').html(data.htmlresponse);
                         $('#numResultsFound').hide();
