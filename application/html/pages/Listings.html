@@ -1,162 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html data-bs-theme="light" lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSC648/848</title>
-    <link rel="stylesheet" href="./About.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        // Function to handle search
-        $(document).ready(function () {
-            load_recents();
-            $('#searchForm').submit(function (event) {
-                event.preventDefault(); // Prevent form submission
-                var category = $('#category').val();
-                var searchText = $('#searchText').val();
-                // Perform search using AJAX and update search results
-                // Your AJAX request and result handling code here
-            });
-            function load_recents() {
-                $.ajax({
-                    method: "GET",
-                    url: "/ajaxlivesearch",
-                    success: function (data) {
-                        $('#recent').html(data.htmlresponse);
-                    }
-                });
-            }
-            $('#dropdownBtn').click(function () {
-                $('#dropdownContent').toggleClass('show');
-            });
-
-            $(document).click(function (e) {
-                if (!$(e.target).closest('#dropdownBtn').length && !$(e.target).closest('#dropdownContent').length) {
-                    $('#dropdownContent').removeClass('show');
-                }
-            });
-        });
-    </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Listings</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
 </head>
 
 <body>
-    <div class="demo-notice">
-        SFSU Software Engineering Project CSC 648-848, Spring 2024. For Demonstration Only
+    <h1 class="demo-notice" style="padding: 15px;border: 2px solid var(--bs-emphasis-color);font-weight: bold;text-align: center;font-size: 20px;color: var(--bs-emphasis-color);background: #ffd700;">SFSU Software Engineering Project CSC 648-848, Spring 2024. For Demonstration Only.</h1>
+    <ul class="nav nav-tabs" style="border: 2px solid var(--bs-emphasis-color);padding: 5px;margin-top: -10px;background: #6a5acd;">
+        <li class="nav-item"></li>
+        <li class="nav-item"></li>
+        <li class="nav-item"></li>
+    </ul>
+    <div class="card-title" style="border: 2px solid var(--bs-emphasis-color);border-radius: 10px;padding: 60px;width: 1100px;margin-top: 50px;background: #ffd700;margin: auto; margin-top: 50px;height: 10px;">
+        <h1 class="head-title" style="color: var(--bs-emphasis-color);font-size: 35px;font-weight: bold;margin-left: -50px;margin-top: -60px;">Listings</h1>
+        <a href="Messages.html" class="btn btn-primary" style="border: 2px solid var(--bs-emphasis-color);color: var(--bs-emphasis-color);font-weight: bold;background: #6a5acd;margin-left: -50px;margin-bottom: -40px;">Messages</a>
+        <a href="Dashboad.html" class="btn btn-secondary" style="border: 2px solid var(--bs-emphasis-color);color: var(--bs-emphasis-color);font-weight: bold;background: #6a5acd;margin-left: 20px;margin-bottom: -40px;">Dashboard</a>
     </div>
-    <div class="header">
-	<a href="index.html">
-            <img src="../images/From Here to There logo.jpg" alt="Logo" href="index.html" id="logo">
-	</a>
-        <h1 id="FHTT"> From Here To There</h1>
-        <form id="searchForm" style="display: none;">
-     	    <div id="txt-container">
-            <select id="category">
-                <option value="default">Select Category</option>
-                    <option value="electronics">Electronics</option>
-                    <option value="books">Books</option>
-                    <option value="furniture">Furniture</option>
-                </select>
-            <input type="text" id="searchText" name="searchText">
-            <input type="submit" id="searchButton" value="Search">
-	    </div>
-        </form>
-    </div>
-
-    <div class="navbar">
-        <ul id="navblock">
-            <li><a href="index.html">Home</a></li>
-            <li class="dropdown">
-                <a href="#" class="dropbtn">About</a>
-                <div class="dropdown-content">
-                    <a href="about/Omar.html">Omar Dajani</a>
-                    <a href="about/GioJung.html">Gio Jung</a>
-                    <a href="about/Justin.html">Justin Isidro</a>
-                    <a href="about/Douglas.html">Douglas Cheung</a>
-                    <a href="about/Gurpreet.html">Gurpreet Natt</a>
-                    <a href="about/Gursimran.html">Gursimran Singh</a>
-                </div>
-            </li>
-	    <li><a href="Search.html">Go To Search</a></li>            
-            <li><a href="Sell.html">Sell</a></li>
-
-        </ul>
-	<div id="loginButton">
-	    <a href="Dashboard.html">Dashboard</a>
-	    <a href="login.html">Login</a>
-	</div>
-    </div>
-    <div class="mobile">
-        <form id="searchForm2">
-            <div id="txt-container2">
-            <select id="category">
-                <option value="default">Select Category</option>
-                    <option value="electronics">Electronics</option>
-                    <option value="books">Books</option>
-                    <option value="furniture">Furniture</option>
-                </select>
-            <input type="text" id="searchText" name="searchText">
-            <input type="submit" id="searchButton" value="Search">
-            </div>
-        </form>
-        <button id="dropdownBtn" class="dropbtn">☰</button>
-        <div id="dropdownContent" class="dropdown-content">
-            <ul id="navblock">
-                <li><a href="index.html">Home</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropbtn">About</a>
-                    <div class="dropdown-content">
-                        <a href="about/Omar.html">Omar Dajani</a>
-                        <a href="about/GioJung.html">Gio Jung</a>
-                        <a href="about/Justin.html">Justin Isidro</a>
-                        <a href="about/Douglas.html">Douglas Cheung</a>
-                        <a href="about/Gurpreet.html">Gurpreet Natt</a>
-                        <a href="about/Gursimran.html">Gursimran Singh</a>
-                    </div>
-                </li>
-	        <li><a href="Search.html">Go To Search</a></li>
-	        <li><a href="Sell.html">Sell</a></li>
-		<li><a href="Dashboard.html">Dashboard</a></li>
-		<li><a href="login.html">Login</a></li>
-            </ul>
+    <div style="width: 1100px;height: 10px;margin-left: 200px;margin: auto;padding: 20px;border: 2px none #6a5acd ;border-left-style: none;">
+        <p style="font-weight: bold;font-size: 15px;text-align: center;margin-top: -10px;border-width: 15px;width: 200px;margin-left: 400px;">You have 1 Listing</p>
+        <div class="btn-group">
+            <button class="btn btn-primary" type="button" style="color: var(--bs-emphasis-color);font-size: 12px;font-weight: bold;text-align: center;background: #6a5acd;border: 2px solid var(--bs-emphasis-color);height: 30px;margin-left: 950px;margin-top: -55px;">A-Z</button>
+            <button class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false" type="button" style="color: var(--bs-emphasis-color);font-weight: bold;background: #6a5acd;border: 2px solid var(--bs-emphasis-color);border-left-style: none;height: 30px;margin-top: -55px;"></button>
+            <div class="dropdown-menu"><a class="dropdown-item" href="#">Price: Low to High</a><a class="dropdown-item" href="#">Price: High to Low</a><a class="dropdown-item" href="#">Item: Newest to Oldest</a></div>
         </div>
+        <p style="width: 100px;font-weight: bold;text-align: center;font-size: 15px;margin-left: 870px;margin-top: -61px;">Sort by:</p>
     </div>
-
-    <div id="listing-details">
-	<button id="toMessages"><a href="Messages.html">Messages</a></button>
-	<button id="toListings"><a href="Listings.html">Listings</a></button>
-        <p id="listing-num">You have [2] Listing(s)</>
-	<div id="sortbox">
-            <label for="sort">Sort by:</label>
-            <select id="sort">
-	        <option value="nameAtoZ">A - Z</option>
-	        <option value="nameZtoA">Z - A</option>
-	        <option value="priceHitoLo">High To Low</option>
-	        <option value="priceLotoHi">Low To High</option>
-	    </select>
-	</div>
+    <div class="listing-demo" style="width: 800px;height: 10px;border-radius: 10px;margin: auto;border: 3px solid #6a5acd;padding: 100px;margin-top: 40px;">
+        <h1 style="font-weight: bold;margin-left: -80px;text-decoration: underline;margin-top: -90px;font-size: 30px;">Item Name:</h1>
+        <p style="font-weight: bold;text-decoration: underline;font-size: 15px;margin-left: -80px;margin-top: 20px;">Item Description:</p>
+        <p style="font-weight: bold;font-size: 15px;text-decoration: underline;margin-left: -80px;margin-top: 20px;">Your Listing Price:</p>
+        <p style="font-size: 15px;font-weight: bold;text-decoration: underline;margin-left: -80px;margin-top: 20px;">Category:</p>
     </div>
-
-    <div class="main-content">
-	<div class="listing-container">
-	    <h2 class="listing-name">Item Name</h2>
-            <p>Your Listing Price:</p>
-            <p>Item Description</p>
-            <p>Item Description</p>
-	</div>
-        <div class="listing-container">
-	    <h2 class="listing-name">Item Name</h2>
-            <p>Your Listing Price:</p>
-            <p>Item Description</p>
-            <p>Item Description</p>
-	</div>
-    </div>
-    <div id="footer">
-        Copyright of SFSU CSC 648 2024 Team 3
-        <img>
-        <img>
-        <img>
-    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
