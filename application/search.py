@@ -29,7 +29,7 @@ def ajaxlivesearch():
     numrows = 0
 
     if request.method == 'POST':
-        search_word = request.form.get('query', '')
+        search_word = request.form.get('query', '').strip()  # Remove trailing whitespace
         search_category = request.form.get('category','default')
         print("Received search query:", search_word)
 
