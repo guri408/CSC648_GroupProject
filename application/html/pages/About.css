@@ -128,7 +128,6 @@ body, h1, p, ul {
 }
 
 .dropdown-content a {
-    color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
@@ -153,11 +152,16 @@ body, h1, p, ul {
 }
 
 #navblock{
-    width: 90%;
+    width: 70%;
 }
 
 #loginButton {
     text-align: right;
+    float: right;
+}
+
+#loginButton a {
+    margin: 0 10px 0 10px;
 }
 
 .productIMG {
@@ -168,7 +172,7 @@ body, h1, p, ul {
 /* Main content area */
 .main-content {
     max-width: 750px;
-    margin: 0 auto;
+    margin: 0 auto 560px;
     padding: 0 20px;
 }
 
@@ -203,6 +207,71 @@ body, h1, p, ul {
     padding-left: 5px;
 }
 
+.listing-container {
+    border-top: 2px ridge #584bad; /* Set border color */
+    border-bottom: 2px ridge #584bad; /* Set border color */
+    padding: 10px;
+    margin-top: 10px;
+    background: #aca2f3;
+    width: 750px;
+}
+
+.listing-name {
+    border: 2px ridge #584bad; /* Set border color */
+    padding-left: 5px;
+}
+
+#listing-details {
+    border-bottom: 2px ridge #584bad; /* Set border color */\
+    background: #aca2f3;
+    padding: 10px;
+}
+
+#toMessages, #toListings {
+    display: inline-block;
+    float: left;
+    background: #aca2f3;
+    border: 2px ridge #584bad; /* Set border color */
+    margin: 0 5px 5px 5px;
+    font-family: CustomFont;
+    height: 30px;
+    width: 120px;
+    font-size: 20px;
+}
+
+#toMessages a, #toListings a{
+    text-decoration: none;
+}
+
+#toMessages:active, #toListings:active {
+    background: #584bad;
+    color: white;
+}
+
+#toMessages a:active, #toListings a:active {
+    background: #584bad;
+    color: white;
+}
+
+#listing-num {
+    display: inline-block;
+    text-align: center;
+    font-size: 20px;
+    width: 50%;
+}
+
+#sortbox {
+    display: inline-block;
+    position: absolute;
+    font-size: 20px;
+    right: 0;
+}
+
+#sortbox select {
+    background: #aca2f3;
+    border: 2px ridge #584bad; /* Set border color */
+}
+
 .image {
     max-width: 300px;
     max-height: 300px;
@@ -232,6 +301,8 @@ body, h1, p, ul {
     background: #aca2f3;
     width: 150px;
     height: 180px;
+    float: left;
+    margin: 0 1% 0 1%;
 }
 
 .recent-item-name {
@@ -246,10 +317,36 @@ body, h1, p, ul {
     margin: 12.5px;
 }
 
+.contact {
+    float: right;
+    background: #aca2f3;
+    border: 2px ridge #584bad; /* Set border color */
+    width: 25%;
+    font-family: CustomFont;
+}
+
+.contact:active {
+    background: #584bad;
+    color: white;
+}
+
+#footer {
+    bottom: 0;
+    width: 100%;
+    background-color: #FFC436;
+    padding: 10px;
+    text-align: center;
+}
+
 @media (max-width: 768px) {
     /* Hide the original navbar */
     .navbar, #logo, #searchForm {
         display: none;
+    }
+
+    .recent-items {
+        float: none;
+        margin: 10px 0 10px 0;
     }
 
     .mobile {
@@ -295,7 +392,21 @@ body, h1, p, ul {
 
     /* Adjust the dropdown content width */
     #dropdownContent {
-        width: 100%;
+	float: right;
+        position: relative;
+        display: none;
+        background-color: #FFC436; /* Yellow */
+        left: 0;
+    }
+    .dropdown-content{
+        background-color: #FFC436; /* Yellow */
+	left: 0;
+    }
+    #dropdownContent.show {
+	display: inline-block;
+    }
+    ul {
+	list-style: none;
     }
 }
 
@@ -324,11 +435,6 @@ body, h1, p, ul {
         display: block;
     }
 
-    /* Hover effect for navbar links */
-    #navblock li:hover {
-        background-color: #f9f9f9;
-    }
-
     /* Submenu styles */
     #navblock .dropdown-content {
         display: none;
@@ -340,14 +446,9 @@ body, h1, p, ul {
     }
 
     #navblock .dropdown-content a {
-        color: black;
-        padding: 12px 16px;
+        padding: 12px 12px;
         text-decoration: none;
         display: block;
-    }
-
-    #navblock .dropdown-content a:hover {
-        background-color: #ddd;
     }
 
     #navblock .dropdown:hover .dropdown-content {
@@ -397,7 +498,28 @@ body, h1, p, ul {
 
     /* Adjust the dropdown content width */
     #dropdownContent {
-        width: 100%;
+	float: right;
+        position: relative;
+        display: none;
+        background-color: #FFC436; /* Yellow */
+        left: 0;
+    }
+    #dropdownContent #navblock {
+	text-decoration: none;
+    }
+    .dropdown-content{
+        background-color: #FFC436; /* Yellow */
+	left: 0;
+    }
+    #dropdownContent.show {
+	display: inline-block;
+    }
+    ul {
+	list-style: none;
+        text-align: center;
+    }
+    #loginButton {
+	text-align: center;
     }
 }
 @media (max-width: 560px) {
@@ -405,6 +527,16 @@ body, h1, p, ul {
 	width: 100%;
     }
     #dropdownBtn {
+	width: 100%;
+    }
+    #dropdownContent {
+	width: 100%;
+        position: relative;
+        display: none;
+        background-color: #FFC436; /* Yellow */
+        left: 0;
+    }
+    #navblock {
 	width: 100%;
     }
 }
