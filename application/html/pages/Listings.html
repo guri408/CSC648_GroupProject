@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSC648/848</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Function to handle search
+        $(document).ready(function () {
+            load_recents();
+            $('#searchForm').submit(function (event) {
+                event.preventDefault(); // Prevent form submission
+                var category = $('#category').val();
+                var searchText = $('#searchText').val();
+                // Perform search using AJAX and update search results
+                // Your AJAX request and result handling code here
+            });
+            function load_recents() {
+                $.ajax({
+                    method: "GET",
+                    url: "/ajaxlivesearch",
+                    success: function (data) {
+                        $('#recent').html(data.htmlresponse);
+                    }
+                });
+            }
+            $('#dropdownBtn').click(function () {
+                $('#dropdownContent').toggleClass('show');
+            });
+
+            $(document).click(function (e) {
+                if (!$(e.target).closest('#dropdownBtn').length && !$(e.target).closest('#dropdownContent').length) {
+                    $('#dropdownContent').removeClass('show');
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="demo-notice">
+        SFSU Software Engineering Project CSC 648-848, Spring 2024. For Demonstration Only
+    </div>
+    <div class="header">
+	<a href="index.html">
+            <img src="../images/From Here to There logo.jpg" alt="Logo" href="index.html" id="logo">
+	</a>
+        <h1 id="FHTT"> From Here To There</h1>
+        <form id="searchForm" style="display: none;">
+     	    <div id="txt-container">
+            <select id="category">
+                <option value="default">Select Category</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="books">Books</option>
+                    <option value="furniture">Furniture</option>
+                </select>
+            <input type="text" id="searchText" name="searchText">
+            <input type="submit" id="searchButton" value="Search">
+	    </div>
+        </form>
+    </div>
+
+    <div class="navbar">
+        <ul id="navblock">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">About</a>
+                <div class="dropdown-content">
+                    <a href="about/Omar.html">Omar Dajani</a>
+                    <a href="about/GioJung.html">Gio Jung</a>
+                    <a href="about/Justin.html">Justin Isidro</a>
+                    <a href="about/Douglas.html">Douglas Cheung</a>
+                    <a href="about/Gurpreet.html">Gurpreet Natt</a>
+                    <a href="about/Gursimran.html">Gursimran Singh</a>
+                </div>
+            </li>
+	    <li><a href="Search.html">Go To Search</a></li>            
+            <li><a href="Sell.html">Sell</a></li>
+
+        </ul>
+	<div id="loginButton">
+	    <a href="Dashboard.html">Dashboard</a>
+	    <a href="login.html">Login</a>
+	</div>
+    </div>
+    <div class="mobile">
+        <form id="searchForm2">
+            <div id="txt-container2">
+            <select id="category">
+                <option value="default">Select Category</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="books">Books</option>
+                    <option value="furniture">Furniture</option>
+                </select>
+            <input type="text" id="searchText" name="searchText">
+            <input type="submit" id="searchButton" value="Search">
+            </div>
+        </form>
+        <button id="dropdownBtn" class="dropbtn">☰</button>
+        <div id="dropdownContent" class="dropdown-content">
+            <ul id="navblock">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">About</a>
+                    <div class="dropdown-content">
+                        <a href="about/Omar.html">Omar Dajani</a>
+                        <a href="about/GioJung.html">Gio Jung</a>
+                        <a href="about/Justin.html">Justin Isidro</a>
+                        <a href="about/Douglas.html">Douglas Cheung</a>
+                        <a href="about/Gurpreet.html">Gurpreet Natt</a>
+                        <a href="about/Gursimran.html">Gursimran Singh</a>
+                    </div>
+                </li>
+	        <li><a href="Search.html">Go To Search</a></li>
+	        <li><a href="Sell.html">Sell</a></li>
+		<li><a href="Dashboard.html">Dashboard</a></li>
+		<li><a href="login.html">Login</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="listing-details">
+	<button id="toMessages"><a href="Messages.html">Messages</a></button>
+	<button id="toListings"><a href="Listings.html">Listings</a></button>
+        <p id="listing-num">You have [2] Listing(s)</>
+	<div id="sortbox">
+            <label for="sort">Sort by:</label>
+            <select id="sort">
+	        <option value="nameAtoZ">A - Z</option>
+	        <option value="nameZtoA">Z - A</option>
+	        <option value="priceHitoLo">High To Low</option>
+	        <option value="priceLotoHi">Low To High</option>
+	    </select>
+	</div>
+    </div>
+
+    <div class="main-content">
+	<div class="listing-container">
+	    <h2 class="listing-name">Item Name</h2>
+            <p>Your Listing Price:</p>
+            <p>Item Description</p>
+            <p>Item Description</p>
+	</div>
+        <div class="listing-container">
+	    <h2 class="listing-name">Item Name</h2>
+            <p>Your Listing Price:</p>
+            <p>Item Description</p>
+            <p>Item Description</p>
+	</div>
+    </div>
+    <div id="footer">
+        Copyright of SFSU CSC 648 2024 Team 3
+        <img>
+        <img>
+        <img>
+    </div>
+</body>
+
+</html>
