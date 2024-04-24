@@ -60,3 +60,21 @@ def searchingPost():
     cur.close()
     mydb.close()
     return jsonify({'htmlresponse': render_template('pages/response.html', item=item, numrows=numrows)})
+
+#endpoint for recentItemList
+@search.route("/recentItemsPost",methods=['GET'])
+def recentItemsPost():
+    mydb = get_db_connection()
+    cur = mydb.cursor(dictionary=True)
+    item = []
+
+    if request.method == 'GET':
+        query = "SELECT * FROM Listing"
+
+        item = cur.fetchall()
+        print("SQL Query: ", query)
+        print("Search results: ", item)
+    # Always close cursor and connection when done
+    cur.close()
+    mydb.close()
+    return jsonify({'htmlRecentItemResponse': render_template('pages/RecentItemResponse.html', item=item)})

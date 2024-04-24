@@ -1,0 +1,18 @@
+<table class="table table-striped custab">
+    <tbody>
+        {% for row in item|reverse|slice(0, 4) %} {# Iterating backwards and limiting to 4 items #}
+        <tr class="recent-items">
+            <td>
+                <h2 class="item-name">{{row.ItemName}}</h2>
+                {% if row.file_name %}
+                <img class="productIMG" src="{{ url_for('static', filename='Product_Images/' + row.file_name) }}"
+                    alt="Image for {{ row.ItemName }}">
+                {% else %}
+                <img class="productIMG" alt="No image available">
+                {% endif %}
+                </p>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
