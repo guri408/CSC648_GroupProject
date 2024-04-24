@@ -33,75 +33,6 @@ ul {
     padding-left: 10px;
 }
 
-#searchForm {
-    flex: 1;
-    /* Take up remaining space in the flex container */
-}
-
-#txt-container {
-    display: flex;
-    border: 2px solid #584bad;
-    /* Set border color */
-    border-radius: 15px;
-    /* Rounded corners */
-}
-
-#category,
-#searchText,
-#searchButton {
-    height: 30px;
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    border-radius: 15px;
-    /* Rounded corners */
-    border: 0;
-}
-
-/* Adjustments to input elements */
-#category {
-    width: calc(15% - 1px);
-    /* Adjust width to leave space for the separator line */
-    padding: 0 10px;
-    /* Add some padding for better appearance */
-    border-top-right-radius: 0;
-    /* Remove top-right border radius to connect to searchText */
-    border-bottom-right-radius: 0;
-    /* Remove bottom-right border radius to connect to searchText */
-    border-right: 2px solid #584bad;
-    /* Set border color */
-}
-
-#searchText {
-    width: calc(50% - 1px);
-    /* Adjust width to leave space for the separator line */
-    padding: 0 10px;
-    /* Add some padding for better appearance */
-    border-top-left-radius: 0;
-    /* Remove top-left border radius to connect to category */
-    border-bottom-left-radius: 0;
-    /* Remove bottom-left border radius to connect to category */
-    border-top-right-radius: 15px;
-    /* Remove top-right border radius to connect to searchText */
-    border-bottom-right-radius: 15px;
-    /* Remove bottom-right border radius to connect to searchText */
-}
-
-#searchButton {
-    margin-left: 10px;
-    width: 10%;
-    border: none;
-    /* Remove border */
-    background-color: #fff;
-    /* Match background color to maintain appearance */
-    padding: 0;
-    /* Reset padding */
-}
-
-#searchButton:active {
-    background-color: #453a8e;
-    color: white;
-}
-
 /* The .demo-notice class styles the demonstration notice header */
 .demo-notice {
     background-color: #ffd700;
@@ -192,54 +123,6 @@ ul {
     max-width: 750px;
     margin: 0 auto;
     padding: 0 20px;
-}
-
-.filters {
-    float: left;
-    width: 150px;
-    border: 2px solid #584bad;
-    margin: 5px;
-    padding: 5px;
-}
-
-#price-r,
-#rentalprice-r {
-    border-radius: 10px;
-    border: 2px ridge #584bad;
-    margin: 5px 5px 40px 5px;
-}
-
-.item-container {
-    border-top: 2px ridge #584bad;
-    /* Set border color */
-    border-bottom: 2px ridge #584bad;
-    /* Set border color */
-    padding: 10px;
-    margin-top: 10px;
-    background: #aca2f3;
-    float: right;
-    width: 550px;
-}
-
-/*.item-container {
-    border-top: 2px ridge #584bad;
-      Set border color
-    border-bottom: 2px ridge #584bad;
-      Set border color
-    padding: 10px;
-    margin-top: 10px;
-    background: #aca2f3;
-}*/
-
-.item-name {
-    border: 2px ridge #584bad;
-    padding-left: 5px;
-    /* Set border color */
-}
-
-.productIMG {
-    max-width: 300px;
-    max-height: 300px;
 }
 
 .image {
