@@ -1,6 +1,8 @@
 from flask import Flask, render_template
 from search import search
 from item_submission import item_bp
+import mysql.connector
+from db_connection import get_db_connection
 
 app = Flask(__name__, static_folder='./public', template_folder='./html')
 #mysql = MySQL(app)
@@ -58,6 +60,24 @@ def sell():
 #    cursor.execute(query)
 #    result = cursor.fetchall()
 #    return jsonify(result)
+
+#endpoint for recentItemList
+@app.route("/recentItemsPost",methods=['GET'])
+def recentItemsPost():
+    mydb = get_db_connection()
+    cur = mydb.cursor(dictionary=True)
+    item = []
+
+    if request.method == 'GET':
+        query = "SELECT * FROM Listing"
+
+        item = cur.fetchall()
+        print("SQL Query: ", query)
+        print("Search results: ", item)
+    # Always close cursor and connection when done
+    cur.close()
+    mydb.close()
+    return jsonify({'htmlRecentItemResponse': render_template('pages/RecentItemResponse.html', item=item)})
 
 
 if __name__ == '__main__':
