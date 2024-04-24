@@ -6,22 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSC648/848</title>
     <link rel="stylesheet" href="../public/css/index.css">
-    <script>
-        $(document).ready(function () {
-            // Function to load data initially
-            load_recentItem_data();
+<script>
+    $(document).ready(function () {
+        function load_recentItem_data() {
+            $.ajax({
+                method: "GET",
+                url: "/recentItemsPost",
+                success: function (data) {
+                    $('#recentItemResult').html(data);
+                }
+            });
+        }
 
-            function load_recentItem_data() {
-                $.ajax({
-                    method: "GET",
-                    url: "/recentItemsPost",
-                    success: function (data) {
-                        $('#recentItemResult').html(data.htmlrecentItemResponse);
-                    }
-                });
-            }
-        });
-    </script>
+        load_recentItem_data();
+    });
+</script>
+
 </head>
 
 <body>
