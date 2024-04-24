@@ -3,6 +3,7 @@ from search import search
 from item_submission import item_bp
 import mysql.connector
 from db_connection import get_db_connection
+from recent_items import recent_items 
 
 app = Flask(__name__, static_folder='./public', template_folder='./html')
 #mysql = MySQL(app)
@@ -10,6 +11,7 @@ app = Flask(__name__, static_folder='./public', template_folder='./html')
 # Register the Blueprint with the app
 app.register_blueprint(search, url_prefix="")
 app.register_blueprint(item_bp, url_prefix="")
+app.register_blueprint(recent_items, url_prefix="")  
 
 
 @app.route('/index.html')
