@@ -3,14 +3,16 @@
         {% for row in item|reverse|slice(0, 4) %} {# Iterating backwards and limiting to 4 items #}
         <tr class="recent-items">
             <td>
-                <h2 class="item-name">{{row.ItemName}}</h2>
+                <h2 class="item-name">{{ row.ItemName }}</h2>
                 {% if row.file_name %}
                 <img class="productIMG" src="{{ url_for('static', filename='Product_Images/' + row.file_name) }}"
                     alt="Image for {{ row.ItemName }}">
                 {% else %}
                 <img class="productIMG" alt="No image available">
                 {% endif %}
-                </p>
+            </td>
+            <td>
+                <p class="post-date">Posted on: {{ row.PostDate.strftime('%Y-%m-%d') }}</p> {# Formatting the date #}
             </td>
         </tr>
         {% endfor %}
