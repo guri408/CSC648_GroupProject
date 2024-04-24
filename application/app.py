@@ -48,9 +48,9 @@ def omar():
 @app.route('/pages/Sell.html')
 def sell():
     return render_template('pages/Sell.html')
-#@app.route('/about/Search.html')
-#def search_page():
-#    return render_template('about/Search.html')
+@app.route('/about/Search.html')
+def search_page():
+    return render_template('about/Search.html')
 
 #@app.route("/livesearch",methods=["POST","GET"])
 #def livesearch():
@@ -62,22 +62,22 @@ def sell():
 #    return jsonify(result)
 
 #endpoint for recentItemList
-@app.route("/recentItemsPost",methods=['GET'])
-def recentItemsPost():
-    mydb = get_db_connection()
-    cur = mydb.cursor(dictionary=True)
-    item = []
+#@app.route("/recentItemsPost",methods=['GET'])
+#def recentItemsPost():
+#    mydb = get_db_connection()
+#    cur = mydb.cursor(dictionary=True)
+#    item = []
 
-    if request.method == 'GET':
-        query = "SELECT * FROM Listing"
+#    if request.method == 'GET':
+#        query = "SELECT * FROM Listing"
 
-        item = cur.fetchall()
-        print("SQL Query: ", query)
-        print("Search results: ", item)
-    # Always close cursor and connection when done
-    cur.close()
-    mydb.close()
-    return jsonify({'htmlRecentItemResponse': render_template('RecentItemResponse.html', item=item)})
+#        item = cur.fetchall()
+#        print("SQL Query: ", query)
+#        print("Search results: ", item)
+#    # Always close cursor and connection when done
+#    cur.close()
+#    mydb.close()
+#    return jsonify({'htmlRecentItemResponse': render_template('RecentItemResponse.html', item=item)})
 
 
 if __name__ == '__main__':
