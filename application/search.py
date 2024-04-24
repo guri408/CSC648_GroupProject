@@ -21,8 +21,8 @@ def search_page():
     return render_template('pages/Search.html')
 
 #endpoint for search
-@search.route("/ajaxlivesearch",methods=['GET'])
-def ajaxlivesearch():
+@search.route("/searchingPost",methods=['GET'])
+def searchingPost():
     mydb = get_db_connection()
     cur = mydb.cursor(dictionary=True)
     item = []
