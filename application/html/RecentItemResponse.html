@@ -1,20 +1,18 @@
-<table class="table table-striped custab">
-    <tbody>
-        {% for item in items %}
-        <tr class="recent-items">
-            <td>
-                <h2 class="item-name">{{ item.ItemName }}</h2>
-                {% if item.file_name %}
-                <img class="productIMG" src="{{ url_for('static', filename='Product_Images/' + item.file_name) }}"
-                    alt="Image for {{ item.ItemName }}">
-                {% else %}
-                <img class="productIMG" alt="No image available">
-                {% endif %}
-            </td>
-            <td>
-                <p class="post-date">Posted on: {{ item.PostDate.strftime('%Y-%m-%d') }}</p>
-            </td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+<div class="item-container">
+    {% for item in items %}
+    <div class="item-row">
+        <div class="item-details">
+            <h2 class="item-name">{{ item.ItemName }}</h2>
+            {% if item.file_name %}
+            <img class="productIMG" src="{{ url_for('static', filename='Product_Images/' + item.file_name) }}"
+                alt="Image for {{ item.ItemName }}">
+            {% else %}
+            <img class="productIMG" alt="No image available">
+            {% endif %}
+        </div>
+        <div class="item-date">
+            <p class="post-date">Posted on: {{ item.PostDate.strftime('%Y-%m-%d') }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
