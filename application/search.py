@@ -16,9 +16,9 @@ search = Blueprint('search', __name__, static_folder='./public', template_folder
 #for Product in product:
 #    print(Product)
 
-@search.route('/about/Search.html')
+@search.route('/pages/Search.html')
 def search_page():
-    return render_template('about/Search.html')
+    return render_template('pages/Search.html')
 
 #endpoint for search
 @search.route("/ajaxlivesearch",methods=['GET'])
@@ -59,4 +59,4 @@ def ajaxlivesearch():
     # Always close cursor and connection when done
     cur.close()
     mydb.close()
-    return jsonify({'htmlresponse': render_template('about/response.html', item=item, numrows=numrows)})
+    return jsonify({'htmlresponse': render_template('pages/response.html', item=item, numrows=numrows)})

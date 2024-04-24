@@ -43,9 +43,9 @@ def gursimran():
 def omar():
     return render_template('about/Omar.html')
 
-@app.route('/about/Sell.html')
+@app.route('/pages/Sell.html')
 def sell():
-    return render_template('about/Sell.html')
+    return render_template('pages/Sell.html')
 #@app.route('/about/Search.html')
 #def search_page():
 #    return render_template('about/Search.html')
