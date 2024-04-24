@@ -48,9 +48,9 @@ def omar():
 @app.route('/pages/Sell.html')
 def sell():
     return render_template('pages/Sell.html')
-@app.route('/about/Search.html')
+@app.route('/pages/Search.html')
 def search_page():
-    return render_template('about/Search.html')
+    return render_template('pages/Search.html')
 
 #@app.route("/livesearch",methods=["POST","GET"])
 #def livesearch():
