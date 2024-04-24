@@ -6,22 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSC648/848</title>
     <link rel="stylesheet" href="../public/css/index.css">
+<div id="recentItemResult">Loading recent items...</div>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
     $(document).ready(function () {
-        function load_recentItem_data() {
-            $.ajax({
-                method: "GET",
-                url: "/recentItemsPost",
-                success: function (data) {
-                    $('#recentItemResult').html(data);
-                }
-            });
-        }
-
-        load_recentItem_data();
+        console.log("Page loaded. Fetching recent items.");
+        $.ajax({
+            method: "GET",
+            url: "/recentItemsPost",
+            success: function (data) {
+                $('#recentItemResult').html(data);
+                console.log("Data loaded successfully.");
+            },
+            error: function (xhr, status, error) {
+                console.log("Error fetching data: " + error);
+            }
+        });
     });
 </script>
+
 
 
 </head>
@@ -58,26 +62,12 @@
         </div>
     </div>
 
-    <div class="main-content">
-        <div id="recentItemsPost"></div>
-
-        <div class="recent-items">
-            <p class="recent-item-name">Item Name</p>
-            <img src="../images/From Here to There logo.jpg" alt="Logo" href="#" class="recents">
-        </div>
-        <div class="recent-items">
-            <p class="recent-item-name">Item Name</p>
-            <img src="../images/From Here to There logo.jpg" alt="Logo" href="#" class="recents">
-        </div>
-        <div class="recent-items">
-            <p class="recent-item-name">Item Name</p>
-            <img src="../images/From Here to There logo.jpg" alt="Logo" href="#" class="recents">
-        </div>
-        <div class="recent-items">
-            <p class="recent-item-name">Item Name</p>
-            <img src="../images/From Here to There logo.jpg" alt="Logo" href="#" class="recents">
-        </div>
+<div class="main-content">
+    <div id="recentItemsPost">
+        <!-- Dynamically loaded content will appear here -->
     </div>
+</div>
+ 
 
 </body>
 
