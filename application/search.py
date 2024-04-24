@@ -21,16 +21,16 @@ def search_page():
     return render_template('about/Search.html')
 
 #endpoint for search
-@search.route("/ajaxlivesearch",methods=['GET', 'POST'])
+@search.route("/ajaxlivesearch",methods=['GET'])
 def ajaxlivesearch():
     mydb = get_db_connection()
     cur = mydb.cursor(dictionary=True)
     item = []
     numrows = 0
 
-    if request.method == 'POST':
-        search_word = request.form.get('query', '').strip()  # Remove trailing whitespace
-        search_category = request.form.get('category','default')
+    if request.method == 'GET':
+        search_word = request.args.get('query', '').strip()  # Remove trailing whitespace
+        search_category = request.args.get('category','default')
         print("Received search query:", search_word)
 
         if search_word:
