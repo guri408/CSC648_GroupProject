@@ -90,6 +90,11 @@ margin-bottom: -30px;
 .form-check-label {
 margin-bottom: 5px;
 }
+
+.dropdown {
+margin-top: 10px;
+margin-bottom: 10px;
+}
       
 .btn-one {
 background-color: red;
