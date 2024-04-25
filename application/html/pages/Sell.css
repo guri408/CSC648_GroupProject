@@ -1,3 +1,8 @@
+@font-face {
+font-family: 'CustomFont';
+src: url('Roboto_Slab/RobotoSlab-VariableFont_wght.ttf') format('truetype');
+}
+
 .demo-notice {
 background-color: #ffd700;
 color: #000;
