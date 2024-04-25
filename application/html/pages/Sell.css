@@ -91,6 +91,10 @@ border-radius: 50%;
 h2 {
 margin-bottom: -30px;
 }
+
+.form-control {
+border-color: #584bad;
+}
       
 .form-check-label {
 margin-bottom: 5px;
@@ -99,6 +103,14 @@ margin-bottom: 5px;
 .dropdown {
 margin-top: 10px;
 margin-bottom: 10px;
+}
+
+.dropdown-toggle {
+background-color: #584bad;
+}
+
+.dropdown-menu {
+background-color: #584bad;
 }
       
 .btn-one {

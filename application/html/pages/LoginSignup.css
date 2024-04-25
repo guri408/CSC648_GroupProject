@@ -94,6 +94,7 @@ h2 {
 
 .form-control {
   margin-top: 5px;
+  border-color: #584bad;
 }
 
 .form-check-label {
@@ -114,7 +115,12 @@ input {
 }
 
 .text-muted {
-  font-style: italic;
+ font-style: italic;
   margin-top: 1px;
   margin-bottom: 10px;
-  }
+}
+
+.btn {
+background: #584bad;
+margin-bottom: -7px;
+}
