@@ -1,0 +1,128 @@
+/* General Styles for Notices and Headers */
+.demo-notice {
+    color: var(--bs-emphasis-color);
+    border: 2px solid var(--bs-emphasis-color);
+    background: #ffd700;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 15px;
+}
+
+.card-header {
+    display: flex;
+    align-items: center; /* This ensures vertical centering */
+    justify-content: space-between; /* This will push the logo to the left and text to the center */
+    margin-top: -10px;
+    border: 2px solid var(--bs-emphasis-color);
+    border-bottom: none;
+    font-size: 40px;
+    font-weight: bold;
+    background: linear-gradient(to right, #fef5da 15%, #584bad 70%);
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.logo {
+    width: 100px; /* Keep your logo dimensions */
+    
+}
+
+.title-text {
+    /* This will center the title text in the available space, assuming .title-text wraps the text */
+    flex: 1;
+    text-align: center;
+}
+
+/* Navigation Tabs */
+.nav-container {
+    border: 2px solid var(--bs-emphasis-color);
+    padding: 8px;
+    background: #FFC436;
+}
+
+.btn-nav {
+    font-weight: bold;
+    color: black;
+    border: 2px solid black;
+    margin-left: 10px;
+}
+
+.btn-nav:hover {
+    background-color: #6a5acd;
+    color: white; /* Optional: change text color on hover */
+}
+
+.btn-nav:first-child {
+    margin-left: 0;
+}
+
+/* This class is for the last button to separate it from the others */
+.btn-Login {
+    margin-left: auto; /* This will push the login button to the right if the nav-container is flex */
+}
+
+/* Main Content Area Styling */
+.main-content {
+    border: 2px solid var(--bs-emphasis-color);
+    border-radius: 10px;
+    padding: 70px;
+    background: #ffd700;
+    width: 1100px;
+    height: 10px;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.head-title {
+    font-weight: bold;
+    font-size: 35px;
+    color: var(--bs-emphasis-color);
+    margin-left: -50px;
+    margin-top: -60px;
+}
+
+.btn-outline-primary, .btn-outline-secondary {
+    border: 2px solid var(--bs-emphasis-color);
+    color: var(--bs-emphasis-color);
+    font-weight: bold;
+    margin-left: -50px;
+    margin-bottom: -40px;
+}
+
+.btn-outline-primary {
+    margin-right: 10px; /* Add space to the right of the Dashboard button */
+}
+
+/* or for the Compose button */
+.btn-outline-secondary {
+    margin-left: 10px; /* Add space to the left of the Compose button */
+}
+
+
+.btn-outline-primary:hover, .btn-outline-secondary:hover {
+    background-color: #6a5acd;
+}
+
+
+.listing-demo {
+    width: 800px;
+    height: 20px;
+    border-radius: 10px;
+    margin: auto;
+    border: 3px solid #6a5acd;
+    padding: 100px;
+    margin-top: 40px;
+}
+
+.item-name,
+.item-description,
+.listing-price,
+.category {
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 20; /* Adjust the font-size according to the class name */
+    margin-left: -80px;
+    margin-top: -90px; /* Adjust the margin-top according to the class name */
+    margin-bottom: 100px;
+}
