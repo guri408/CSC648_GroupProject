@@ -137,3 +137,7 @@ input {
 margin-top: 15px;
 margin-bottom: 15px;
 }
+
+.card {
+border-color: #584bad;
+}
