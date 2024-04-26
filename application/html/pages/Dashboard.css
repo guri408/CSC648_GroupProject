@@ -1,12 +1,12 @@
-/* General Styles for Notices and Headers */
+/* Styles for the notice */
 .demo-notice {
-  color: var(--bs-emphasis-color);
-  border: 2px solid var(--bs-emphasis-color);
-  background: #ffd700;
-  text-align: center;
-  font-weight: bold;
+  background-color: #ffd700;
   font-size: 20px;
+  text-align: center;
+  height: 60px;
   padding: 15px;
+  border-width: 2px;
+  border-style: solid;
 }
 
 .card-header {
@@ -64,21 +64,32 @@
 
 /* Main Content Area Styling */
 .main-content {
-  border: 2px solid var(--bs-emphasis-color);
-  border-radius: 10px;
-  padding: 70px;
-  background: #ffd700;
-  width: 1100px;
-  height: 10px;
+  padding: 100px;
   margin: auto;
   margin-top: 50px;
+  background: #ffd700;
+  border-radius: 10px;
+  width: 1100px;
+  border: 2px solid var(--bs-emphasis-color);
+  height: 150px;
 }
 
-.head-title {
-  font-weight: bold;
-  font-size: 35px;
+/* Dashboard Heading */
+.dashboard-heading {
   color: var(--bs-emphasis-color);
-  margin-left: -50px;
+  font-size: 35px;
+  font-weight: bold;
+  margin-left: -80px;
+  margin-top: -80px;
+}
+
+
+/* Message Notification Paragraph */
+.message-notification {
+  color: var(--bs-emphasis-color);
+  font-weight: bold;
+  text-align: center;
+  font-size: 15px;
   margin-top: -60px;
 }
 
@@ -86,43 +97,21 @@
   border: 2px solid var(--bs-emphasis-color);
   color: var(--bs-emphasis-color);
   font-weight: bold;
-  margin-left: -50px;
-  margin-bottom: -40px;
+
 }
 
 .btn-outline-primary {
-  margin-right: 10px; /* Add space to the right of the Dashboard button */
+  margin-top: 40px;
+  margin-left: -80px;
+  margin-right: 20px; /* Add space to the right of the button */
 }
 
-/* or for the Compose button */
+/* Adjust the margin for the 'Listings' button, if necessary */
 .btn-outline-secondary {
-  margin-left: 10px; /* Add space to the left of the Compose button */
+  margin-top: -25px;
+  margin-left: 40px; /* Add space to the left of the button */
 }
-
 
 .btn-outline-primary:hover, .btn-outline-secondary:hover {
   background-color: #6a5acd;
-}
-
-/* Table and Search Styles */
-.search-table-col {
-  width: 900px;
-  margin: auto;
-  margin-top: 30px;
-}
-
-.search {
-  border: 2px solid #6a5acd;
-}
-
-.table-hover thead th {
-  font-size: 15px;
-  text-align: center;
-  border: 2px solid #6a5acd;
-}
-
-.table-hover tbody td {
-  text-align: center;
-  font-size: 14px;
-  border: 2px solid #6a5acd;
 }
