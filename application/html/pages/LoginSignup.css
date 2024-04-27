@@ -14,7 +14,7 @@ border-bottom: 3px solid #000;
 }
 
 .header {
-background: #584bad;
+background: #6a5acd;
 color: #fff;
 padding: 5px;
 display: flex;
@@ -121,14 +121,24 @@ margin-bottom: 10px;
 }
 
 .btn {
-background: #584bad;
+background: #6a5acd;
 margin-bottom: -7px;
 }
 
+.btn:hover {
+background-color: #6a5acd;
+color: white;
+}
+
+.btn:active {
+background-color: #6a5acd;
+color: white;
+}
+
 .card {
-border-color: #584bad;
+border-color: #6a5acd;
 }
 
 .bi {
-border-color: #584bad;
+border-color: #6a5acd;
 }
