@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en" data-bss-forced-theme="light">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/styles2.css">
+</head>
+
+<body>
+    <h1 class="demo-notice"><strong>SFSU Software Engineering Project CSC 648-848, Spring 2024. For Demonstration
+            Only.</strong></h1>
+            <header class="card-header">
+                <img src="../images/From Here to There logo.jpg" class="logo"/><p id="welcome">Welcome, SFSU students, faculty and potential members, to</p>
+                <h1 class="title-text">From Here To There</h1>
+	    <form id="searchForm">
+     	    <div id="txt-container">
+            <select id="category">
+                <option value="default">Select Category</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="books">Books</option>
+                    <option value="furniture">Furniture</option>
+                </select>
+            <input type="text" id="searchText" name="searchText">
+            <input type="submit" class="searchButton" value="Search">
+	    <div id="book-options"> <!--
+		<label for="subjectInput">Subject:</label>
+		<input type="text" id="subjectInput">
+		<label for="courseInput">Course Number:</label>
+		<input type="text" id="courseInput">
+		<label for="professorInput">Professor Name:</label>
+		<input type="text" id="professorInput">-->
+	    </div>
+	    </div>
+        </form>
+
+            </header>
+            <div class="nav-container">
+                <button class="btn btn-nav" type="button">Home</button>
+                <button class="btn btn-nav" type="button">About</button>
+                <button class="btn btn-nav" type="button">Sell/Rent</button>
+                <button class="btn btn-nav btn-Login" type="button">Dashboard</button>
+                <button class="btn btn-nav btn-Login" type="button">Login/Registration</button>
+	    </div>
+        <div class="main-content">
+	    <p id="tag">Recent Items</p>
+    </div>
+    <div id="display-range">
+	<div class="recent-area">
+	    <p>Name</p>
+	    <img src="../images/From Here to There logo.jpg" class="recents"/>
+	    <p class="description">Price</p>
+	    <p class="description">Category</p>
+	</div>
+	<div class="recent-area">
+	    <p>Name</p>
+	    <img src="../images/From Here to There logo.jpg" class="recents"/>
+	    <p class="description">Price</p>
+	    <p class="description">Category</p>
+	</div>
+	<div class="recent-area">
+	    <p>Name</p>
+	    <img src="../images/From Here to There logo.jpg" class="recents"/>
+	    <p class="description">Price</p>
+	    <p class="description">Category</p>
+	</div>
+	<div class="recent-area">
+	    <p>Name</p>
+	    <img src="../images/From Here to There logo.jpg" class="recents"/>
+	    <p class="description">Price</p>
+	    <p class="description">Category</p>
+	</div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

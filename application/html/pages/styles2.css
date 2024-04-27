@@ -1,0 +1,239 @@
+@font-face {
+    font-family: 'CustomFont';
+    src: url('Roboto_Slab/RobotoSlab-VariableFont_wght.ttf') format('truetype');
+}
+
+/* Reset some default styles */
+body, h1, p, ul {
+    margin: 0;
+    padding: 0;
+    font-family: CustomFont;
+}
+
+/* Styles for the notice */
+.demo-notice {
+    background-color: #ffd700; 
+    color: #000; 
+    text-align: center;
+    font-weight: bold; 
+    font-size: 1.2em; 
+  font-size: 20px;
+  padding: 15px;
+  border-width: 2px;
+  border-style: solid;
+}
+
+.card-header {
+  text-align: center;
+  align-items: center; /* This ensures vertical centering */
+  justify-content: space-between; /* This will push the logo to the left and text to the center */
+  margin-top: -10px;
+  border: 2px solid var(--bs-emphasis-color);
+  border-bottom: none;
+  font-size: 40px;
+  font-weight: bold;
+  background: linear-gradient(to right, #fef5da 15%, #584bad 70%);
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 150px;
+}
+
+.card-header img {
+  float: left;
+}
+
+#welcome {
+    font-size: 20px; /* Adjust font size as needed */
+    font-weight: bold; /* Adjust font weight as needed */
+    background: linear-gradient(to right, #7a6dcf, black);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent; /* Hide original text */
+}
+
+.logo {
+  width: 100px; /* Keep your logo dimensions */
+  
+}
+
+#searchForm {
+    flex: 1; /* Take up remaining space in the flex container */
+    display: inline-block;
+    margin-left: 15%;
+    margin-bottom: 10px;
+    width: 80%;
+    float: right;
+}
+
+#txt-container {
+    display: flex;
+    width: 100%;
+    border-radius: 15px; /* Rounded corners */
+    border-left: 2px solid #584bad; /* Set border color */
+    border-top: 2px solid #584bad; /* Set border color */
+    border-bottom: 2px solid #584bad; /* Set border color */
+}
+
+#category,
+#searchText,
+.searchButton {
+    height: 30px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    border-radius: 15px; /* Rounded corners */
+    border: 0;
+}
+
+/* Adjustments to input elements */
+#category {
+    width: calc(15% - 1px); /* Adjust width to leave space for the separator line */
+    padding: 0 10px; /* Add some padding for better appearance */
+    border-top-right-radius: 0; /* Remove top-right border radius to connect to searchText */
+    border-bottom-right-radius: 0; /* Remove bottom-right border radius to connect to searchText */
+    border-right: 2px solid #584bad; /* Set border color */
+}
+
+#searchText {
+    width: calc(50% - 1px); /* Adjust width to leave space for the separator line */
+    padding: 0 10px; /* Add some padding for better appearance */
+    border-top-left-radius: 0; /* Remove top-left border radius to connect to category */
+    border-bottom-left-radius: 0; /* Remove bottom-left border radius to connect to category */    
+    border-top-right-radius: 15px; /* Remove top-right border radius to connect to searchText */
+    border-bottom-right-radius: 15px; /* Remove bottom-right border radius to connect to searchText */
+}
+
+.searchButton {
+    margin-left: 10px;
+    width: 10%;
+    border: none; /* Remove border */
+    background-color: #fff; /* Match background color to maintain appearance */
+    padding: 0; /* Reset padding */    border: 2px solid #584bad; /* Set border color */
+    border-radius: 15px; /* Rounded corners */
+}
+
+.searchButton:active {
+    background-color: #453a8e;
+    color: white;
+}
+
+.title-text {
+  /* This will center the title text in the available space, assuming .title-text wraps the text */
+  flex: 1;
+  text-align: center;
+}
+
+/* Navigation Tabs */
+.nav-container {
+  border: 2px solid var(--bs-emphasis-color);
+  padding: 8px;
+  background: #FFC436;
+}
+
+.btn-nav {
+  font-weight: bold;
+  color: black;
+  border: 2px solid black;
+  margin-left: 10px;
+}
+
+.btn-nav:hover {
+  background-color: #6a5acd;
+  color: white; /* Optional: change text color on hover */
+}
+
+.btn-nav:first-child {
+  margin-left: 0;
+}
+
+/* This class is for the last button to separate it from the others */
+.btn-Login {
+  margin-left: auto; /* This will push the login button to the right if the nav-container is flex */
+  float: right;
+  margin-right: 5px;
+}
+
+/* Main Content Area Styling */
+.main-content {
+  padding: 10px;
+  margin: auto;
+  margin-top: 10px;
+  background: #ffd700;
+  border-radius: 10px;
+  width: 100%;
+  border: 2px solid var(--bs-emphasis-color);
+  font-size: 24px;
+}
+
+#display-range {
+  display: flex;
+}
+
+.recent-area {
+  border-radius: 10px;
+  border: 2px solid var(--bs-emphasis-color);
+  font-size: 24px;
+  width: 22%;
+  height: 30%;
+  margin: 10px 1% 0 1%;
+}
+
+.recent-area p {
+  border-bottom: 2px solid var(--bs-emphasis-color);
+  padding-left: 5px;
+}
+
+.recent-area img {
+  padding: 5px;
+}
+
+.recents {
+    max-width: 120px;
+    max-height: 120px;
+    margin: 12.5px;
+}
+
+.recent-area p.description {
+  font-size: 18px;
+  border: 0;
+}
+
+/* Dashboard Heading */
+.dashboard-heading {
+  color: var(--bs-emphasis-color);
+  font-size: 35px;
+  font-weight: bold;
+  margin-left: -80px;
+  margin-top: -80px;
+}
+
+
+/* Message Notification Paragraph */
+.message-notification {
+  color: var(--bs-emphasis-color);
+  font-weight: bold;
+  text-align: center;
+  font-size: 15px;
+  margin-top: -60px;
+}
+
+.btn-outline-primary, .btn-outline-secondary {
+  border: 2px solid var(--bs-emphasis-color);
+  color: var(--bs-emphasis-color);
+  font-weight: bold;
+}
+
+.btn-outline-primary {
+  margin-top: 40px;
+  margin-left: -80px;
+  margin-right: 20px; /* Add space to the right of the button */
+}
+
+/* Adjust the margin for the 'Listings' button, if necessary */
+.btn-outline-secondary {
+  margin-top: -25px;
+  margin-left: 40px; /* Add space to the left of the button */
+}
+
+.btn-outline-primary:hover, .btn-outline-secondary:hover {
+  background-color: #6a5acd;
+}
