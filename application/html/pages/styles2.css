@@ -120,6 +120,7 @@ body, h1, p, ul {
   /* This will center the title text in the available space, assuming .title-text wraps the text */
   flex: 1;
   text-align: center;
+  padding-top: 10px;
 }
 
 /* Navigation Tabs */
