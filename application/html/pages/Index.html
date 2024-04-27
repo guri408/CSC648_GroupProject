@@ -7,37 +7,7 @@
     <title>CSC648/848</title>
     <link rel="stylesheet" href="./About.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        // Function to handle search
-        $(document).ready(function () {
-            load_recents();
-            $('#searchForm').submit(function (event) {
-                event.preventDefault(); // Prevent form submission
-                var category = $('#category').val();
-                var searchText = $('#searchText').val();
-                // Perform search using AJAX and update search results
-                // Your AJAX request and result handling code here
-            });
-            function load_recents() {
-                $.ajax({
-                    method: "GET",
-                    url: "/ajaxlivesearch",
-                    success: function (data) {
-                        $('#recent').html(data.htmlresponse);
-                    }
-                });
-            }
-            $('#dropdownBtn').click(function () {
-                $('#dropdownContent').toggleClass('show');
-            });
-
-            $(document).click(function (e) {
-                if (!$(e.target).closest('#dropdownBtn').length && !$(e.target).closest('#dropdownContent').length) {
-                    $('#dropdownContent').removeClass('show');
-                }
-            });
-        });
-    </script>
+    <script src="../js/script.js"></script>
 </head>
 
 <body>
@@ -45,11 +15,13 @@
         SFSU Software Engineering Project CSC 648-848, Spring 2024. For Demonstration Only
     </div>
     <div class="header">
-	<a href="index.html">
+	<a href="index.html" id="logo-side">
             <img src="../images/From Here to There logo.jpg" alt="Logo" href="index.html" id="logo">
 	</a>
+        <div id="header-details">
+        <p id="welcome">Welcome, SFSU students, faculty and potential members, to</p>
         <h1 id="FHTT"> From Here To There</h1>
-        <form id="searchForm" style="display: none;">
+        <form id="searchForm">
      	    <div id="txt-container">
             <select id="category">
                 <option value="default">Select Category</option>
@@ -58,14 +30,23 @@
                     <option value="furniture">Furniture</option>
                 </select>
             <input type="text" id="searchText" name="searchText">
-            <input type="submit" id="searchButton" value="Search">
+            <input type="submit" class="searchButton" value="Search">
+	    <div id="book-options"> <!--
+		<label for="subjectInput">Subject:</label>
+		<input type="text" id="subjectInput">
+		<label for="courseInput">Course Number:</label>
+		<input type="text" id="courseInput">
+		<label for="professorInput">Professor Name:</label>
+		<input type="text" id="professorInput">-->
+	    </div>
 	    </div>
         </form>
+        </div>
     </div>
 
     <div class="navbar">
         <ul id="navblock">
-            <li><a href="index.html">Home</a></li>
+            <li style=" background-color: #ffd700;"><a href="index.html" style="font-weight: bold; color: white;">Home</a></li>
             <li class="dropdown">
                 <a href="#" class="dropbtn">About</a>
                 <div class="dropdown-content">
@@ -76,14 +57,13 @@
                     <a href="about/Gurpreet.html">Gurpreet Natt</a>
                     <a href="about/Gursimran.html">Gursimran Singh</a>
                 </div>
-            </li>
-	    <li><a href="Search.html">Go To Search</a></li>            
-            <li><a href="Sell.html">Sell</a></li>
+            </li>          
+            <li><a href="Sell.html">Sell/Rent</a></li>
 
         </ul>
 	<div id="loginButton">
-	    <a href="Listings.html">Dashboard</a>
-	    <a href="login.html">Login</a>
+	    <a href="Dashboard.html">Dashboard</a>
+	    <a href="login.html">Login/Registration</a>
 	</div>
     </div>
     <div class="mobile">
@@ -96,7 +76,7 @@
                     <option value="furniture">Furniture</option>
                 </select>
             <input type="text" id="searchText" name="searchText">
-            <input type="submit" id="searchButton" value="Search">
+            <input type="submit" class="searchButton" value="Search">
             </div>
         </form>
         <button id="dropdownBtn" class="dropbtn">☰</button>
@@ -114,10 +94,9 @@
                         <a href="about/Gursimran.html">Gursimran Singh</a>
                     </div>
                 </li>
-	        <li><a href="Search.html">Go To Search</a></li>
-	        <li><a href="Sell.html">Sell</a></li>
-		<li><a href="Listings.html">Dashboard</a></li>
-		<li><a href="login.html">Login</a></li>
+	        <li><a href="Sell.html">Sell/Rent</a></li>
+		<li><a href="Dashboard.html">Dashboard</a></li>
+		<li><a href="login.html">Login/Registration</a></li>
             </ul>
         </div>
     </div>
@@ -125,26 +104,6 @@
     <p id="search_outcome"></p>
 
     <div class="main-content">
-        <h2>This is the brief description of Team 03</h2>
-        <p>You can check the profile of each member</p>
-
-        <div class="recent-items">
-	    <p class="recent-item-name">Item Name</p>
-            <img src="../images/From Here to There logo.jpg" alt="Logo" href="#" class="recents">
-	</div>
-        <div class="recent-items">
-	    <p class="recent-item-name">Item Name</p>
-            <img src="../images/From Here to There logo.jpg" alt="Logo" href="#" class="recents">
-	</div>
-        <div class="recent-items">
-	    <p class="recent-item-name">Item Name</p>
-            <img src="../images/From Here to There logo.jpg" alt="Logo" href="#" class="recents">
-	</div>
-        <div class="recent-items">
-	    <p class="recent-item-name">Item Name</p>
-            <img src="../images/From Here to There logo.jpg" alt="Logo" href="#" class="recents">
-	</div>
-	
 	<div class="filters">
 	    <p>Price Range:</p>
 		<select id="price-r">
@@ -166,14 +125,38 @@
 		    <option value="LoToHi">Low to High</option>
 		</select>
 	</div>
+        <div id="recent-area">
+        <h2>Recent Items</h2>
+        <div class="recent-items">
+	    <p class="recent-item-name">Item Name</p>
+            <img src="../images/From Here to There logo.jpg" alt="Logo" href="#" class="recents">
+            <p class="recent-time">Time Uploaded:</p>
+	</div>
+        <div class="recent-items">
+	    <p class="recent-item-name">Item Name</p>
+            <img src="../images/From Here to There logo.jpg" alt="Logo" href="#" class="recents">
+            <p class="recent-time">Time Uploaded:</p>	</div>
+        <div class="recent-items">
+	    <p class="recent-item-name">Item Name</p>
+            <img src="../images/From Here to There logo.jpg" alt="Logo" href="#" class="recents">
+            <p class="recent-time">Time Uploaded:</p>
+	</div>
+        <div class="recent-items">
+	    <p class="recent-item-name">Item Name</p>
+            <img src="../images/From Here to There logo.jpg" alt="Logo" href="#" class="recents">
+            <p class="recent-time">Time Uploaded:</p>
+	</div>
+        </div>
 	
         <!-- Insert product listings or other content here -->
-
+	<div id="search-results">
+	<h3 id="numResultsFound">{{numrows}} Results found</h3>
 	<div class="item-container">
 	    <h2 class="item-name">Item Name</h2>
             <p>Item Description</p>
             <p>Item Description</p>
             <p>Item Description</p>
+            <button class="contact">Buy Now</button>
             <button class="contact">Contact Seller</button>
 	</div>
         <div class="item-container">
@@ -181,7 +164,89 @@
             <p>Item Description</p>
             <p>Item Description</p>
             <p>Item Description</p>
+            <button class="contact">Buy Now</button>
             <button class="contact">Contact Seller</button>
+	</div>
+	<div class="item-container">
+	    <h2 class="item-name">Item Name</h2>
+            <p>Item Description</p>
+            <p>Item Description</p>
+            <p>Item Description</p>
+            <button class="contact">Buy Now</button>
+            <button class="contact">Contact Seller</button>
+	</div>
+	<div class="item-container">
+	    <h2 class="item-name">Item Name</h2>
+            <p>Item Description</p>
+            <p>Item Description</p>
+            <p>Item Description</p>
+            <button class="contact">Buy Now</button>
+            <button class="contact">Contact Seller</button>
+	</div>
+	<div class="item-container">
+	    <h2 class="item-name">Item Name</h2>
+            <p>Item Description</p>
+            <p>Item Description</p>
+            <p>Item Description</p>
+            <button class="contact">Buy Now</button>
+            <button class="contact">Contact Seller</button>
+	</div>
+	<div class="item-container">
+	    <h2 class="item-name">Item Name</h2>
+            <p>Item Description</p>
+            <p>Item Description</p>
+            <p>Item Description</p>
+            <button class="contact">Buy Now</button>
+            <button class="contact">Contact Seller</button>
+	</div>
+	<div class="item-container">
+	    <h2 class="item-name">Item Name</h2>
+            <p>Item Description</p>
+            <p>Item Description</p>
+            <p>Item Description</p>
+            <button class="contact">Buy Now</button>
+            <button class="contact">Contact Seller</button>
+	</div>
+	<div class="item-container">
+	    <h2 class="item-name">Item Name</h2>
+            <p>Item Description</p>
+            <p>Item Description</p>
+            <p>Item Description</p>
+            <button class="contact">Buy Now</button>
+            <button class="contact">Contact Seller</button>
+	</div>
+	<div class="item-container">
+	    <h2 class="item-name">Item Name</h2>
+            <p>Item Description</p>
+            <p>Item Description</p>
+            <p>Item Description</p>
+            <button class="contact">Buy Now</button>
+            <button class="contact">Contact Seller</button>
+	</div>
+	<div class="item-container">
+	    <h2 class="item-name">Item Name</h2>
+            <p>Item Description</p>
+            <p>Item Description</p>
+            <p>Item Description</p>
+            <button class="contact">Buy Now</button>
+            <button class="contact">Contact Seller</button>
+	</div>
+	<div class="item-container">
+	    <h2 class="item-name">Item Name</h2>
+            <p>Item Description</p>
+            <p>Item Description</p>
+            <p>Item Description</p>
+            <button class="contact">Buy Now</button>
+            <button class="contact">Contact Seller</button>
+	</div>
+	<div class="item-container">
+	    <h2 class="item-name">Item Name</h2>
+            <p>Item Description</p>
+            <p>Item Description</p>
+            <p>Item Description</p>
+            <button class="contact">Buy Now</button>
+            <button class="contact">Contact Seller</button>
+	</div>
 	</div>
     </div>
     <div id="footer">
