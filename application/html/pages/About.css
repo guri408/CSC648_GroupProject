@@ -37,7 +37,6 @@ body, h1, p, ul {
     flex: 1; /* Take up remaining space in the flex container */
     display: inline-block;
     width: 100%;
-    margin-left: 10%;
 }
 
 #txt-container {
