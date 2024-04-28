@@ -4,22 +4,65 @@ src: url('Roboto_Slab/RobotoSlab-VariableFont_wght.ttf') format('truetype');
 }
 
 .demo-notice {
-background-color: #ffd700;
-color: #000;
-text-align: center;
-padding: 20px;
-font-weight: bold;
-font-size: 1.2em;
-border-bottom: 3px solid #000;
-}
+    color: var(--bs-emphasis-color);
+    border: 2px solid var(--bs-emphasis-color);
+    background: #ffd700;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 15px;
+  }
 
-.header {
-background: #6a5acd;
-color: #fff;
-padding: 5px;
-display: flex;
-align-items: center;
-}
+  .card-header {
+    display: flex;
+    align-items: center; /* This ensures vertical centering */
+    justify-content: space-between; /* This will push the logo to the left and text to the center */
+    margin-top: -10px;
+    border: 2px solid var(--bs-emphasis-color);
+    border-bottom: none;
+    font-size: 40px;
+    font-weight: bold;
+    background: linear-gradient(to right, #fef5da 15%, #584bad 70%);
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  .logo {
+    width: 100px; /* Keep your logo dimensions */
+  }
+  
+  .title-text {
+    /* This will center the title text in the available space, assuming .title-text wraps the text */
+    flex: 1;
+    text-align: center;
+  }
+  
+  /* Navigation Tabs */
+  .nav-container {
+    border: 2px solid var(--bs-emphasis-color);
+    padding: 8px;
+    background: #FFC436;
+  }
+  
+  .btn-nav {
+    font-weight: bold;
+    color: black;
+    border: 2px solid black;
+    margin-left: 10px;
+  }
+  
+  .btn-nav:hover {
+    background-color: #6a5acd;
+    color: white; /* Optional: change text color on hover */
+  }
+  
+  .btn-nav:first-child {
+    margin-left: 0;
+  }
+
+  .btn-Dashboard {
+    margin-left: auto; /* This class is for the last button to separate it from the others */
+  }
 
 .alert {
 color: #721c24;
@@ -120,8 +163,8 @@ margin-top: 1px;
 margin-bottom: 10px;
 }
 
-.btn {
-background: #6a5acd;
+.btn-ordinary-primary {
+border-color: #6a5acd;
 margin-bottom: -7px;
 }
 
