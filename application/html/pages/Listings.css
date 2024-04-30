@@ -118,7 +118,7 @@
 .item-name,
 .item-description,
 .listing-price,
-.category {
+.category { 
     font-weight: bold;
     text-decoration: underline;
     font-size: 20; /* Adjust the font-size according to the class name */
