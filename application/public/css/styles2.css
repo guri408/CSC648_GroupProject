@@ -12,15 +12,13 @@ body, h1, p, ul {
 
 /* Styles for the notice */
 .demo-notice {
-    background-color: #ffd700; 
-    color: #000; 
-    text-align: center;
-    font-weight: bold; 
-    font-size: 1.2em; 
+  color: var(--bs-emphasis-color);
+  border: 2px solid var(--bs-emphasis-color);
+  background: #ffd700;
+  text-align: center;
+  font-weight: bold;
   font-size: 20px;
   padding: 15px;
-  border-width: 2px;
-  border-style: solid;
 }
 
 .card-header {
@@ -30,8 +28,6 @@ body, h1, p, ul {
   margin-top: -10px;
   border: 2px solid var(--bs-emphasis-color);
   border-bottom: none;
-  font-size: 40px;
-  font-weight: bold;
   background: linear-gradient(to right, #fef5da 15%, #584bad 70%);
   padding-left: 10px;
   padding-right: 10px;
@@ -121,6 +117,8 @@ body, h1, p, ul {
   flex: 1;
   text-align: center;
   padding-top: 10px;
+  font-weight: bold;
+  font-size: 35px;
 }
 
 /* Navigation Tabs */
@@ -157,21 +155,24 @@ body, h1, p, ul {
 .main-content {
   padding: 10px;
   margin: auto;
-  margin-top: 10px;
+  margin-top: 20px;
   /*background: #ffd700; */
   border-radius: 10px;
-  width: 100%;
   border: 2px solid var(--bs-emphasis-color);
-  font-size: 24px;
+  font-size: 23px;
+  font-weight: bold;
+  width: 98%;
 }
 
 #display-range {
   display: flex;
+  margin-top: 30px;
+  padding-left: 50px;
 }
 
 .recent-area {
   border-radius: 10px;
-  border: 2px solid var(--bs-emphasis-color);
+  border: 2px solid #6a5acd;
   font-size: 24px;
   width: 22%;
   height: 30%;
@@ -179,7 +180,7 @@ body, h1, p, ul {
 }
 
 .recent-area p {
-  border-bottom: 2px solid var(--bs-emphasis-color);
+  border-bottom: 2px solid #6a5acd;
   padding-left: 5px;
 }
 

@@ -1,14 +1,13 @@
 /* Styles for the notice */
 .demo-notice {
-  background-color: #ffd700;
-  font-size: 20px;
+  color: var(--bs-emphasis-color);
+  border: 2px solid var(--bs-emphasis-color);
+  background: #ffd700;
   text-align: center;
-  height: 60px;
+  font-weight: bold;
+  font-size: 20px;
   padding: 15px;
-  border-width: 2px;
-  border-style: solid;
 }
-
 .card-header {
   display: flex;
   align-items: center; /* This ensures vertical centering */
