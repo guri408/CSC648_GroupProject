@@ -170,15 +170,6 @@ body, h1, p, ul {
   padding-left: 50px;
 }
 
-.recent-area {
-  border-radius: 10px;
-  border: 2px solid #6a5acd;
-  font-size: 24px;
-  width: 22%;
-  height: 30%;
-  margin: 10px 1% 0 1%;
-}
-
 .recent-area p {
   border-bottom: 2px solid #6a5acd;
   padding-left: 5px;
@@ -199,6 +190,27 @@ body, h1, p, ul {
   border: 0;
 }
 
+.recent-area {
+  position: relative; /* Set the position context for absolute positioning inside */
+  border-radius: 10px;
+  border: 2px solid #6a5acd;
+  font-size: 24px;
+  width: 22%;
+  height: 30%;
+  margin: 10px 1% 0 1%;
+}
+
+.btn-display {
+  position: absolute; /* Position the button absolutely within .recent-area */
+  right: 10px; /* Distance from the right side of the container */
+  bottom: 10px; /* Distance from the bottom of the container */
+  border-color: #6a5acd;
+  padding: 5px 10px; /* Adjust padding to suit your design */
+  background-color: white; /* Optional: change background color */
+  color: black; /* Optional: text color */
+  cursor: pointer; /* Change cursor to pointer to indicate button */
+}
+
 /* Dashboard Heading */
 .dashboard-heading {
   color: var(--bs-emphasis-color);
@@ -206,36 +218,4 @@ body, h1, p, ul {
   font-weight: bold;
   margin-left: -80px;
   margin-top: -80px;
-}
-
-
-/* Message Notification Paragraph */
-.message-notification {
-  color: var(--bs-emphasis-color);
-  font-weight: bold;
-  text-align: center;
-  font-size: 15px;
-  margin-top: -60px;
-}
-
-.btn-outline-primary, .btn-outline-secondary {
-  border: 2px solid var(--bs-emphasis-color);
-  color: var(--bs-emphasis-color);
-  font-weight: bold;
-}
-
-.btn-outline-primary {
-  margin-top: 40px;
-  margin-left: -80px;
-  margin-right: 20px; /* Add space to the right of the button */
-}
-
-/* Adjust the margin for the 'Listings' button, if necessary */
-.btn-outline-secondary {
-  margin-top: -25px;
-  margin-left: 40px; /* Add space to the left of the button */
-}
-
-.btn-outline-primary:hover, .btn-outline-secondary:hover {
-  background-color: #6a5acd;
 }
