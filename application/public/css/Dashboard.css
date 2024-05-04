@@ -78,15 +78,37 @@
   font-size: 35px;
   color: var(--bs-emphasis-color);
   margin-left: -50px;
-  margin-top: -60px;
+  margin-top: -90px;
+}
+
+.user-greeting {
+  font-size: 18px;
+  color: black;  
+  text-align: center;
 }
 
 .btn-outline-primary, .btn-outline-secondary {
+  position: relative; /* Essential for positioning the badge absolutely */
   border: 2px solid var(--bs-emphasis-color);
   color: var(--bs-emphasis-color);
   font-weight: bold;
   margin-left: -50px;
   margin-bottom: -40px;
+  padding: 8px 16px;
+  font-size: 16px;
+}
+ 
+/* Message Notification*/
+.btn .badge {
+  position: absolute; /* Absolute positioning relative to the nearest positioned ancestor (the button) */
+  padding: 3px 6px;
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  border-radius: 50%;
+  right: 0px;
+  top: 0px;
+  transform: translate(50%, -50%); /* Centers badge on the top right corner */
 }
 
 .btn-outline-primary {
@@ -98,11 +120,9 @@
   margin-left: 10px; /* Add space to the left of the Compose button */
 }
 
-
 .btn-outline-primary:hover, .btn-outline-secondary:hover {
   background-color: #6a5acd;
 }
-
 
 /* Messages.css */
 .search-table-col {
@@ -125,7 +145,6 @@
 }
 
 /*Listings.css*/
-
 #display-range {
   display: flex;
   justify-content: center; /* Centers items horizontally */
@@ -181,6 +200,7 @@
   float: right; /* Aligns the button to the right */
   margin-right: -50px; /* Adds some spacing from the right edge */
   margin-top: 14px;
+  font-size: 16px;
 }
 
 .btn-compose {
@@ -200,7 +220,6 @@
 }
 
 /*Active Button*/ 
-
 .btn-active {
   text-decoration: underline;
   background-color: #6a5acd; /* Light background color for visibility */

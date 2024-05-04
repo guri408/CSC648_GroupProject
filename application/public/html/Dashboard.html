@@ -27,8 +27,13 @@
             Log out </a>
     </div>     
     <div class="main-content">
+        <div class="user-greeting">
+            Welcome back, <strong> [User's Name]</strong>! <!-- Template engine syntax, replace as necessary -->
+        </div>
         <h1 class="head-title">Dashboard</h1>
-        <button onclick="toggleMessages()" class="btn btn-outline-primary">Messages</button>
+        <button onclick="toggleMessages()" class="btn btn-outline-primary">
+            Messages <span id="messageCount" class="badge">1</span> <!--Message Notification-->
+        </button>
         <button onclick="toggleListings()" class="btn btn-outline-secondary">Listings</button>
         <a href="Compose.html" class="btn btn-outline-secondary btn-compose" style="display: none;">Compose</a>        
     </div>
