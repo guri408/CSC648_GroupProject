@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, jsonify
 from db_connection import get_db_connection
 
-recent_items = Blueprint('recent_items', __name__, static_folder='./public', template_folder='./html')
+recent_items = Blueprint('recent_items', __name__, static_folder='./public', template_folder='./public/html')
 
 @recent_items.route('/recentItemsPost')
 def recent_items_post():
