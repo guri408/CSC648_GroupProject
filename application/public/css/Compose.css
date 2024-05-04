@@ -63,54 +63,33 @@
 }
 
 /* Main Content Area Styling */
+/* Main Content Area Styling */
 .main-content {
-  border: 2px solid var(--bs-emphasis-color);
-  border-radius: 10px;
-  padding: 70px;
-  background: #ffd700;
-  width: 1100px;
-  height: 10px;
-  margin: auto;
-  margin-top: 50px;
+  padding: 30px; /* Consistent padding ensures that the content inside does not grow or shrink unexpectedly */
+  width: 500px; /* Fixed width for consistency */
+  margin: auto; /* Center the form horizontally */
+  margin-top: 50px; /* Adequate spacing from the top */
 }
 
 .head-title {
-  font-weight: bold;
-  font-size: 35px;
+  font-weight: semi-bold;
+  text-align: center;
+  font-size:35px; /* Fixed font size for consistency */
   color: var(--bs-emphasis-color);
-  margin-left: -50px;
-  margin-top: -60px;
-}
-
-.btn-outline-primary, .btn-outline-secondary {
-  border: 2px solid var(--bs-emphasis-color);
-  color: var(--bs-emphasis-color);
-  font-weight: bold;
-  margin-left: -50px;
-  margin-bottom: -40px;
-}
-
-.btn-outline-primary {
-  margin-right: 10px; /* Add space to the right of the Dashboard button */
-}
-
-/* or for the Compose button */
-.btn-outline-secondary {
-  margin-left: 10px; /* Add space to the left of the Compose button */
-}
-
-
-.btn-outline-primary:hover, .btn-outline-secondary:hover {
-  background-color: #6a5acd;
+  margin-top: -40px;
 }
 
 .contact-form {
-  margin-top: -20px;
-  border-width: 2px;
+  border: 1px solid #6a5acd;
+  border-radius: 10px;
+  padding: 30px; /* Consistent padding ensures that the content inside does not grow or shrink unexpectedly */
+  width: 425px; /* Fixed width for consistency */
+  margin: auto; /* Center the form horizontally */
+  margin-top: -60px; /* Adequate spacing from the top */
 }
 
 .form-control {
-  border: 2px solid #6a5acd;
+  border: 1px solid #6a5acd;
 }
 
 .form-control-subject {
@@ -118,7 +97,7 @@
 }
 
 .btn-form {
-  border: 2px solid #6a5acd; /* Updated this line to use the hex color directly */
+  border: 1px solid #6a5acd; /* Updated this line to use the hex color directly */
   color: black;
   font-weight: bold;
 }
