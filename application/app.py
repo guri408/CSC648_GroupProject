@@ -5,7 +5,7 @@ import mysql.connector
 from db_connection import get_db_connection
 from recent_items import recent_items 
 
-app = Flask(__name__, static_folder='./public', template_folder='./html')
+app = Flask(__name__, static_folder='./public', template_folder='./public/html')
 #mysql = MySQL(app)
 
 # Register the Blueprint with the app
@@ -47,12 +47,12 @@ def gursimran():
 def omar():
     return render_template('about/Omar.html')
 
-@app.route('/pages/Sell.html')
+@app.route('/Sell.html')
 def sell():
-    return render_template('pages/Sell.html')
-@app.route('/pages/Search.html')
+    return render_template('/Sell.html')
+@app.route('/Search.html')
 def search_page():
-    return render_template('pages/Search.html')
+    return render_template('/Search.html')
 
 #@app.route("/livesearch",methods=["POST","GET"])
 #def livesearch():

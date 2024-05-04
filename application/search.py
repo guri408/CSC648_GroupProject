@@ -3,7 +3,7 @@ import mysql.connector
 from db_connection import get_db_connection
 
 
-search = Blueprint('search', __name__, static_folder='./public', template_folder='./html')
+search = Blueprint('search', __name__, static_folder='./public', template_folder='./public/html')
 
 
 #test db connection
@@ -16,9 +16,9 @@ search = Blueprint('search', __name__, static_folder='./public', template_folder
 #for Product in product:
 #    print(Product)
 
-@search.route('/pages/Search.html')
+@search.route('/Search.html')
 def search_page():
-    return render_template('pages/Search.html')
+    return render_template('/Search.html')
 
 #endpoint for search
 @search.route("/searchingPost",methods=['GET'])
@@ -59,4 +59,4 @@ def searchingPost():
     # Always close cursor and connection when done
     cur.close()
     mydb.close()
-    return jsonify({'htmlresponse': render_template('pages/response.html', item=item, numrows=numrows)})
+    return jsonify({'htmlresponse': render_template('/response.html', item=item, numrows=numrows)})
