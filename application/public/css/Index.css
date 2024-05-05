@@ -7,40 +7,72 @@
 body, h1, p, ul {
     margin: 0;
     padding: 0;
-    font-family: CustomFont;
+    /*font-family: CustomFont; */
 }
 
-/* Container for the header */
-.header {
-    /* Gradient background */
-    background: #fef5da;
-    background: linear-gradient(to right, #fef5da 15%, #584bad 70%);
-    color: #fff;
-    padding: 5px;
-    display: flex;
-    align-items: center; /* Align items vertically in the flex container */
+/* Styles for the notice */
+.demo-notice {
+  color: var(--bs-emphasis-color);
+  border: 2px solid var(--bs-emphasis-color);
+  background: #ffd700;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 15px;
 }
 
-#logo {
-    max-width: 120px;
-    max-height: 120px;
-    margin-right: 200px; /* Add margin to separate logo from form */
-    padding-left: 10px;
+.card-header {
+  text-align: center;
+  align-items: center; /* This ensures vertical centering */
+  justify-content: space-between; /* This will push the logo to the left and text to the center */
+  margin-top: -10px;
+  border: 2px solid var(--bs-emphasis-color);
+  border-bottom: none;
+  background: #584bad;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 150px;
+}
+
+.card-header img {
+  float: left;
+}
+
+#welcome {
+    font-size: 27px; /* Adjust font size as needed */
+    font-weight: bold; /* Adjust font weight as needed */
+    background: white;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent; /* Hide original text */
+}
+
+.logo {
+  width: 100px; /* Keep your logo dimensions */
+  
 }
 
 #searchForm {
     flex: 1; /* Take up remaining space in the flex container */
+    display: inline-block;
+    margin-left: 15%;
+    margin-bottom: 10px;
+    width: 80%;
+    float: right;
 }
 
 #txt-container {
     display: flex;
-    border: 2px solid #584bad; /* Set border color */
+    width: 100%;
     border-radius: 15px; /* Rounded corners */
+    border-left: 2px solid #584bad; /* Set border color */
+    border-top: 2px solid #584bad; /* Set border color */
+    border-bottom: 2px solid #584bad; /* Set border color */
 }
 
 #category,
 #searchText,
-#searchButton {
+.searchButton {
     height: 30px;
     font-family: Arial, sans-serif;
     font-size: 16px;
@@ -66,179 +98,86 @@ body, h1, p, ul {
     border-bottom-right-radius: 15px; /* Remove bottom-right border radius to connect to searchText */
 }
 
-#searchButton {
+.searchButton {
     margin-left: 10px;
     width: 10%;
     border: none; /* Remove border */
     background-color: #fff; /* Match background color to maintain appearance */
-    padding: 0; /* Reset padding */
+    padding: 0; /* Reset padding */    border: 2px solid #584bad; /* Set border color */
+    border-radius: 15px; /* Rounded corners */
 }
 
-#searchButton:active {
+.searchButton:active {
     background-color: #453a8e;
     color: white;
 }
 
-/* The .demo-notice class styles the demonstration notice header */
-.demo-notice {
-    background-color: #ffd700; 
-    color: #000; 
-    text-align: center;
-    padding: 20px 0; 
-    font-weight: bold; 
-    font-size: 1.2em; 
-    border-bottom: 3px solid #000;
+.title-text {
+  /* This will center the title text in the available space, assuming .title-text wraps the text */
+  flex: 1;
+  text-align: center;
+  padding-top: 10px;
+  font-weight: bold;
+  font-size: 35px;
+  color: white;
 }
 
-/* Navigation bar */
-.navbar {
-    background-color: #FFC436; /* Yellow */
-    padding: 10px;
-    padding-left: 40px;
+/* Navigation Tabs */
+.nav-container {
+  border: 2px solid var(--bs-emphasis-color);
+  padding: 8px;
+  background: #FFC436;
 }
 
-.navbar ul {
-    list-style-type: none;
+.btn-nav {
+  font-weight: bold;
+  color: black;
+  border: 2px solid black;
+  margin-left: 10px;
 }
 
-.navbar ul li {
-    display: inline;
-    margin-right: 10px;
+.btn-nav:hover {
+  background-color: #6a5acd;
+  color: white; /* Optional: change text color on hover */
 }
 
-.navbar ul li a {
-    text-decoration: none;
-    color: #6a5acd; /* Purplish blue */
+.btn-nav:first-child {
+  margin-left: 0;
 }
 
-/* Dropdown menu */
-.dropdown {
-    position: relative;
-    display: inline-block;
+/* This class is for the last button to separate it from the others */
+.btn-Login {
+  margin-left: auto; /* This will push the login button to the right if the nav-container is flex */
+  float: right;
+  margin-right: 5px;
 }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    left: -20px; /* Adjust this value as needed */
-}
-
-.dropdown-content a {
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-content a:hover {
-    background-color: #ddd;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-#navblock,
-#loginButton {
-    display: inline-block;
-}
-
-#loginButton a {
-    text-decoration: none;
-    color: #6a5acd; /* Purplish blue */
-}
-
-#navblock{
-    width: 90%;
-}
-
-#loginButton {
-    text-align: right;
-}
-
-.productIMG {
-    max-width: 300px;
-    max-height: 300px;
-}
-
-/* Main content area */
+/* Main Content Area Styling */
 .main-content {
-    max-width: 750px;
-    margin: 0 auto 560px;
-    padding: 0 20px;
+  padding: 10px;
+  margin: auto;
+  margin-top: 20px;
+  /*background: #ffd700; */
+  border-radius: 10px;
+  border: 2px solid var(--bs-emphasis-color);
+  font-size: 23px;
+  font-weight: bold;
+  width: 98%;
 }
 
-.filters {
-    float: left;
-    width: 150px;
-    border: 2px solid #584bad;
-    margin: 5px;
-    padding: 5px;
+#display-range {
+  display: flex;
+  margin-top: 30px;
+  padding-left: 50px;
 }
 
-#price-r, 
-#name-s,
-#price-a {
-    border-radius: 10px;
-    border: 2px ridge #584bad;
-    margin: 5px 5px 40px 5px;
+.recent-area p {
+  border-bottom: 2px solid #6a5acd;
+  padding-left: 5px;
 }
 
-.item-container {
-    border-top: 2px ridge #584bad; /* Set border color */
-    border-bottom: 2px ridge #584bad; /* Set border color */
-    padding: 10px;
-    margin-top: 10px;
-    background: #aca2f3;
-    float: right;
-    width: 550px;
-}
-
-.item-name {
-    border: 2px ridge #584bad; /* Set border color */
-    padding-left: 5px;
-}
-
-.image {
-    max-width: 300px;
-    max-height: 300px;
-}
-
-#GTS#searchButton {
-    width: 55%;
-}
-
-#FHTT {
-    color: black;
-}
-
-/* Adjust the dropdown button position */
-#dropdownBtn {
-    display: none; /* Hide the button by default */
-}
-
-#searchForm2 {
-    display: none;
-}
-
-.recent-items {
-    border-top: 2px ridge #584bad; /* Set border color */
-    border-bottom: 2px ridge #584bad; /* Set border color */
-    padding: 0 10px 10px 10px;
-    background: #aca2f3;
-    width: 150px;
-    height: 180px;
-    float: left;
-    margin: 0 1% 0 1%;
-}
-
-.recent-item-name {
-    padding: 5px;
-    font-size: 18px;
-    border-bottom: 2px ridge #584bad; /* Set border color */
+.recent-area img {
+  padding: 5px;
 }
 
 .recents {
@@ -247,213 +186,37 @@ body, h1, p, ul {
     margin: 12.5px;
 }
 
-#footer {
-    bottom: 0;
-    width: 100%;
-    background-color: #FFC436;
-    padding: 10px;
-    text-align: center;
+.recent-area p.description {
+  font-size: 18px;
+  border: 0;
 }
 
-@media (max-width: 768px) {
-    /* Hide the original navbar */
-    .navbar, #logo, #searchForm {
-        display: none;
-    }
-
-    .recent-items {
-        float: none;
-        margin: 10px 0 10px 0;
-    }
-
-    .mobile {
-        height: 55px;
-        background: grey;
-    }
-    
-    #searchForm2 {
-        display: block;
-	float: left;
-        width: auto;
-        padding: 10px 5% 10px 5%;
-        /* Gradient background */
-        background: grey;
-	height: 35px;
-    }
-    
-    .main-content {
-	padding-top: 10px;
-    }
-
-    #category,
-    #searchText,
-    #searchButton {
-	width: auto;
-    }
-
-    /* Show the dropdown button */
-    #dropdownBtn {
-        display: block;
-        float: right;
-	width: 20%;
-	height: 55px;
-        background-color: #FFC436; /* Yellow */
-	font-size: 32px;
-	border: none;
-    }
-
-    #dropdownBtn:active {
-        background-color: #bf8e1c;
-        color: white;
-    }
-
-    /* Adjust the dropdown content width */
-    #dropdownContent {
-	float: right;
-        position: relative;
-        display: none;
-        background-color: #FFC436; /* Yellow */
-        left: 0;
-    }
-    .dropdown-content{
-        background-color: #FFC436; /* Yellow */
-	left: 0;
-    }
-    #dropdownContent.show {
-	display: inline-block;
-    }
-    ul {
-	list-style: none;
-    }
+.recent-area {
+  position: relative; /* Set the position context for absolute positioning inside */
+  border-radius: 10px;
+  border: 2px solid #6a5acd;
+  font-size: 24px;
+  width: 22%;
+  height: 30%;
+  margin: 10px 1% 0 1%;
 }
 
-@media (max-width: 635px) {
-    /* Hide the original navbar */
-    .navbar, #logo, #searchForm {
-        display: none;
-    }
-
-    /* Style the navbar */
-    #navblock {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    /* Style the navbar links */
-    #navblock li {
-        text-align: center;
-        padding: 10px;
-    }
-
-    #navblock li a {
-        text-decoration: none;
-        color: #6a5acd; /* Purplish blue */
-        display: block;
-    }
-
-    /* Submenu styles */
-    #navblock .dropdown-content {
-        display: none;
-        position: relative;
-        background-color: #f9f9f9;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-        z-index: 1;
-    }
-
-    #navblock .dropdown-content a {
-        padding: 12px 12px;
-        text-decoration: none;
-        display: block;
-    }
-
-    #navblock .dropdown:hover .dropdown-content {
-        display: block;
-    }
-
-    .mobile {
-        height: 55px;
-        background: grey;
-    }
-    
-    #searchForm2 {
-        display: block;
-	float: left;
-        width: auto;
-        padding: 10px 5% 10px 5%;
-        /* Gradient background */
-        background: grey;
-	height: 35px;
-    }
-    
-    .main-content {
-	padding-top: 10px;
-    }
-
-    #category,
-    #searchText,
-    #searchButton {
-	width: auto;
-    }
-
-    /* Show the dropdown button */
-    #dropdownBtn {
-        display: block;
-        float: right;
-	width: 10%;
-	height: 55px;
-        background-color: #FFC436; /* Yellow */
-	font-size: 32px;
-	border: none;
-    }
-
-    #dropdownBtn:active {
-	background-color: #bf8e1c;
-        color: white;
-    }
-
-    /* Adjust the dropdown content width */
-    #dropdownContent {
-	float: right;
-        position: relative;
-        display: none;
-        background-color: #FFC436; /* Yellow */
-        left: 0;
-    }
-    #dropdownContent #navblock {
-	text-decoration: none;
-    }
-    .dropdown-content{
-        background-color: #FFC436; /* Yellow */
-	left: 0;
-    }
-    #dropdownContent.show {
-	display: inline-block;
-    }
-    ul {
-	list-style: none;
-        text-align: center;
-    }
-    #loginButton {
-	text-align: center;
-    }
+.btn-display {
+  position: absolute; /* Position the button absolutely within .recent-area */
+  right: 10px; /* Distance from the right side of the container */
+  bottom: 10px; /* Distance from the bottom of the container */
+  border-color: #6a5acd;
+  padding: 5px 10px; /* Adjust padding to suit your design */
+  background-color: white; /* Optional: change background color */
+  color: black; /* Optional: text color */
+  cursor: pointer; /* Change cursor to pointer to indicate button */
 }
-@media (max-width: 560px) {
-    #searchForm2 {
-	width: 100%;
-    }
-    #dropdownBtn {
-	width: 100%;
-    }
-    #dropdownContent {
-	width: 100%;
-        position: relative;
-        display: none;
-        background-color: #FFC436; /* Yellow */
-        left: 0;
-    }
-    #navblock {
-	width: 100%;
-    }
+
+/* Dashboard Heading */
+.dashboard-heading {
+  color: var(--bs-emphasis-color);
+  font-size: 35px;
+  font-weight: bold;
+  margin-left: -80px;
+  margin-top: -80px;
 }
