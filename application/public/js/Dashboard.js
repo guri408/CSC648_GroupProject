@@ -40,3 +40,21 @@ document.addEventListener('DOMContentLoaded', function() {
         toggleMessages();
     }
 });
+
+function updateMessageBadge() {
+    const badge = document.getElementById('messageCount');
+    const count = 1; // Placeholder for a fake message count, replace with dynamic value from server later
+    
+    if (count > 0) {
+        badge.textContent = count; // Set the badge count
+        badge.style.display = 'inline-block'; // Show the badge
+    } else {
+        badge.style.display = 'none'; // Hide the badge if count is 0
+    }
+}
+
+// Call this function on page load
+document.addEventListener('DOMContentLoaded', function() {
+    updateMessageBadge(); // Update the badge based on the static count
+});
+
