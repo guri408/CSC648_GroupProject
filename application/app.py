@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 from search import search
 from item_submission import item_bp
+from login import login
 import mysql.connector
 from db_connection import get_db_connection
 from recent_items import recent_items 
