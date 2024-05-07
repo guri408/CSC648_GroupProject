@@ -28,7 +28,7 @@ body, h1, p, ul {
   margin-top: -10px;
   border: 2px solid var(--bs-emphasis-color);
   border-bottom: none;
-  background: #584bad;
+  background: linear-gradient(to right, #fef5da 15%, #584bad 70%);
   padding-left: 10px;
   padding-right: 10px;
   height: 150px;
@@ -41,7 +41,7 @@ body, h1, p, ul {
 #welcome {
     font-size: 27px; /* Adjust font size as needed */
     font-weight: bold; /* Adjust font weight as needed */
-    background: white;
+    background: black;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent; /* Hide original text */
@@ -119,7 +119,7 @@ body, h1, p, ul {
   padding-top: 10px;
   font-weight: bold;
   font-size: 35px;
-  color: white;
+  color: black;
 }
 
 /* Navigation Tabs */

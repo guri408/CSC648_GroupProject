@@ -35,6 +35,7 @@ width: 100px; /* Keep your logo dimensions */
 /* This will center the title text in the available space, assuming .title-text wraps the text */
 flex: 1;
 text-align: center;
+color: black;
 }
   
 /* Navigation Tabs */
