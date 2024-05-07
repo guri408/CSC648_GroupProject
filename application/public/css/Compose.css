@@ -1,0 +1,109 @@
+/* General Styles for Notices and Headers */
+.demo-notice {
+  color: var(--bs-emphasis-color);
+  border: 2px solid var(--bs-emphasis-color);
+  background: #ffd700;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 15px;
+}
+
+.card-header {
+  display: flex;
+  align-items: center; /* This ensures vertical centering */
+  justify-content: space-between; /* This will push the logo to the left and text to the center */
+  margin-top: -10px;
+  border: 2px solid var(--bs-emphasis-color);
+  border-bottom: none;
+  font-size: 40px;
+  font-weight: bold;
+  background: linear-gradient(to right, #fef5da 15%, #584bad 70%);
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.logo {
+  width: 100px; /* Keep your logo dimensions */
+  
+}
+
+.title-text {
+  /* This will center the title text in the available space, assuming .title-text wraps the text */
+  flex: 1;
+  text-align: center;
+  color: black;
+}
+
+/* Navigation Tabs */
+.nav-container {
+  border: 2px solid var(--bs-emphasis-color);
+  padding: 8px;
+  background: #FFC436;
+}
+
+.btn-nav {
+  font-weight: bold;
+  color: black;
+  border: 2px solid black;
+  margin-left: 10px;
+}
+
+.btn-nav:hover {
+  background-color: #6a5acd;
+  color: white; /* Optional: change text color on hover */
+}
+
+.btn-nav:first-child {
+  margin-left: 0;
+}
+
+/* This class is for the last button to separate it from the others */
+.btn-Login {
+  margin-left: auto; /* This will push the login button to the right if the nav-container is flex */
+}
+
+/* Main Content Area Styling */
+/* Main Content Area Styling */
+.main-content {
+  padding: 30px; /* Consistent padding ensures that the content inside does not grow or shrink unexpectedly */
+  width: 500px; /* Fixed width for consistency */
+  margin: auto; /* Center the form horizontally */
+  margin-top: 50px; /* Adequate spacing from the top */
+}
+
+.head-title {
+  font-weight: semi-bold;
+  text-align: center;
+  font-size:35px; /* Fixed font size for consistency */
+  color: var(--bs-emphasis-color);
+  margin-top: -40px;
+}
+
+.contact-form {
+  border: 1px solid #6a5acd;
+  border-radius: 10px;
+  padding: 30px; /* Consistent padding ensures that the content inside does not grow or shrink unexpectedly */
+  width: 425px; /* Fixed width for consistency */
+  margin: auto; /* Center the form horizontally */
+  margin-top: -60px; /* Adequate spacing from the top */
+}
+
+.form-control {
+  border: 1px solid #6a5acd;
+}
+
+.form-control-subject {
+  margin-top: 15px;
+}
+
+.btn-form {
+  border: 1px solid #6a5acd; /* Updated this line to use the hex color directly */
+  color: black;
+  font-weight: bold;
+}
+
+.btn-form:hover { 
+  background-color: #6a5acd;
+  color: white;
+}
