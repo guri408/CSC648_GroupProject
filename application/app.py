@@ -12,7 +12,8 @@ app = Flask(__name__, static_folder='./public', template_folder='./public/html')
 # Register the Blueprint with the app
 app.register_blueprint(search, url_prefix="")
 app.register_blueprint(item_bp, url_prefix="")
-app.register_blueprint(recent_items, url_prefix="")  
+app.register_blueprint(recent_items, url_prefix="")
+app.register_blueprint(login, url_prefix="")
 
 
 @app.route('/index.html')
@@ -55,33 +56,9 @@ def sell():
 def search_page():
     return render_template('/Search.html')
 
-#@app.route("/livesearch",methods=["POST","GET"])
-#def livesearch():
-#    searchbox = request.form.get("text")
-#    cursor = mysql.connection.cursor()
-#    query = "SELECT p.* FROM Product p JOIN ProductCategory pc ON p.ProductID = pc.ProductID JOIN Category c ON pc.CategoryID = c.CategoryID WHERE c.Name = %s AND (p.Title LIKE %s OR p.Description LIKE %s)"
-#    cursor.execute(query)
-#    result = cursor.fetchall()
-#    return jsonify(result)
-
-#endpoint for recentItemList
-#@app.route("/recentItemsPost",methods=['GET'])
-#def recentItemsPost():
-#    mydb = get_db_connection()
-#    cur = mydb.cursor(dictionary=True)
-#    item = []
-
-#    if request.method == 'GET':
-#        query = "SELECT * FROM Listing"
-
-#        item = cur.fetchall()
-#        print("SQL Query: ", query)
-#        print("Search results: ", item)
-#    # Always close cursor and connection when done
-#    cur.close()
-#    mydb.close()
-#    return jsonify({'htmlRecentItemResponse': render_template('RecentItemResponse.html', item=item)})
-
+#@app.route('/Login.html')
+#def login_page():
+#    return render_template('/Login.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
