@@ -3,6 +3,7 @@ from search import search
 from item_submission import item_bp
 from login import login
 from signup import signup
+from compose import compose
 import mysql.connector
 from db_connection import get_db_connection
 from recent_items import recent_items
@@ -16,6 +17,7 @@ app.register_blueprint(item_bp, url_prefix="")
 app.register_blueprint(recent_items, url_prefix="")
 app.register_blueprint(login, url_prefix="")
 app.register_blueprint(signup, url_prefix="")
+app.register_blueprint(compose, url_prefix="")
 
 
 @app.route('/index.html')
