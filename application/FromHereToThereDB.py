@@ -1,8 +1,8 @@
-# FromHereToThere DataBase
+# FromHereToThereDB
 import mysql.connector
 from mysql.connector import Error
 
-def get_db_connection():
+def get_FromHereToThereDB():
     try:
         connection = mysql.connector.connect(
             host="localhost",

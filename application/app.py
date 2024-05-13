@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, jsonify
 from search import search
 from item_submission import item_bp
 from login import login
-from signup import signup
+from signup import signup_bp
 from compose import compose
 from dashboard import dashboard
 import mysql.connector
@@ -17,7 +17,7 @@ app.register_blueprint(search, url_prefix="")
 app.register_blueprint(item_bp, url_prefix="")
 app.register_blueprint(recent_items, url_prefix="")
 app.register_blueprint(login, url_prefix="")
-app.register_blueprint(signup, url_prefix="")
+app.register_blueprint(signup_bp, url_prefix="")
 app.register_blueprint(compose, url_prefix="")
 app.register_blueprint(dashboard, url_prefix="")
 
@@ -57,9 +57,14 @@ def omar():
 @app.route('/Sell.html')
 def sell():
     return render_template('/Sell.html')
+
 @app.route('/Search.html')
 def search_page():
     return render_template('/Search.html')
+
+@app.route('/Signup.html')
+def signup_page():
+    return render_template('/Signup.html')
 
 #@app.route('/Login.html')
 #def login_page():
