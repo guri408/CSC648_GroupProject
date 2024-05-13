@@ -21,10 +21,10 @@ app.register_blueprint(signup_bp, url_prefix="")
 app.register_blueprint(compose, url_prefix="")
 app.register_blueprint(dashboard, url_prefix="")
 
-@app.route('/index.html')
+@app.route('/Index.html')
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('Index.html')
 
 @app.route('/about')
 def about():
