@@ -225,3 +225,7 @@
   text-decoration: underline;
   background-color: #6a5acd; /* Light background color for visibility */
 }
+
+.footer {
+  margin-top: 65px;
+  }
