@@ -163,7 +163,7 @@ body, h1, p, ul {
   font-size: 23px;
   font-weight: bold;
   width: 98%;
-    max-width: 1050px;
+    max-width: 1400px;
 }
 
 @keyframes flyInFromLeft {
@@ -201,6 +201,7 @@ body, h1, p, ul {
     transform: translateX(-100%);
     float: left;
     padding: 15px 0 50% 0;
+    width: 16%;
 }
 
 .recent-area {
