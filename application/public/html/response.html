@@ -1,4 +1,6 @@
-<!-- SearchResults.html -->
+<!-- response.html -->
+<p id="tag">Search results</p>
+<div id="display-range">        
 <div class="filters">
     <p>Price Range:</p>
     <select id="price-r">
@@ -13,16 +15,20 @@
         <option value="HighLow">High to Low</option>
     </select>
 </div>
-<div id="result">
+
     {% for item in items %}
     <div class="recent-area">
         <p>{{ item.ItemName }}</p>
-        <img src="../Product_Images/Thumbnails/{{ item.PhotoName }}" class="recents" alt="{{ item.ItemName }}"/>
+        <img src="{{ url_for('static', filename='Product_Images/Thumbnails/' + item.PhotoName) }}" class="recents" alt="{{ item.ItemName }}"/>
         <p class="description">{{ item.PostDate }}</p>
         <p class="description">{{ item.CategoryName }}</p>
+        <p class="description">Price: {{ item.Price }}</p>
+        <p class="description">Rental Price: {{ item.RentalPrice }}</p>
         <a href="Compose.html" class="btn btn-nav btn-display" type="button">
             Message Seller
         </a>
     </div>
     {% endfor %}
+
 </div>
+

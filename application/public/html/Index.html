@@ -47,9 +47,8 @@
         <a href="Dashboard.html" class="btn btn-nav" type="button">Dashboard</a>
         <a href="Login.html" class="btn btn-nav btn-Login" type="button">Login/Signup</a>
     </div> 
-    <div class="main-content">
-        <p id="tag">Recently Posted Items For Sale</p>
-        <div id="display-range"></div>
+    <div id="main-content" class="main-content">
+   
     </div>
     <script>
         $(document).ready(function() {
@@ -58,7 +57,7 @@
                 url: '/recentItemsPost',
                 method: 'GET',
                 success: function(response) {
-                    $('#display-range').html(response);
+                    $('#main-content').html(response);
                 },
                 error: function(xhr, status, error) {
                     console.error('Error fetching recent items:', error);
@@ -68,49 +67,30 @@
             // Handle search form submission
             $('#searchForm').on('submit', function(event) {
                 event.preventDefault();
+                performSearch();
+            });
+
+            // Attach filter handlers
+            $('#price-r, #rentalprice-r').change(function() {
+                performSearch();
+            });
+
+            function performSearch() {
                 var query = $('#searchText').val();
                 var category = $('#category').val();
+                var priceRange = $('#price-r').val();
+                var rentalPriceRange = $('#rentalprice-r').val();
                 $.ajax({
                     url: '/searchingPost',
                     method: 'GET',
-                    data: { query: query, category: category },
+                    data: { query: query, category: category, price_range: priceRange, rental_price_range: rentalPriceRange },
                     success: function(response) {
-                        $('#result').html(response.htmlresponse);
+                        $('#main-content').html(response.htmlresponse);
                     },
                     error: function(xhr, status, error) {
                         console.error('Error during search:', error);
                     }
                 });
-            });
-
-            // Handle sorting by price
-            $('#price-r').change(function() {
-                var sortBy = $(this).val();
-                sortItems(sortBy, 'Price');
-            });
-
-            // Handle sorting by rental price
-            $('#rentalprice-r').change(function() {
-                var sortBy = $(this).val();
-                sortItems(sortBy, 'RentalPrice');
-            });
-
-            function sortItems(sortOrder, sortType) {
-                var items = $('.recent-area').get();
-                items.sort(function(a, b) {
-                    var aText = $(a).find('.' + sortType).text().split(': ')[1].trim();
-                    var bText = $(b).find('.' + sortType).text().split(': ')[1].trim();
-
-                    var valA = aText === "Not Available" ? (sortOrder === 'LowHigh' ? Infinity : -Infinity) : parseFloat(aText);
-                    var valB = bText === "Not Available" ? (sortOrder === 'LowHigh' ? Infinity : -Infinity) : parseFloat(bText);
-
-                    if (sortOrder === 'LowHigh') {
-                        return valA - valB;
-                    } else {
-                        return valB - valA;
-                    }
-                });
-                $('#result').empty().append(items);
             }
         });
     </script>
