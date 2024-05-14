@@ -8,7 +8,7 @@ def get_db_connection():
             host="localhost",
             user="admin",
             password="12345678",
-            database="TestSearch"
+            database="FromHereToThere"
         )
         return connection
     except Error as e:

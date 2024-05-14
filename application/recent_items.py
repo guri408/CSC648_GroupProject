@@ -8,7 +8,22 @@ def recent_items_post():
     try:
         mydb = get_db_connection()
         cur = mydb.cursor(dictionary=True)
-        query = "SELECT ItemName, file_name, PostDate FROM Listing ORDER BY PostDate DESC LIMIT 4"
+        query = """
+            SELECT 
+                Listing.ItemName, 
+                Listing.PhotoName AS file_name, 
+                Listing.PostDate, 
+                Category.CategoryName 
+            FROM 
+                Listing 
+            JOIN 
+                Category 
+            ON 
+                Listing.CategoryID = Category.CategoryID 
+            ORDER BY 
+                Listing.PostDate DESC 
+            LIMIT 4
+        """
         cur.execute(query)
         items = cur.fetchall()
         cur.close()
