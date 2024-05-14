@@ -165,14 +165,6 @@ body, h1, p, ul {
   width: 98%;
 }
 
-#display-range {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  margin-top: 30px;
-  padding-left: 50px;
-}
-
 @keyframes flyInFromLeft {
     from {
         transform: translateX(-100%);
@@ -191,15 +183,26 @@ body, h1, p, ul {
     }
 }
 
+#display-range {
+    animation: flyInFromRight 1.0s ease forwards;
+    transform: translateX(100%);
+        float: right;
+    width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 30px;
+  padding-left: 50px;
+}
+
 .filters {
     animation: flyInFromLeft 1.0s ease forwards;
     transform: translateX(-100%);
-    height: 100%;
+    float: left;
+    padding: 15px 0 100% 0;
 }
 
 .recent-area {
-    animation: flyInFromRight 1.0s ease forwards;
-    transform: translateX(100%);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
