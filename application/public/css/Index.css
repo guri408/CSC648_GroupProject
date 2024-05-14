@@ -163,6 +163,7 @@ body, h1, p, ul {
   font-size: 23px;
   font-weight: bold;
   width: 98%;
+    max-width: 1000px;
 }
 
 @keyframes flyInFromLeft {
