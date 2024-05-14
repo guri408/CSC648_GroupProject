@@ -1,12 +1,28 @@
 <!-- SearchResults.html -->
-{% for item in items %}
-<div class="recent-area">
-    <p>{{ item.ItemName }}</p>
-    <img src="../Product_Images/Thumbnails/{{ item.PhotoName }}" class="recents" alt="{{ item.ItemName }}"/>
-    <p class="description">{{ item.PostDate }}</p>
-    <p class="description">{{ item.CategoryName }}</p>
-    <a href="Compose.html" class="btn btn-nav btn-display" type="button">
-        Message Seller
-    </a>
+<div class="filters">
+    <p>Price Range:</p>
+    <select id="price-r">
+        <option value="None">None</option>
+        <option value="LowHigh">Low to High</option>
+        <option value="HighLow">High to Low</option>
+    </select>
+    <p>Rental Price Range:</p>
+    <select id="rentalprice-r">
+        <option value="None">None</option>
+        <option value="LowHigh">Low to High</option>
+        <option value="HighLow">High to Low</option>
+    </select>
 </div>
-{% endfor %}
+<div id="result">
+    {% for item in items %}
+    <div class="recent-area">
+        <p>{{ item.ItemName }}</p>
+        <img src="../Product_Images/Thumbnails/{{ item.PhotoName }}" class="recents" alt="{{ item.ItemName }}"/>
+        <p class="description">{{ item.PostDate }}</p>
+        <p class="description">{{ item.CategoryName }}</p>
+        <a href="Compose.html" class="btn btn-nav btn-display" type="button">
+            Message Seller
+        </a>
+    </div>
+    {% endfor %}
+</div>

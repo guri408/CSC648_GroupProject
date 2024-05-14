@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, jsonify
-from search import search
+from search import search_bp
 from item_submission import item_bp
 from login import login
 from signup import signup_bp
@@ -10,16 +10,16 @@ from db_connection import get_db_connection
 from recent_items import recent_items
 
 app = Flask(__name__, static_folder='./public', template_folder='./public/html')
-#mysql = MySQL(app)
 
 # Register the Blueprint with the app
-app.register_blueprint(search, url_prefix="")
+app.register_blueprint(search_bp, url_prefix="")
 app.register_blueprint(item_bp, url_prefix="")
 app.register_blueprint(recent_items, url_prefix="")
 app.register_blueprint(login, url_prefix="")
 app.register_blueprint(signup_bp, url_prefix="")
 app.register_blueprint(compose, url_prefix="")
 app.register_blueprint(dashboard, url_prefix="")
+
 
 @app.route('/Index.html')
 @app.route('/')

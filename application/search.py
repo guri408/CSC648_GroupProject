@@ -1,62 +1,31 @@
 from flask import Blueprint, render_template, request, jsonify
-import mysql.connector
 from db_connection import get_db_connection
 
+# Define the Blueprint
+search_bp = Blueprint('search_bp', __name__, template_folder='templates')
 
-search = Blueprint('search', __name__, static_folder='./public', template_folder='./public/html')
-
-
-#test db connection
-#testdb = get_db_connection()
-#testcur = testdb.cursor()
-#testcur.execute('SELECT * FROM Product')
-
-#product = testcur.fetchall()
-
-#for Product in product:
-#    print(Product)
-
-@search.route('/Search.html')
-def search_page():
-    return render_template('/Search.html')
-
-#endpoint for search
-@search.route("/searchingPost",methods=['GET'])
-def searchingPost():
+@search_bp.route('/searchingPost', methods=['GET'])
+def searching_post():
+    query = request.args.get('query', '')
+    category = request.args.get('category', '')
+    
+    # Connect to the database
     mydb = get_db_connection()
     cur = mydb.cursor(dictionary=True)
-    item = []
-    numrows = 0
-
-    if request.method == 'GET':
-        search_word = request.args.get('query', '').strip()  # Remove trailing whitespace
-        search_category = request.args.get('category','default')
-        print("Received search query:", search_word)
-
-        if search_word:
-            if search_category in ['default', '']:
-                query = "SELECT * FROM Listing WHERE ItemName LIKE %s"
-                cur.execute(query, ('%' + search_word + '%',))
-            else:
-                query = "SELECT * FROM Listing WHERE ItemName LIKE %s AND Category = %s"
-                cur.execute(query, ('%' + search_word + '%', search_category))
-        else:
-            if search_category in ['default', '']:
-                # If no search word and default category, retrieve all listings
-                query = "SELECT * FROM Listing"
-                cur.execute(query)
-            else:
-                # If no search word but specific category selected, filter by category
-                query = "SELECT * FROM Listing WHERE Category = %s"
-                cur.execute(query, (search_category,))
-
-        item = cur.fetchall()
-        numrows = len(item)
-        print("SQL Query: ", query)
-        print("Formatted search word: ", search_word)
-        print("Search results: ", item)
-        print("Number of items found: ", numrows)
-    # Always close cursor and connection when done
+    
+    # Construct the SQL query based on the inputs
+    sql_query = "SELECT Listing.*, Category.CategoryName FROM Listing JOIN Category ON Listing.CategoryID = Category.CategoryID WHERE ItemName LIKE %s"
+    values = [f'%{query}%']
+    
+    if category and category != 'default':
+        sql_query += " AND CategoryName = %s"
+        values.append(category)
+    
+    cur.execute(sql_query, values)
+    results = cur.fetchall()
     cur.close()
     mydb.close()
-    return jsonify({'htmlresponse': render_template('/response.html', item=item, numrows=numrows)})
+    
+    # Render the results into HTML
+    htmlresponse = render_template('response.html', items=results)
+    return jsonify({'htmlresponse': htmlresponse})
