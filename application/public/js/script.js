@@ -123,8 +123,8 @@ $(document).ready(function() {
     }
 
     function adjustMainContentHeight() {
-        var itemCount = $('.item-container').length;
-        var itemHeight = $('.item-container').outerHeight(true);
+        var itemCount = $('.recent-area').length;
+        var itemHeight = $('.recent-area').outerHeight(true);
         var newHeight;
 
         var windowWidth = window.innerWidth;
