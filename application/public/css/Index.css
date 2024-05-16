@@ -272,7 +272,7 @@ body, h1, p, ul {
 }
 
 @media (max-width: 768px) {
-    a#logo-side{
+    a#logo{
 	display: none;
     }
     /* Hide the original navbar */
