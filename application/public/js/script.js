@@ -146,6 +146,8 @@ $(document).ready(function() {
                 newHeight = Math.ceil(itemCount / 5) * itemHeight;
             }
 
+            newHeight + 200;
+
             $('.main-content').css('height', newHeight);
         }
 
