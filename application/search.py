@@ -28,14 +28,6 @@ def searching_post():
         sql_query += " AND Category.CategoryName = %s"
         values.append(category)
 
-    if price_range != 'None' or rental_price_range != 'None':
-        sql_query += " ORDER BY"
-        if price_range != 'None':
-            sql_query += " Listing.Price" + (" ASC" if price_range == 'LowHigh' else " DESC")
-        if price_range != 'None' and rental_price_range != 'None':
-            sql_query += ","
-        if rental_price_range != 'None':
-            sql_query += " Listing.RentalPrice" + (" ASC" if rental_price_range == 'LowHigh' else " DESC")
 
     cur.execute(sql_query, values)
     results = cur.fetchall()

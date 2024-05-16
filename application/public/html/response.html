@@ -1,35 +1,11 @@
-
-    <p id="tag">Search results</p>
-    <div class="filters">
-        <p>Price Sort:</p>
-        <select id="price-r">
-            <option value="None">None</option>
-            <option value="LowHigh">Low to High</option>
-            <option value="HighLow">High to Low</option>
-        </select>
-        <p>Rental Price Sort:</p>
-        <select id="rentalprice-r">
-            <option value="None">None</option>
-            <option value="LowHigh">Low to High</option>
-            <option value="HighLow">High to Low</option>
-        </select>
-        <form id="searchFormResponse">
-            <input type="submit" class="searchButton" value="Search">
-        </form>
-    </div>
-    <div id="display-range">
-        {% for item in items %}
-        <div class="recent-area">
-            <p>{{ item.ItemName }}</p>
-            <img src="{{ url_for('static', filename='Product_Images/Thumbnails/' + item.PhotoName) }}" class="recents" alt="{{ item.ItemName }}"/>
-            <p class="description">{{ item.PostDate }}</p>
-            <p class="description">{{ item.CategoryName }}</p>
-            <p class="description">Price: {{ item.Price }}</p>
-            <p class="description">Rental Price: {{ item.RentalPrice }}</p>
-            <a href="Compose.html" class="btn btn-nav btn-display" type="button">
-                Message Seller
-            </a>
-        </div>
-        {% endfor %}
-    </div>
-    
+{% for item in items %}
+<div class="recent-area">
+    <p>{{ item.ItemName }}</p>
+    <img src="{{ url_for('static', filename='Product_Images/Thumbnails/' + item.PhotoName) }}" class="recents" alt="{{ item.ItemName }}"/>
+    <p class="description">{{ item.PostDate }}</p>
+    <p class="description">{{ item.CategoryName }}</p>
+    <p class="description price">Price: {{ item.Price }}</p>
+    <p class="description rental-price">Rental Price: {{ item.RentalPrice }}</p>
+    <a href="Compose.html" class="btn btn-nav btn-display" type="button">Message Seller</a>
+</div>
+{% endfor %}

@@ -1,64 +1,166 @@
 $(document).ready(function() {
-    // Load initial recent items
-    $.ajax({
-        url: '/recentItemsPost',
-        method: 'GET',
-        success: function(response) {
-            $('#main-content').html(response);
-        },
-        error: function(xhr, status, error) {
-            console.error('Error fetching recent items:', error);
-        }
-    });
-
-    // Handle search form submission
-    $('#searchForm').on('submit', function(event) {
-        event.preventDefault();
-        performSearch();
-    });
-
-    // Attach filter handlers
-    $('#price-r, #rentalprice-r').change(function() {
-        performSearch();
-    });
-
+    // Function to handle search form submissions
     function performSearch() {
         var query = $('#searchText').val();
         var category = $('#category').val();
-        var priceRange = $('#price-r').val();
-        var rentalPriceRange = $('#rentalprice-r').val();
+
+        // Redirect to Search1.html with query parameters
+        var searchParams = new URLSearchParams({
+            query: query,
+            category: category
+        }).toString();
+
+        window.location.href = 'Search.html?' + searchParams;
+    }
+
+    // Load initial recent items if on Index.html
+    if (window.location.pathname.endsWith("Index.html")) {
         $.ajax({
-            url: '/searchingPost',
+            url: '/recentItemsPost',
             method: 'GET',
-            data: { query: query, category: category, price_range: priceRange, rental_price_range: rentalPriceRange },
             success: function(response) {
-                $('#main-content').html(response.htmlresponse);
-                triggerAnimations();
+                $('#main-content').html(response);
             },
             error: function(xhr, status, error) {
-                console.error('Error during search:', error);
+                console.error('Error fetching recent items:', error);
             }
         });
-    }
 
-    function triggerAnimations() {
-        $('#recent-area2').fadeOut(500, function() {
-            setTimeout(function() {
-                $('.filters').addClass('show');
-                $('#search-results').addClass('show');
-                adjustFooterMarginTop(50);
-            }, 500);
+        // Handle search form submission on Index.html
+        $('#searchForm, #searchForm2').on('submit', function(event) {
+            event.preventDefault();
+            performSearch();
         });
     }
 
-    adjustMainContentHeight();
+    // If on Search1.html, handle search and filters
+    if (window.location.pathname.endsWith("Search.html")) {
+        console.log("script.js loaded on Search.html");
 
-    $(window).on('load resize', function() {
+        // Function to fetch and display search results
+        function fetchSearchResults() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var query = urlParams.get('query');
+            var category = urlParams.get('category');
+
+            console.log('Performing search with params:', {
+                query: query,
+                category: category
+            });
+
+            // Perform search with the extracted parameters
+            $.ajax({
+                url: '/searchingPost',
+                method: 'GET',
+                data: { query: query, category: category },
+                success: function(response) {
+                    $('#display-range').html(response.htmlresponse);
+                    triggerAnimations();
+                    sortResults(); // Ensure initial sort
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error during search:', error);
+                }
+            });
+        }
+
+        // Initial search results load
+        fetchSearchResults();
+
+        // Handle search form submission on Search1.html
+        $('#searchForm, #searchForm2').on('submit', function(event) {
+            event.preventDefault();
+            performSearch();
+        });
+
+        // Handle filter changes
+        $('#price-r, #rentalprice-r').change(function() {
+            sortResults();
+        });
+
+        // Function to sort results
+        function sortResults() {
+            var priceSort = $('#price-r').val();
+            var rentalPriceSort = $('#rentalprice-r').val();
+
+            if (priceSort !== 'None') {
+                sortItems(priceSort, 'price');
+            } else if (rentalPriceSort !== 'None') {
+                sortItems(rentalPriceSort, 'rental-price');
+            }
+        }
+
+        // Function to sort items
+        function sortItems(sortOrder, sortType) {
+            var items = $('.recent-area').get();
+            items.sort(function(a, b) {
+                var aText = $(a).find('.' + sortType).text().split(': ')[1].trim();
+                var bText = $(b).find('.' + sortType).text().split(': ')[1].trim();
+
+                var valA = aText === "Not Available" ? (sortOrder === 'LowHigh' ? Infinity : -Infinity) : parseFloat(aText);
+                var valB = bText === "Not Available" ? (sortOrder === 'LowHigh' ? Infinity : -Infinity) : parseFloat(bText);
+
+                if (sortOrder === 'LowHigh') {
+                    return valA - valB;
+                } else {
+                    return valB - valA;
+                }
+            });
+            $('#display-range').empty().append(items);
+        }
+
+        // Function to trigger animations
+        function triggerAnimations() {
+            $('#recent-area2').fadeOut(500, function() {
+                setTimeout(function() {
+                    $('.filters').addClass('show');
+                    $('#search-results').addClass('show');
+                    adjustFooterMarginTop(50);
+                }, 500);
+            });
+        }
+
+        // Function to adjust footer margin
+        function adjustFooterMarginTop(num) {
+            var marginsize = num !== undefined ? 30 + num : 30;
+            $('#footer').css('margin-top', marginsize + 'px');
+        }
+
+        // Function to adjust main content height
+        function adjustMainContentHeight() {
+            var itemCount = $('.recent-area').length;
+            var itemHeight = $('.recent-area').outerHeight(true);
+            var newHeight;
+
+            var windowWidth = window.innerWidth;
+
+            if (windowWidth < 809) {
+                newHeight = itemCount * itemHeight;
+            } else if (windowWidth < 1098) {
+                newHeight = Math.ceil(itemCount / 2) * itemHeight;
+            } else if (windowWidth < 1387) {
+                newHeight = Math.ceil(itemCount / 3) * itemHeight;
+            } else if (windowWidth < 1676) {
+                newHeight = Math.ceil(itemCount / 4) * itemHeight;
+            } else {
+                newHeight = Math.ceil(itemCount / 5) * itemHeight;
+            }
+
+            $('.main-content').css('height', newHeight);
+        }
+
         adjustMainContentHeight();
-    });
 
-    setInterval(adjustMainContentHeight, 1);
+        $(window).on('load resize', function() {
+            adjustMainContentHeight();
+        });
 
+        setInterval(adjustMainContentHeight, 1);
+
+        window.addEventListener('resize', adjustMainContentHeight);
+    }
+
+    // Common functionality
     $('#dropdownBtn').click(function() {
         $('#dropdownContent').toggleClass('show');
     });
@@ -120,28 +222,6 @@ $(document).ready(function() {
     function adjustFooterMarginTop(num) {
         var marginsize = num !== undefined ? 30 + num : 30;
         $('#footer').css('margin-top', marginsize + 'px');
-    }
-
-    function adjustMainContentHeight() {
-        var itemCount = $('.recent-area').length;
-        var itemHeight = $('.recent-area').outerHeight(true);
-        var newHeight;
-
-        var windowWidth = window.innerWidth;
-
-        if (windowWidth < 809) {
-            newHeight = itemCount * itemHeight;
-        } else if (windowWidth < 1098) {
-            newHeight = Math.ceil(itemCount / 2) * itemHeight;
-        } else if (windowWidth < 1387) {
-            newHeight = Math.ceil(itemCount / 3) * itemHeight;
-        } else if (windowWidth < 1676) {
-            newHeight = Math.ceil(itemCount / 4) * itemHeight;
-        } else {
-            newHeight = Math.ceil(itemCount / 5) * itemHeight;
-        }
-
-        $('.main-content').css('height', newHeight);
     }
 
     function adjustMainContentHeightForListings() {

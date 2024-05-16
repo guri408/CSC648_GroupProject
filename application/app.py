@@ -1,12 +1,12 @@
 from flask import Flask, render_template, request, jsonify
 from search import search_bp
 from item_submission import item_bp
-from login import login
+from login import login_bp
 from signup import signup_bp
 from compose import compose
-from dashboard import dashboard
 import mysql.connector
 from db_connection import get_db_connection
+from FromHereToThereDB import get_FromHereToThereDB
 from recent_items import recent_items
 
 app = Flask(__name__, static_folder='./public', template_folder='./public/html')
@@ -15,11 +15,9 @@ app = Flask(__name__, static_folder='./public', template_folder='./public/html')
 app.register_blueprint(search_bp, url_prefix="")
 app.register_blueprint(item_bp, url_prefix="")
 app.register_blueprint(recent_items, url_prefix="")
-app.register_blueprint(login, url_prefix="")
+app.register_blueprint(login_bp, url_prefix="")
 app.register_blueprint(signup_bp, url_prefix="")
 app.register_blueprint(compose, url_prefix="")
-app.register_blueprint(dashboard, url_prefix="")
-
 
 @app.route('/Index.html')
 @app.route('/')
@@ -66,9 +64,13 @@ def search_page():
 def signup_page():
     return render_template('/Signup.html')
 
-#@app.route('/Login.html')
-#def login_page():
-#    return render_template('/Login.html')
+@app.route('/Login.html')
+def login_page():
+    return render_template('/Login.html')
+
+@app.route('/Dashboard.html')
+def dashboard_page():
+    return render_template('/Dashboard.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
