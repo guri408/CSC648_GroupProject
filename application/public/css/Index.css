@@ -184,6 +184,14 @@ body, h1, p, ul {
     }
 }
 
+#display-range2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 30px;
+  padding-left: 50px;
+}
+
 #display-range {
     animation: flyInFromRight 1.0s ease forwards;
     transform: translateX(100%);
