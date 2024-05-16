@@ -42,7 +42,7 @@ $(document).ready(function() {
     }
 
     function triggerAnimations() {
-        $('#recent-area').fadeOut(500, function() {
+        $('#recent-area2').fadeOut(500, function() {
             setTimeout(function() {
                 $('.filters').addClass('show');
                 $('#search-results').addClass('show');
