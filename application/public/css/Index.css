@@ -264,7 +264,7 @@ body, h1, p, ul {
 	display: none;
     }
     /* Hide the original navbar */
-    .navbar, #logo, #searchForm {
+    .nav-container, .navbar, #logo, #searchForm {
         display: none;
     }
 
