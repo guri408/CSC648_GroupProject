@@ -215,7 +215,7 @@ body, h1, p, ul {
   margin: 10px 1%;
 }
 
-.recent-area {
+.recent-area, .recent-area2 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
