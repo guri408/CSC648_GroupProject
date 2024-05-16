@@ -17,26 +17,6 @@
                 <img src="../images/From Here To There logo.jpg" class="logo"/>
         </a>
         <span class="title-text">From Here To There</span>
-        <form id="searchForm">
-            <div id="txt-container">
-           <select id="category">
-               <option value="default">Select Category</option>
-                   <option value="electronics">Electronics</option>
-                   <option value="books">Books</option>
-                   <option value="furniture">Furniture</option>
-               </select>
-           <input type="text" id="searchText" name="searchText">
-           <input type="submit" class="searchButton" value="Search">
-       <div id="book-options"> <!--
-       <label for="subjectInput">Subject:</label>
-       <input type="text" id="subjectInput">
-       <label for="courseInput">Course Number:</label>
-       <input type="text" id="courseInput">
-       <label for="professorInput">Professor Name:</label>
-       <input type="text" id="professorInput">-->
-       </div>
-       </div>
-       </form>
     </h1>
     <div class="nav-container" style="display: flex;">
         <button class="btn btn-nav" type="button">About</button>
@@ -63,7 +43,7 @@
                             <form class="text-center" method="post">
                                 <div class="mb-3"></div>
                                 <input class="form-control" type="text" required placeholder="Enter Item Name">
-                                <input class="form-control" type="number" required placeholder="Enter Item Price">
+                                <input class="form-control" type="number" min="1" required placeholder="Enter Item Price">
                                 <div class="mb-3"></div>
                                 <div class="dropdown">
                                     <button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button">Select a Category</button>
