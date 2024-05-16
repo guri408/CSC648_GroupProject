@@ -262,8 +262,9 @@ body, h1, p, ul {
   margin-top: -80px;
 }
 
-#footer {
-    width: 100%;
+footer.text-center.py-4 {
+    float: inline-end;
+    margin-right: 20%;
   margin-top: 150px;
 }
 
