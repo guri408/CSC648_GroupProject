@@ -266,8 +266,10 @@ body, h1, p, ul {
   margin-top: 150px;
 }
 
-#searchForm2 {
-    display: none;
+@media (min-width: 769px) {
+    #mobile {
+        display: none;
+    }
 }
 
 @media (max-width: 768px) {
