@@ -264,7 +264,7 @@ body, h1, p, ul {
 
 footer.text-center.py-4 {
     float: inline-end;
-    margin-right: 20%;
+	width: 100%;
   margin-top: 150px;
 }
 
