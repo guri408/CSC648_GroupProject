@@ -158,8 +158,6 @@ body, h1, p, ul {
   margin: auto;
   margin-top: 20px;
   /*background: #ffd700; */
-  border-radius: 10px;
-  border: 2px solid var(--bs-emphasis-color);
   font-size: 23px;
   font-weight: bold;
   width: 98%;
