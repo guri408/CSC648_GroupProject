@@ -423,7 +423,7 @@ body, h1, p, ul {
         display: block;
 	float: left;
         width: auto;
-        padding: 10px 5% 10px 5%;
+        padding: 10px 5% 40px 5%;
         /* Gradient background */
         background: grey;
 	height: 35px;
