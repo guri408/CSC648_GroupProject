@@ -267,7 +267,7 @@ body, h1, p, ul {
   margin-top: 150px;
 }
 
-#mobile {
+.mobile {
     display: none;
 }
 
