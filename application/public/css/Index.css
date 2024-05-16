@@ -369,7 +369,7 @@ body, h1, p, ul {
 	list-style: none;
     }
 	
-    .recent-area2 {
+    recent-area, .recent-area2 {
         width: 90%;
     }
 }
