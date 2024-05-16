@@ -265,6 +265,11 @@ body, h1, p, ul {
 .footer {
   margin-top: 150px;
 }
+@media (min-width: 875px) {
+    .recent-area2 {
+        width: 90%;
+    }
+}
 
 @media (min-width: 769px) {
     #mobile {
