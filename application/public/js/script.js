@@ -134,7 +134,7 @@ $(document).ready(function() {
 
             var windowWidth = window.innerWidth;
 
-            if (windowWidth < 809) {
+            if (windowWidth < 659) {
                 newHeight = itemCount * itemHeight;
             } else if (windowWidth < 1098) {
                 newHeight = Math.ceil(itemCount / 2) * itemHeight;
