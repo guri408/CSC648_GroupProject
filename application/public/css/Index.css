@@ -318,7 +318,6 @@ footer.text-center.py-4 {
         border: 0;
 	border-radius: 0px;
         font-size: 24px;
-        width: 250%;
     }
 
     #navblock li .dropdown-content {
@@ -370,6 +369,8 @@ footer.text-center.py-4 {
     }
     #dropdownContent.show {
 	display: inline-block;
+	width: 20%;
+	transform: translateX(100%);
     }
 
     .dropdown-content a:hover {
@@ -378,6 +379,10 @@ footer.text-center.py-4 {
 
     ul {
 	list-style: none;
+    }
+
+    ul#navblock li a {
+	font-size: 22px;
     }
 	
     recent-area, .recent-area2 {
@@ -483,6 +488,8 @@ footer.text-center.py-4 {
     }
     #dropdownContent.show {
 	display: inline-block;
+	width: 25%;
+	transform: translate3d(40%, 1.5%, 0);
     }
     ul {
 	list-style: none;
@@ -515,6 +522,11 @@ footer.text-center.py-4 {
         display: none;
         background-color: #FFC436; /* Yellow */
         left: 0;
+    }
+    #dropdownContent.show {
+	display: inline-block;
+	transform: translate(0,0);
+	width: 100%;
     }
     #navblock {
 	width: 100%;
