@@ -1,38 +1,44 @@
-from flask import Blueprint, request, redirect, url_for, session
-from FromHereToThereDB import get_FromHereToThereDB
+from flask import Blueprint, render_template, redirect, url_for, flash, request
+from flask_login import login_user, login_required, logout_user, current_user
+from werkzeug.security import check_password_hash
+from db_connection import get_db_connection, User
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, SubmitField
+from wtforms.validators import DataRequired, Email
 
 login_bp = Blueprint('login_bp', __name__)
 
-# Connect to the database
-mydb = get_FromHereToThereDB()
-cur = mydb.cursor(dictionary=True)
+class LoginForm(FlaskForm):
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    password = PasswordField('Password', validators=[DataRequired()])
+    submit = SubmitField('Login')
 
-@login_bp.route('/login', methods=['POST'])
+@login_bp.route('/login', methods=['GET', 'POST'])
 def login():
-    email = request.form['email']
-    password = request.form['password']
+    if current_user.is_authenticated:
+        return redirect(url_for('login_bp.dashboard'))
+    
+    form = LoginForm()
+    
+    if form.validate_on_submit():
+        email = form.email.data
+        password = form.password.data
+        user = User.query.filter_by(Email=email).first()
+        if user and check_password_hash(user.Password, password):
+            login_user(user)
+            return redirect(url_for('login_bp.dashboard'))
+        else:
+            flash('Invalid email or password', 'danger')
+    
+    return render_template('Login.html', form=form)
 
-    # Query the database to check if the user exists and credentials are correct
-    query = "SELECT * FROM Users WHERE UserEmail = %s AND UserPassword = %s"
-    cur.execute(query, (email, password))
-    user = cur.fetchone()
-
-    if user:
-        # User exists and credentials are correct, set session variable to indicate user is logged in
-        session['user_id'] = user['UserID']
-        # Redirect the user to the dashboard or any other desired page
-        return redirect(url_for('dashboard'))
-    else:
-        # User does not exist or credentials are incorrect, render the login page again with an error message
-        return redirect(url_for('index'))  # Redirect to the login page with an error message
-
-# Example of a route for the dashboard page
 @login_bp.route('/dashboard')
+@login_required
 def dashboard():
-    # Check if the user is logged in by checking if the user_id is in the session
-    if 'user_id' in session:
-        # User is logged in, render the dashboard template
-        return render_template('dashboard.html')
-    else:
-        # User is not logged in, redirect to the login page
-        return redirect(url_for('index'))
+    return render_template('Dashboard.html', user=current_user)
+
+@login_bp.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('login_bp.login'))

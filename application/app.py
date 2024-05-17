@@ -1,19 +1,22 @@
+import pymysql
+pymysql.install_as_MySQLdb()
+
+# Your existing imports
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_bcrypt import Bcrypt
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField
 from wtforms.validators import DataRequired, Email, EqualTo, Length, Regexp
 from flask_wtf.csrf import CSRFProtect
-import mysql.connector
-from mysql.connector import Error
 import logging
-from db_connection import get_db_connection
+from db_connection import db, User, get_db_connection
 from search import search_bp
 from item_submission import item_bp
 from login import login_bp
 from signup import signup_bp
 from compose import compose
 from recent_items import recent_items
+from flask_login import LoginManager
 
 # Set up logging
 logging.basicConfig(level=logging.DEBUG)
@@ -22,10 +25,18 @@ app = Flask(__name__, static_folder='./public', template_folder='./public/html')
 
 # Configuration settings
 app.config['SECRET_KEY'] = 'your_secret_key'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://username:password@localhost/FromHereToThere'
+db.init_app(app)
 
 # Initialize extensions
 bcrypt = Bcrypt(app)
 csrf = CSRFProtect(app)
+login_manager = LoginManager(app)
+login_manager.login_view = 'login_bp.login'
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
 
 # Define the signup form
 class SignupForm(FlaskForm):
@@ -119,7 +130,7 @@ def signup_page():
                         )
                         conn.commit()
                         flash('Your account has been created!', 'success')
-                        return redirect(url_for('login_page'))
+                        return redirect(url_for('login_bp.login'))
                 except Error as err:
                     logging.error(f"Database error: {err}")
                     flash(f"Database error: {err}", 'danger')
@@ -150,3 +161,4 @@ def dashboard_page():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
