@@ -1,17 +1,48 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, redirect, url_for, flash
+from flask_bcrypt import Bcrypt
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, BooleanField, SubmitField
+from wtforms.validators import DataRequired, Email, EqualTo, Length, Regexp
+from flask_wtf.csrf import CSRFProtect
+import mysql.connector
+from mysql.connector import Error
+import logging
+from db_connection import get_db_connection
 from search import search_bp
 from item_submission import item_bp
 from login import login_bp
 from signup import signup_bp
 from compose import compose
-import mysql.connector
-from db_connection import get_db_connection
-from FromHereToThereDB import get_FromHereToThereDB
 from recent_items import recent_items
+
+# Set up logging
+logging.basicConfig(level=logging.DEBUG)
 
 app = Flask(__name__, static_folder='./public', template_folder='./public/html')
 
-# Register the Blueprint with the app
+# Configuration settings
+app.config['SECRET_KEY'] = 'your_secret_key'
+
+# Initialize extensions
+bcrypt = Bcrypt(app)
+csrf = CSRFProtect(app)
+
+# Define the signup form
+class SignupForm(FlaskForm):
+    username = StringField('Username', validators=[DataRequired()])
+    email = StringField('Email', validators=[
+        DataRequired(), Email(), Regexp(r'.*@(mail\.sfsu\.edu|sfsu\.edu)$', message="Must be a valid SFSU email")
+    ])
+    password = PasswordField('Password', validators=[
+        DataRequired(), Length(min=8, message="Password must be at least 8 characters long")
+    ])
+    confirm_password = PasswordField('Confirm Password', validators=[
+        DataRequired(), EqualTo('password', message="Passwords must match")
+    ])
+    agree_tos = BooleanField('I agree to the Terms of Service', validators=[DataRequired()])
+    submit = SubmitField('Signup')
+
+# Register Blueprints
 app.register_blueprint(search_bp, url_prefix="")
 app.register_blueprint(item_bp, url_prefix="")
 app.register_blueprint(recent_items, url_prefix="")
@@ -19,6 +50,7 @@ app.register_blueprint(login_bp, url_prefix="")
 app.register_blueprint(signup_bp, url_prefix="")
 app.register_blueprint(compose, url_prefix="")
 
+# Define routes
 @app.route('/Index.html')
 @app.route('/')
 def index():
@@ -60,17 +92,61 @@ def sell():
 def search_page():
     return render_template('/Search.html')
 
-@app.route('/Signup.html')
+@app.route('/Signup.html', methods=['GET', 'POST'])
 def signup_page():
-    return render_template('/Signup.html')
+    form = SignupForm()
+    if form.validate_on_submit():
+        username = form.username.data
+        email = form.email.data
+        password = form.password.data
+        hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
+
+        try:
+            conn = get_db_connection()
+            if conn:
+                cursor = conn.cursor()
+                try:
+                    # Check if the email or username already exists
+                    cursor.execute("SELECT * FROM User WHERE Email = %s OR UserName = %s", (email, username))
+                    existing_user = cursor.fetchone()
+
+                    if existing_user:
+                        flash('An account with this email or username already exists.', 'danger')
+                    else:
+                        cursor.execute(
+                            "INSERT INTO User (UserName, Email, Password) VALUES (%s, %s, %s)",
+                            (username, email, hashed_password)
+                        )
+                        conn.commit()
+                        flash('Your account has been created!', 'success')
+                        return redirect(url_for('login_page'))
+                except Error as err:
+                    logging.error(f"Database error: {err}")
+                    flash(f"Database error: {err}", 'danger')
+                finally:
+                    cursor.fetchall()  # Ensure all results are read
+                    cursor.close()
+                    conn.close()
+            else:
+                flash('Database connection failed', 'danger')
+        except Exception as e:
+            logging.error(f"Error: {e}")
+            flash(f"Error: {e}", 'danger')
+    else:
+        # Debugging: Print form validation errors
+        for fieldName, errorMessages in form.errors.items():
+            for err in errorMessages:
+                logging.debug(f"Error in {fieldName}: {err}")
+                flash(f"Error in {fieldName}: {err}", 'danger')
+    return render_template('Signup.html', form=form)
 
 @app.route('/Login.html')
 def login_page():
-    return render_template('/Login.html')
+    return render_template('Login.html')
 
 @app.route('/Dashboard.html')
 def dashboard_page():
-    return render_template('/Dashboard.html')
+    return render_template('Dashboard.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
