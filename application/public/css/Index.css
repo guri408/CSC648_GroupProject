@@ -151,16 +151,6 @@ body, h1, p, ul {
   float: right;
   margin-right: 5px;
 }
-/* About dropdown menu*/
-    .dropdown-item:hover{
-        background-color: #6a5acd;
-        font-weight: bold;
-        color: white;
-    }
-    
-    .dropdown-toggle:hover {
-    background-color: #6a5acd;
-    }
 
 /* Main Content Area Styling */
 .main-content {
@@ -267,6 +257,10 @@ select {
 .recent-area p.description {
   font-size: 18px;
   border: 0;
+}
+
+.recents {
+    width: 200px;
 }
 
 .btn-display {
