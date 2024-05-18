@@ -1,11 +1,15 @@
-{% for item in items %}
-<div class="recent-area">
-    <p>{{ item.ItemName }}</p>
-    <img src="{{ url_for('static', filename='Product_Images/Thumbnails/' + item.PhotoName) }}" class="recents" alt="{{ item.ItemName }}"/>
-    <p class="description">{{ item.PostDate }}</p>
-    <p class="description">{{ item.CategoryName }}</p>
-    <p class="description price">Price: {{ item.Price }}</p>
-    <p class="description rental-price">Rental Price: {{ item.RentalPrice }}</p>
-    <a href="Compose.html" class="btn btn-nav btn-display" type="button">Message Seller</a>
-</div>
-{% endfor %}
+{% if items %}
+    {% for item in items %}
+    <div class="recent-area">
+        <p>{{ item.ItemName }}</p>
+        <img src="{{ url_for('static', filename='Product_Images/Thumbnails/' + item.PhotoName) }}" class="recents" alt="{{ item.ItemName }}"/>
+        <p class="description">{{ item.PostDate }}</p>
+        <p class="description">{{ item.CategoryName }}</p>
+        <p class="description price">Price: {{ item.Price }}</p>
+        <p class="description rental-price">Rental Price: {{ item.RentalPrice }}</p>
+        <a href="Compose.html" class="btn btn-nav btn-display" type="button">Message Seller</a>
+    </div>
+    {% endfor %}
+{% else %}
+    <p>No Items found.</p>
+{% endif %}
