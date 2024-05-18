@@ -1,0 +1,11 @@
+<div class="listing-area">
+{% for listing in listings %}
+    <div class="listing-container">
+        <h2 class="listing-name">{{ listing.Name }}</h2>
+        <img src="{{ url_for('static', filename='Product_Images/Thumbnails/' + listing.PhotoName) }}" class="recents" alt="{{ listing.ItemName }}"/>
+        <p>Your Listing Price: {{ listing.Price }}</p>
+        <p>Your Listing Rental Price: {{ listing.RentalPrice }}</p>
+        <p>Post Date: {{ listing.PostDate }}</p>
+    </div>
+{% endfor %}
+</div>

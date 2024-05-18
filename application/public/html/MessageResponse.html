@@ -1,0 +1,17 @@
+<div class="message-area">
+{% for message in messages %}
+    <div class="message-container">
+	<p>Name</p>
+	<p>Title</p>
+	<p>Message</p>
+	<p>Title</p>
+	<p>Action</p>
+
+	<p>{{ message.Sender }}</p>
+        <p>{{ message.Title }}</p>
+	<p>{{ message.Content }}</p>
+	<p>{{ message.Time }}</p>
+	<button class="remove">Remove</button>
+    </div>
+{% endfor %}
+</div>
