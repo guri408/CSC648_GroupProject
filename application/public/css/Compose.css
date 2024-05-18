@@ -63,7 +63,17 @@
   margin-left: auto; /* This will push the login button to the right if the nav-container is flex */
 }
 
-/* Main Content Area Styling */
+/* About dropdown menu*/
+.dropdown-item:hover{
+  background-color: #6a5acd;
+  font-weight: bold;
+  color: white;
+}
+
+.dropdown-toggle:hover {
+background-color: #6a5acd;
+}
+
 /* Main Content Area Styling */
 .main-content {
   padding: 30px; /* Consistent padding ensures that the content inside does not grow or shrink unexpectedly */

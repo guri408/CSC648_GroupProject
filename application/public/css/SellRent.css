@@ -67,8 +67,28 @@ src: url('Roboto_Slab/RobotoSlab-VariableFont_wght.ttf') format('truetype');
   .btn-Login {
     margin-left: auto; /* This will push the login button to the right if the nav-container is flex */
   }
+
+  .btn-about{
+    background-color: #ffd700;
+  }
+
+  /* About dropdown menu*/
+  #aboutDropdown .dropdown-item:hover{
+  background-color: #6a5acd;
+  font-weight: bold;
+  color: #FFC436;
+}
+
+  #aboutDropdown .dropdown-toggle:hover {
+  background-color: #6a5acd;
+}
+
+  .dropdown-toggle.btn-nav {
+    border: 2px solid var(--bs-emphasis-color);
+    background: #FFC436;
+}
       
-.alert {
+  .alert {
 color: #721c24;
 background-color: #f8d7da;
 border-color: #f5c6cb;
@@ -161,6 +181,7 @@ border-color: #6a5acd;
 .dropdown-item:hover{
     background-color: #6a5acd;
     font-weight: bold;
+    color: white;
 }
 
 .dropdown-toggle:hover {

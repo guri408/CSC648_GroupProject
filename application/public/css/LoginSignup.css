@@ -69,6 +69,17 @@ margin-left: auto; /* This class is for the last button to separate it from the 
 margin-left: auto; /* This will push the login button to the right if the nav-container is flex */
 }
 
+/* About dropdown menu*/
+.dropdown-item:hover{
+    background-color: #6a5acd;
+    font-weight: bold;
+    color: white;
+}
+
+.dropdown-toggle:hover {
+background-color: #6a5acd;
+}
+
 .alert {
 color: #721c24;
 background-color: #f8d7da;
