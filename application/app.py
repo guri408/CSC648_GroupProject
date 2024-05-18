@@ -1,7 +1,6 @@
 import pymysql
 pymysql.install_as_MySQLdb()
 
-# Your existing imports
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_bcrypt import Bcrypt
 from flask_wtf import FlaskForm
@@ -12,11 +11,12 @@ import logging
 from db_connection import db, User, get_db_connection
 from search import search_bp
 from item_submission import item_bp
-from login import login_bp
 from signup import signup_bp
 from compose import compose
 from recent_items import recent_items
-from flask_login import LoginManager
+from flask_login import LoginManager, login_user, login_required, logout_user, current_user
+from werkzeug.security import generate_password_hash, check_password_hash
+
 
 # Set up logging
 logging.basicConfig(level=logging.DEBUG)
@@ -25,14 +25,14 @@ app = Flask(__name__, static_folder='./public', template_folder='./public/html')
 
 # Configuration settings
 app.config['SECRET_KEY'] = 'your_secret_key'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://username:password@localhost/FromHereToThere'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://username:newpassword@localhost/FromHereToThere'
 db.init_app(app)
 
 # Initialize extensions
 bcrypt = Bcrypt(app)
 csrf = CSRFProtect(app)
 login_manager = LoginManager(app)
-login_manager.login_view = 'login_bp.login'
+login_manager.login_view = 'login'
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -53,11 +53,16 @@ class SignupForm(FlaskForm):
     agree_tos = BooleanField('I agree to the Terms of Service', validators=[DataRequired()])
     submit = SubmitField('Signup')
 
+# Define the login form
+class LoginForm(FlaskForm):
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    password = PasswordField('Password', validators=[DataRequired()])
+    submit = SubmitField('Login')
+
 # Register Blueprints
 app.register_blueprint(search_bp, url_prefix="")
 app.register_blueprint(item_bp, url_prefix="")
 app.register_blueprint(recent_items, url_prefix="")
-app.register_blueprint(login_bp, url_prefix="")
 app.register_blueprint(signup_bp, url_prefix="")
 app.register_blueprint(compose, url_prefix="")
 
@@ -96,12 +101,13 @@ def omar():
     return render_template('about/Omar.html')
 
 @app.route('/Sell.html')
+@login_required
 def sell():
-    return render_template('/Sell.html')
+    return render_template('Sell.html')
 
 @app.route('/Search.html')
 def search_page():
-    return render_template('/Search.html')
+    return render_template('Search.html')
 
 @app.route('/Signup.html', methods=['GET', 'POST'])
 def signup_page():
@@ -110,7 +116,10 @@ def signup_page():
         username = form.username.data
         email = form.email.data
         password = form.password.data
-        hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
+
+        # Ensure the password is hashed
+        hashed_password = generate_password_hash(password)
+        logging.debug(f"Hashed password: {hashed_password}")
 
         try:
             conn = get_db_connection()
@@ -130,8 +139,8 @@ def signup_page():
                         )
                         conn.commit()
                         flash('Your account has been created!', 'success')
-                        return redirect(url_for('login_bp.login'))
-                except Error as err:
+                        return redirect(url_for('login'))
+                except Exception as err:
                     logging.error(f"Database error: {err}")
                     flash(f"Database error: {err}", 'danger')
                 finally:
@@ -151,14 +160,63 @@ def signup_page():
                 flash(f"Error in {fieldName}: {err}", 'danger')
     return render_template('Signup.html', form=form)
 
-@app.route('/Login.html')
-def login_page():
-    return render_template('Login.html')
+
+@app.route('/Login.html', methods=['GET', 'POST'])
+def login():
+    logging.debug("Login route accessed")
+
+    if current_user.is_authenticated:
+        logging.debug("User is already authenticated, redirecting to dashboard")
+        return redirect(url_for('dashboard_page'))
+    
+    form = LoginForm()
+    logging.debug(f"Form created: {form}")
+
+    if form.validate_on_submit():
+        logging.debug("Form is validated")
+        email = form.email.data
+        password = form.password.data
+        logging.debug(f"Form data: email={email}, password=*****")
+
+        user = User.query.filter_by(Email=email).first()
+        if user:
+            logging.debug(f"User found: {user.UserName}")
+            logging.debug(f"User password hash: {user.Password}")
+            try:
+                if check_password_hash(user.Password, password):
+                    logging.debug("Password check passed")
+                    login_user(user)
+                    flash('Logged in successfully!', 'success')
+                    return redirect(url_for('dashboard_page'))
+                else:
+                    logging.debug("Password check failed")
+                    flash('Invalid email or password', 'danger')
+            except ValueError as e:
+                logging.error(f"Error in password hash check: {e}")
+                flash('Invalid email or password', 'danger')
+        else:
+            logging.debug("User not found")
+            flash('Invalid email or password', 'danger')
+    else:
+        logging.debug("Form validation failed")
+        for fieldName, errorMessages in form.errors.items():
+            for err in errorMessages:
+                logging.debug(f"Validation error in {fieldName}: {err}")
+
+    logging.debug("Rendering login template")
+    return render_template('Login.html', form=form)
 
 @app.route('/Dashboard.html')
+@login_required
 def dashboard_page():
-    return render_template('Dashboard.html')
+    return render_template('Dashboard.html', user=current_user)
+
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    flash('You have been logged out.', 'success')
+    return redirect(url_for('login'))
 
 if __name__ == '__main__':
     app.run(debug=True)
-

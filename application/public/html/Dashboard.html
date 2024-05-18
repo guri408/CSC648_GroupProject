@@ -21,19 +21,19 @@
     <div class="nav-container" style="display: flex;">
         <button class="btn btn-nav" type="button">About</button>
         <a href="Sell.html" class="btn btn-nav" type="button">
-			Sell/Rent </a>
-        <a href="Dashboard.html#messages" class="btn btn-nav" type="button">Dashboard</a> <!--Default Message Button-->
-        <a href="Login.html" class="btn btn-nav btn-Login" type="button">
+            Sell/Rent </a>
+        <a href="Dashboard.html#messages" class="btn btn-nav" type="button">Dashboard</a>
+        <!-- Update the Logout link to point to the Flask logout route -->
+        <a href="{{ url_for('logout') }}" class="btn btn-nav btn-Login" type="button">
             Logout </a>
     </div>     
     <div class="main-content">
         <div class="user-greeting">
-            Welcome back, <strong> [User's Name]</strong>! <!-- Template engine syntax, replace as necessary -->
+            Welcome back, <strong>{{ current_user.UserName }}</strong>!
         </div>
         <h1 class="head-title">Dashboard</h1>
         <!-- Messages button with dynamic badge for unread messages -->
         <button onclick="toggleMessages()" class="btn btn-outline-primary">
-        <!-- Badge for displaying the count of unread messages. Initially hidden, shown by JS if messages exist. -->
             Messages <span id="messageCount" class="badge" style="display: none;">0</span> 
         </button>
         <button onclick="toggleListings()" class="btn btn-outline-secondary">Listings</button>
@@ -61,8 +61,7 @@
                             <td>Hi, I am reaching back out to you about the laptop inquiry you had made. I am selling the laptop for $400, it is refurbished and in great condition. Let me know if you are interested. Thank you.</td>
                             <td>April 24, 2024, 10:00 AM</td>
                             <td>
-        
-                            <button class="btn btn-danger" type="submit"><i class="fa fa-trash"></i></button></td>
+                                <button class="btn btn-danger" type="submit"><i class="fa fa-trash"></i></button>
                             </td>
                         </tr>
                     </tbody>
@@ -88,7 +87,7 @@
                 <p class="description">Your Listing Price</p>
                 <p class="description">Category</p>
             </div>
-            </div>
+        </div>
     </div>
     <script src="../js/Dashboard.js"></script>
 </body>
