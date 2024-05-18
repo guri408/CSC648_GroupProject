@@ -247,6 +247,13 @@ select {
   padding: 5px;
 }
 
+.recent-area2 img {
+  max-width: 200px;
+  max-height: 300px;
+  margin: 12.5px;
+  padding: 5px;
+}
+
 .recent-area p.description {
   font-size: 18px;
   border: 0;
