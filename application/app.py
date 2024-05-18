@@ -12,6 +12,7 @@ from db_connection import db, User, get_db_connection
 from search import search_bp
 from item_submission import item_bp
 from signup import signup_bp
+from dashboard import dashboard_bp
 from compose import compose
 from recent_items import recent_items
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
@@ -65,6 +66,7 @@ app.register_blueprint(item_bp, url_prefix="")
 app.register_blueprint(recent_items, url_prefix="")
 app.register_blueprint(signup_bp, url_prefix="")
 app.register_blueprint(compose, url_prefix="")
+app.register_blueprint(dashboard_bp, url_prefix="")
 
 # Define routes
 @app.route('/Index.html')

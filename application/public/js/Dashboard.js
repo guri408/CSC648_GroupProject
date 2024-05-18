@@ -28,6 +28,46 @@ function toggleListings() {
     composeBtn.style.display = "none"; // Hide compose button when listings are shown
     btnListings.classList.add('btn-active');
     btnMessages.classList.remove('btn-active');
+
+    // Send AJAX request to fetch user listings
+    $.ajax({
+        url: '/userListings',  // Adjust URL as per your backend endpoint
+        method: 'GET',
+        success: function(response) {
+            if (response.listings) {
+                var listingsContent = $('#userlistings-container');
+                listingsContent.empty();  // Clear any existing content
+
+                // Check if there are listings
+                if (response.listings.length === 0) {
+                    listingsContent.append('<p>No listings found.</p>');
+                } else {
+                    // Iterate over the listings and add them to the container
+                    response.listings.forEach(function(listing) {
+                        var listingHtml = `
+                            <div class="recent-area">
+                                <p>${listing.ItemName}</p>
+                                <img src="../images/${listing.file_name}" class="recents"/>
+                                <p class="description">${listing.Description}</p>
+                                <p class="description">${listing.Price}</p>
+                                <p class="description">${listing.CategoryName}</p>
+                            </div>
+                        `;
+                        listingsContent.append(listingHtml);
+                    });
+                }
+                
+                // Show the listings content and hide the messages content
+                $('#userlistings-container').show();
+                $('#messagesContent').hide();
+            } else {
+                console.error('Error fetching listings:', response.error);
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error('AJAX error:', error);
+        }
+    });
 }
 
 // Event listener for DOM content loaded
