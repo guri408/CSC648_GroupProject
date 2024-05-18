@@ -269,10 +269,6 @@ select {
   border: 0;
 }
 
-.recents {
-    width: 200px;
-}
-
 .btn-display {
   margin-top: 10px;
   display: inline-block;
