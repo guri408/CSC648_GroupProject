@@ -248,8 +248,8 @@ select {
 }
 
 .recent-area2 img {
-  max-width: 200px;
-  max-height: 300px;
+  max-width: 150px;
+  max-height: 180px;
   margin: 12.5px;
   padding: 5px;
 }
