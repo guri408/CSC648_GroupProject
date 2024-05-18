@@ -1,724 +1,139 @@
-@font-face {
-    font-family: 'CustomFont';
-    src: url('Roboto_Slab/RobotoSlab-VariableFont_wght.ttf') format('truetype');
-}
-
-/* Reset some default styles */
-body, h1, p, ul {
-    margin: 0;
-    padding: 0;
-    font-family: CustomFont;
-}
-
-/* Container for the header */
-.header {
-    /* Gradient background */
-    background: #fef5da;
-    background: linear-gradient(to right, #fef5da 15%, #584bad 70%);
-    color: #fff;
-    padding: 5px;
-    display: flex;
-    align-items: center; /* Align items vertically in the flex container */
-}
-
-#logo-side {
-    float: left;
-    width: 200px;
-}
-
-#logo {
-    max-width: 120px;
-    max-height: 120px;
-    margin-right: 200px; /* Add margin to separate logo from form */
-    padding-left: 10px;
-}
-
-#searchForm {
-    flex: 1; /* Take up remaining space in the flex container */
-    display: inline-block;
-    width: 100%;
-}
-
-#txt-container {
-    display: flex;
-    width: 100%;
-    border-radius: 15px; /* Rounded corners */
-    border-left: 2px solid #584bad; /* Set border color */
-    border-top: 2px solid #584bad; /* Set border color */
-    border-bottom: 2px solid #584bad; /* Set border color */
-}
-
-#category,
-#searchText,
-.searchButton {
-    height: 30px;
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    border-radius: 15px; /* Rounded corners */
-    border: 0;
-}
-
-/* Adjustments to input elements */
-#category {
-    width: calc(15% - 1px); /* Adjust width to leave space for the separator line */
-    padding: 0 10px; /* Add some padding for better appearance */
-    border-top-right-radius: 0; /* Remove top-right border radius to connect to searchText */
-    border-bottom-right-radius: 0; /* Remove bottom-right border radius to connect to searchText */
-    border-right: 2px solid #584bad; /* Set border color */
-}
-
-#searchText {
-    width: calc(50% - 1px); /* Adjust width to leave space for the separator line */
-    padding: 0 10px; /* Add some padding for better appearance */
-    border-top-left-radius: 0; /* Remove top-left border radius to connect to category */
-    border-bottom-left-radius: 0; /* Remove bottom-left border radius to connect to category */    
-    border-top-right-radius: 15px; /* Remove top-right border radius to connect to searchText */
-    border-bottom-right-radius: 15px; /* Remove bottom-right border radius to connect to searchText */
-}
-
-.searchButton {
-    margin-left: 10px;
-    width: 10%;
-    border: none; /* Remove border */
-    background-color: #fff; /* Match background color to maintain appearance */
-    padding: 0; /* Reset padding */    border: 2px solid #584bad; /* Set border color */
-    border-radius: 15px; /* Rounded corners */
-}
-
-.searchButton:active {
-    background-color: #453a8e;
-    color: white;
-}
-
-/* The .demo-notice class styles the demonstration notice header */
+/* General Styles for Notices and Headers */
 .demo-notice {
-    background-color: #ffd700; 
-    color: #000; 
-    text-align: center;
-    padding: 20px 0; 
-    font-weight: bold; 
-    font-size: 1.2em; 
-    border-bottom: 3px solid #000;
+  color: var(--bs-emphasis-color);
+  border: 2px solid var(--bs-emphasis-color);
+  background: #ffd700;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 15px;
 }
 
-/* Navigation bar */
-.navbar {
-    background-color: #FFC436; /* Yellow */
-    padding: 10px;
-    padding-left: 40px;
-    font-size: 20px;
+.card-header {
+  display: flex;
+  align-items: center; /* This ensures vertical centering */
+  justify-content: space-between; /* This will push the logo to the left and text to the center */
+  margin-top: -10px;
+  border: 2px solid var(--bs-emphasis-color);
+  border-bottom: none;
+  font-size: 40px;
+  font-weight: bold;
+  background: linear-gradient(to right, #fef5da 15%, #584bad 70%);
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
-.navbar ul {
-    list-style-type: none;
+.logo {
+  width: 100px; /* Keep your logo dimensions */
+  
 }
 
-.navbar ul li {
-    display: inline;
-    margin-right: 10px;
+.title-text {
+  /* This will center the title text in the available space, assuming .title-text wraps the text */
+  flex: 1;
+  text-align: center;
+  color: black;
 }
 
-.navbar ul li a {
-    text-decoration: none;
-    color: #6a5acd; /* Purplish blue */
+/* Navigation Tabs */
+.nav-container {
+  border: 2px solid var(--bs-emphasis-color);
+  padding: 8px;
+  background: #FFC436;
 }
 
-/* Dropdown menu */
-.dropdown {
-    position: relative;
-    display: inline-block;
+.btn-nav {
+  font-weight: bold;
+  color: black;
+  border: 2px solid black;
+  margin-left: 10px;
 }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    left: -20px; /* Adjust this value as needed */
+.btn-nav:hover {
+  background-color: #6a5acd;
+  color: white; /* Optional: change text color on hover */
 }
 
-.dropdown-content a {
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
+.btn-nav:first-child {
+  margin-left: 0;
 }
 
-.dropdown-content a:hover {
-    background-color: #ddd;
-    border-radius: 20px;
+/* This class is for the last button to separate it from the others */
+.btn-Login {
+  margin-left: auto; /* This will push the login button to the right if the nav-container is flex */
 }
 
-.dropdown:hover .dropdown-content {
-    display: block;
+/* About dropdown menu*/
+.dropdown-item:hover{
+  background-color: #6a5acd;
+  font-weight: bold;
+  color: white;
 }
 
-#navblock,
-#loginButton {
-    display: inline-block;
+.dropdown-toggle:hover {
+background-color: #6a5acd;
 }
 
-#loginButton a {
-    text-decoration: none;
-    color: #6a5acd; /* Purplish blue */
-}
-
-#navblock{
-    width: 47%;
-}
-
-#navblock li{
-    border: 5px double black;
-    border-radius: 20px;
-    padding: 0 5px 0 5px;
-}
-
-#navblock li:active{
-    font-weight: bold;
-    background-color: #ffd700;
-    border: 5px solid #ffd700;
-}
-
-#navblock li .dropdown-content{
-    margin-top: 5px;
-    font-weight: bold;
-    background-color: #ffd700;
-    border: 5px double black;
-    border-radius: 20px;
-}
-
-#navblock li a:active{
-    color: white;
-}
-
-#loginButton {
-    text-align: right;
-    float: right;
-}
-
-#loginButton a {
-    border: 5px double black;
-    border-radius: 20px;
-    padding: 0 5px 0 5px;
-    margin: 0 10px 0 10px;
-}
-
-#loginButton a:active {
-    font-weight: bold;
-    background-color: #ffd700;
-    color: white;
-    border: 5px solid #ffd700;
-}
-
-.productIMG {
-    max-width: 300px;
-    max-height: 300px;
-}
-
-/* Main content area */
+/* Main Content Area Styling */
 .main-content {
-    margin: 0 auto;
-    padding: 0 20px;
-    height: auto;
-    position: relative;
-    max-width: 1700px;
+  padding: 30px; /* Consistent padding ensures that the content inside does not grow or shrink unexpectedly */
+  width: 500px; /* Fixed width for consistency */
+  margin: auto; /* Center the form horizontally */
+  margin-top: 50px; /* Adequate spacing from the top */
 }
 
-@keyframes flyInFromLeft {
-    from {
-        transform: translateX(-100%);
-    }
-    to {
-        transform: translateX(0);
-    }
+ /*Container*/
+.head-title {
+  font-weight: semi-bold;
+  text-align: center;
+  font-size:40px; /* Fixed font size for consistency */
+  color: var(--bs-emphasis-color);
+  margin-top: -40px;
 }
 
-@keyframes flyInFromRight {
-    from {
-        transform: translateX(100%);
-    }
-    to {
-        transform: translateX(0);
-    }
-}
-
-.filters {
-    display: none;
-}
-
-.filters.show {
-    animation: flyInFromLeft 1.0s ease forwards;
-    transform: translateX(-100%);
-    display: block;
-    float: left;
-    width: 150px;
-    border: 2px solid #584bad;
-    margin: 5px;
-    padding: 5px;
-    height: 100%;
-}
-
-#recent-area {
-    text-align: center;
-}
-
-#recent-area.hide {
-    display: none;
-}
-
-#search-results {
-    display: none;
-}
-
-#search-results.show {
-    animation: flyInFromRight 1.0s ease forwards;
-    transform: translateX(100%);
-    display: block;
-}
-
-#price-r, 
-#name-s,
-#price-a {
+.contact-form {
+    border: 1px solid #6a5acd;
     border-radius: 10px;
-    border: 2px ridge #584bad;
-    margin: 5px 5px 40px 5px;
-}
+    padding: 30px; /* Consistent padding */
+    width: 600px; /* Width can be adjusted as needed */
+    margin: auto; /* Centers the form */
+    margin-top: -60px; /* Vertical positioning */
+    position: relative; /* Allows for shifting with left/right properties */
+    left: -90px; /* Shifts the box to the left by 10px */
+  }
 
-.item-container {
-    border-top: 2px ridge #584bad; /* Set border color */
-    border-bottom: 2px ridge #584bad; /* Set border color */
-    padding: 10px;
-    margin: 10px 10px 0 10px;
-    background: #aca2f3;
-    float: right;
-    min-width: 250px;
-    max-width: 300px;
-    height: auto;
-    max-height: 300px;
-}
-
-.item-container#productIMG {
-    max-width: 250px;
-    max-height: 250px;
-}
-
-.item-name {
-    border: 2px ridge #584bad; /* Set border color */
-    padding-left: 5px;
-}
-
-.listing-name {
-    border: 2px ridge #584bad; /* Set border color */
-    padding-left: 5px;
-}
-
-#account-details {
-    border-top: 5px solid #584bad; /* Set border color */
-    border-bottom: 5px solid #584bad; /* Set border color */
-    text-align: right;
-    font-size: 30px;
-    background: #aca2f3;
-    padding-right: 10px;
-}
-
-#listing-details {
-    border-bottom: 2px ridge #584bad; /* Set border color */
-    padding: 10px;
-    min-height: 30px; 
-}
-
-#with-message {
-    display: none;
-    margin-top: 40px;
-}
-
-#with-message-show {
-    display: none;
-    margin-top: 40px;
-}
-
-#toMessages, #toListings, #toCompose {
-    display: inline-block;
-    float: left;
-    background: #aca2f3;
-    border: 2px ridge #584bad; /* Set border color */
-    margin: 0 5px 5px 5px;
-    font-family: CustomFont;
-    height: 30px;
-    width: 120px;
-    font-size: 20px;
-}
-
-#toMessages a, #toListings a, #toCompose a{
-    text-decoration: none;
-}
-
-#toMessages:active, #toListings:active, #toCompose:active {
-    background: #584bad;
-    color: white;
-}
-
-#toMessages a:active, #toListings a:active, #toCompose a:active {
-    background: #584bad;
-    color: white;
-}
-
-.active {
-    background: #584bad;
-    color: white;
-}
-
-.image {
-    max-width: 300px;
-    max-height: 300px;
-}
-
-#GTS.searchButton {
-    width: 55%;
-}
-
-#welcome {
-    font-size: 20px; /* Adjust font size as needed */
-    font-weight: bold; /* Adjust font weight as needed */
-    background: linear-gradient(to right, #7a6dcf, black);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent; /* Hide original text */
-}
-
-#FHTT {
+.name-header{
+    text-align: center;
+    font-size: 25px;
+    font-weight: semi-bold;
     color: black;
-    display: inline-block;
-    width: 60%;
-    font-size: 40px;
 }
 
-#header-details {
+.logo-1 {
+    display: block; /* Changes logo display to block for margin auto to work */
+    margin: 0 auto; /* Auto margin on sides centers the block */
+    padding-top: 10px;
+    width: 100px; /* Maintain your width as needed */
+}
+
+  .description{
+    padding-top: 20px;
+    font-size: 15px;
     text-align: center;
-    margin: auto;
-}
+    color: black;
+  }
 
-/* Adjust the dropdown button position */
-#dropdownBtn {
-    display: none; /* Hide the button by default */
-}
-
-#searchForm2 {
-    display: none;
-}
-
-.recent-items {
-    border-top: 2px ridge #584bad; /* Set border color */
-    border-bottom: 2px ridge #584bad; /* Set border color */
-    padding: 0 10px 10px 10px;
-    background: #aca2f3;
-    width: 20%;
-    height: 220px;
-    float: left;
-    margin: 0 1% 0 1%;
-}
-
-.recent-item-name {
-    padding: 5px;
-    font-size: 18px;
-    border-bottom: 2px ridge #584bad; /* Set border color */
-}
-
-.recents {
-    max-width: 120px;
-    max-height: 120px;
-    margin: 12.5px;
-}
-
-.listing-num, .message-num {
-    display: none;
-}
-
-.listing-num-show, .message-num-show {
-    display: block;
-    display: inline-block;
+  .description-2{
+    padding-top: 10px;
+    font-size: 15px;
     text-align: center;
-    font-size: 20px;
-    width: 50%;
-    animation: flyInFromRight 1.0s ease forwards;
-    transform: translateX(100%);
-}
+    color: black;
+ }
 
-.listing-container, .message-container {
-    border-top: 2px ridge #584bad; /* Set border color */
-    border-bottom: 2px ridge #584bad; /* Set border color */
-    padding: 10px;
-    margin-top: 10px;
-    background: #aca2f3;
-    width: 750px;
-}
-
-.listing-area, .message-area {
-    display: none;
-}
-
-.listing-area-show, .message-area-show {
-    animation: flyInFromRight 1.0s ease forwards;
-    transform: translateX(100%);
-    display: block;
-}
-
-.contact {
-    float: right;
-    background: #aca2f3;
-    border: 2px ridge #584bad; /* Set border color */
-    width: 27%;
-    margin: 0 2px 0 2px;
-    font-family: CustomFont;
-}
-
-.contact:active {
-    background: #584bad;
-    color: white;
-}
-
-#footer {
-    bottom: 0;
-    background-color: #FFC436;
-    margin-top: 300px;
-    padding: 10px;
+ .contact-info{
     text-align: center;
-}
-
-@media (max-width: 768px) {
-    a#logo-side{
-	display: none;
-    }
-    /* Hide the original navbar */
-    .navbar, #logo, #searchForm {
-        display: none;
-    }
-
-    .recent-items {
-        float: none;
-        margin: 10px 0 10px 0;
-        width: 100%;
-    }
-
-    .mobile {
-        height: 55px;
-        background: grey;
-    }
-    
-    #searchForm2 {
-        display: block;
-	float: left;
-        width: auto;
-        padding: 10px 5% 10px 5%;
-        /* Gradient background */
-        background: grey;
-	height: 35px;
-    }
-
-    #navblock li {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-        border: 0;
-	border-radius: 0px;
-        font-size: 24px;
-        width: 250%;
-    }
-
-    #navblock li .dropdown-content {
-        margin-top: 0;
-        border: 0;
-	border-radius: 0px;
-	top: 100%;
-    }
-    
-    .main-content {
-	padding-top: 10px;
-    }
-
-    .filters {
-	display: none;
-    }
-
-    #category,
-    #searchText,
-    .searchButton {
-	width: auto;
-    }
-
-    /* Show the dropdown button */
-    #dropdownBtn {
-        display: block;
-        float: right;
-	width: 20%;
-	height: 55px;
-        background-color: #FFC436; /* Yellow */
-	font-size: 32px;
-	border: none;
-    }
-
-    #dropdownBtn:active {
-        background-color: #bf8e1c;
-        color: white;
-    }
-
-    /* Adjust the dropdown content width */
-    #dropdownContent {
-	float: right;
-        position: relative;
-        display: none;
-        background-color: #FFC436; /* Yellow */
-        left: 0;
-    }
-    #dropdownContent.show {
-	display: inline-block;
-    }
-
-    .dropdown-content a:hover {
-        border-radius: 0;
-    }
-
-    ul {
-	list-style: none;
-    }
-}
-
-@media (max-width: 635px) {
-    /* Style the navbar */
-    #navblock {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-        width: 60px;
-    }
-
-    /* Style the navbar links */
-    #navblock li {
-        text-align: center;
-        padding: 10px 0 10px 10px;
-    }
-
-    #navblock li a {
-        text-decoration: none;
-        color: #6a5acd; /* Purplish blue */
-        display: block;
-    }
-
-    /* Submenu styles */
-    #navblock .dropdown-content {
-        display: none;
-        position: relative;
-        background-color: #f9f9f9;
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-        z-index: 1;
-    }
-
-    #navblock .dropdown-content a {
-        padding: 12px 12px;
-        text-decoration: none;
-        display: block;
-    }
-
-    #navblock .dropdown:hover .dropdown-content {
-        display: block;
-    }
-
-    .mobile {
-        height: 55px;
-        background: grey;
-    }
-    
-    #searchForm2 {
-        display: block;
-	float: left;
-        width: auto;
-        padding: 10px 5% 10px 5%;
-        /* Gradient background */
-        background: grey;
-	height: 35px;
-    }
-    
-    .main-content {
-	padding-top: 10px;
-    }
-
-    #category,
-    #searchText,
-    .searchButton {
-	width: auto;
-    }
-
-    /* Show the dropdown button */
-    #dropdownBtn {
-        display: block;
-        float: right;
-	width: 10%;
-	height: 55px;
-        background-color: #FFC436; /* Yellow */
-	font-size: 32px;
-	border: none;
-    }
-
-    #dropdownBtn:active {
-	background-color: #bf8e1c;
-        color: white;
-    }
-
-    /* Adjust the dropdown content width */
-    #dropdownContent {
-	float: right;
-        position: relative;
-        display: none;
-        background-color: #FFC436; /* Yellow */
-        left: 0;
-    }
-    #dropdownContent #navblock {
-	text-decoration: none;
-    }
-    .dropdown-content{
-        background-color: #FFC436; /* Yellow */
-	left: 0;
-    }
-    #dropdownContent.show {
-	display: inline-block;
-    }
-    ul {
-	list-style: none;
-        text-align: center;
-    }
-    #loginButton {
-	text-align: center;
-    }
-}
-@media (max-width: 560px) {
-    .main-content {
-        margin-top: 60px;
-	padding: 0;
-    }
-    .recent-items {
-	width: 80%;
-	display: grid;
-        align-items: center;
-	text-align: center;
-    }
-    select#category {
-	width: 20%;
-    }
-    #dropdownBtn {
-	width: 100%;
-    }
-    #dropdownContent {
-	width: 100%;
-        position: relative;
-        display: none;
-        background-color: #FFC436; /* Yellow */
-        left: 0;
-    }
-    #navblock {
-	width: 100%;
-    }
-    #navblock li {
-        width: 100%;
-    }
-}
+    color: black;
+    padding-top: 10px;
+    position: relative; 
+    left: -15px; 
+ }
