@@ -1,7 +1,7 @@
 import pymysql
 pymysql.install_as_MySQLdb()
 
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
 from flask_bcrypt import Bcrypt
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField
@@ -11,7 +11,6 @@ import logging
 from db_connection import db, User, get_db_connection
 from search import search_bp
 from item_submission import item_bp
-from signup import signup_bp
 from dashboard import dashboard_bp
 from compose import compose
 from recent_items import recent_items
@@ -64,7 +63,6 @@ class LoginForm(FlaskForm):
 app.register_blueprint(search_bp, url_prefix="")
 app.register_blueprint(item_bp, url_prefix="")
 app.register_blueprint(recent_items, url_prefix="")
-app.register_blueprint(signup_bp, url_prefix="")
 app.register_blueprint(compose, url_prefix="")
 app.register_blueprint(dashboard_bp, url_prefix="")
 
@@ -212,6 +210,22 @@ def login():
 @login_required
 def dashboard_page():
     return render_template('Dashboard.html', user=current_user)
+
+@app.route('/fetch_messages')
+@login_required
+def fetch_messages():
+    conn = get_db_connection()
+    if not conn:
+        return jsonify({'error': 'Database connection failed'}), 500
+
+    cursor = conn.cursor(pymysql.cursors.DictCursor)  # Use DictCursor to get results as dictionaries
+    try:
+        cursor.execute("SELECT m.MessageTitle, m.MessageText, m.MessageDateTime, u.UserName FROM Message m JOIN User u ON m.SenderUserID = u.UserID WHERE ReceiverUserID = %s ORDER BY m.MessageDateTime DESC", (current_user.UserID,))
+        messages = cursor.fetchall()
+        return jsonify(messages)
+    finally:
+        cursor.close()
+        conn.close()
 
 @app.route('/logout')
 @login_required
