@@ -269,6 +269,17 @@ select {
   align-self: center; /* Center the button horizontally */
 }
 
+/* About dropdown menu*/
+.dropdown-item:hover{
+    background-color: #6a5acd;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .dropdown-toggle:hover {
+  background-color: #6a5acd;
+  }
+
 /* Dashboard Heading */
 .dashboard-heading {
   color: var(--bs-emphasis-color);

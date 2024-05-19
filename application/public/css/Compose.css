@@ -80,6 +80,17 @@
   margin-top: -40px;
 }
 
+/* About dropdown menu*/
+.dropdown-item:hover{
+  background-color: #6a5acd;
+  font-weight: bold;
+  color: white;
+}
+
+  .dropdown-toggle:hover {
+  background-color: #6a5acd;
+}
+
 .contact-form {
   border: 1px solid #6a5acd;
   border-radius: 10px;
