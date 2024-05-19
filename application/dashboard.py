@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, jsonify
+from flask import Blueprint, render_template, jsonify, url_for
 from flask_login import login_required, current_user
 from db_connection import get_db_connection
 import logging
@@ -17,7 +17,11 @@ def user_listings():
         
         query = """
             SELECT 
-                Listing.*, 
+                Listing.ItemName, 
+                Listing.PhotoName AS file_name, 
+                Listing.Price,
+                Listing.RentalPrice,
+                Listing.PostDate,
                 Category.CategoryName 
             FROM 
                 Listing 
@@ -32,6 +36,12 @@ def user_listings():
         cur.execute(query, (current_user.UserID,))
         listings = cur.fetchall()
         logging.debug('Query executed successfully. Listings: %s', listings)
+        
+        # Construct PhotoURL and handle null values
+        for listing in listings:
+            listing['PhotoURL'] = url_for('static', filename='Product_Images/Thumbnails/' + listing['file_name'])
+            listing['PostDate'] = listing['PostDate'].strftime('%Y-%m-%d') if listing['PostDate'] else 'N/A'
+            listing['RentalPrice'] = listing['RentalPrice'] if listing['RentalPrice'] is not None else 'N/A'
         
         cur.close()
         mydb.close()
