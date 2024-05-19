@@ -35,6 +35,73 @@
   color: black;
 }
 
+/*Search Bar */
+#searchForm {
+  border-left: 2px solid var(--bs-emphasis-color);
+  border-right: 2px solid var(--bs-emphasis-color);
+  background: linear-gradient(to right, #fef5da 15%, #584bad 70%);
+  padding: 20px;
+
+}
+
+#category,
+#searchText,
+.searchButton {
+    height: 30px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    border-radius: 15px; /* Rounded corners */
+    border: 0;
+}
+
+/* Adjustments to input elements */
+#category {
+    width: calc(15% - 1px); /* Adjust width to leave space for the separator line */
+    padding: 0 10px; /* Add some padding for better appearance */
+    border-top-right-radius: 0; /* Remove top-right border radius to connect to searchText */
+    border-bottom-right-radius: 0; /* Remove bottom-right border radius to connect to searchText */
+    border-right: 2px solid #584bad; /* Set border color */
+}
+
+#searchText {
+    width: calc(50% - 1px); /* Adjust width to leave space for the separator line */
+    padding: 0 10px; /* Add some padding for better appearance */
+    border-top-left-radius: 0; /* Remove top-left border radius to connect to category */
+    border-bottom-left-radius: 0; /* Remove bottom-left border radius to connect to category */    
+    border-top-right-radius: 15px; /* Remove top-right border radius to connect to searchText */
+    border-bottom-right-radius: 15px; /* Remove bottom-right border radius to connect to searchText */
+    margin-top: 0px;
+}
+
+.searchButton {
+    margin-left: 10px;
+    width: 10%;
+    border: none; /* Remove border */
+    background-color:#fff; /* Match background color to maintain appearance */
+    padding: 0; /* Reset padding */   
+    border: 2px solid #584bad; /* Set border color */
+    border-radius: 15px; /* Rounded corners */
+    margin-top: 0px;
+    
+}
+
+.searchButton:active {
+    background-color: #453a8e;
+    color: white;
+}
+
+#txt-container {
+  display: flex;
+  padding-top: 0px;
+  margin-top: -30px;
+  height: 34px;
+  margin-left: 400px;
+  border-radius: 15px; /* Rounded corners */
+  border-left: 2px solid #584bad; /* Set border color */
+  border-top: 2px solid #584bad; /* Set border color */
+  border-bottom: 2px solid #584bad; /* Set border color */
+}
+
 /* Navigation Tabs */
 .nav-container {
   border: 2px solid var(--bs-emphasis-color);
