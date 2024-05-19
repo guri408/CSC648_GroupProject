@@ -152,6 +152,17 @@ body, h1, p, ul {
   margin-right: 5px;
 }
 
+/* About dropdown menu*/
+    .dropdown-item:hover{
+        background-color: #6a5acd;
+        font-weight: bold;
+        color: white;
+    }
+
+    .dropdown-toggle:hover {
+    background-color: #6a5acd;
+    }
+
 /* Main Content Area Styling */
 .main-content {
   padding: 10px;
