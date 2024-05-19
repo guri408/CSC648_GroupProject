@@ -218,10 +218,27 @@ def fetch_messages():
     if not conn:
         return jsonify({'error': 'Database connection failed'}), 500
 
-    cursor = conn.cursor(pymysql.cursors.DictCursor)  # Use DictCursor to get results as dictionaries
+    cursor = conn.cursor(pymysql.cursors.DictCursor)
     try:
-        cursor.execute("SELECT m.MessageTitle, m.MessageText, m.MessageDateTime, u.UserName FROM Message m JOIN User u ON m.SenderUserID = u.UserID WHERE ReceiverUserID = %s ORDER BY m.MessageDateTime DESC", (current_user.UserID,))
+        cursor.execute("""
+            SELECT 
+                m.MessageTitle, 
+                m.MessageText, 
+                m.MessageDateTime, 
+                u.UserName 
+            FROM 
+                Message m 
+            JOIN 
+                User u 
+            ON 
+                m.SenderUserID = u.UserID 
+            WHERE 
+                m.ReceiverUserID = %s 
+            ORDER BY 
+                m.MessageDateTime DESC
+        """, (current_user.UserID,))
         messages = cursor.fetchall()
+        logging.debug(f"Messages fetched: {messages}")
         return jsonify(messages)
     finally:
         cursor.close()
