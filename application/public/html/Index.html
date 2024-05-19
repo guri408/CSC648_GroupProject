@@ -1,62 +1,25 @@
 <!DOCTYPE html>
 <html data-bs-theme="light" lang="en" data-bss-forced-theme="light">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Home</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../public/css/Index.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../public/js/script.js"></script>
+    <link rel="stylesheet" href="../css/Index.css">
+    <link rel="icon" type="image" href="../images/From Here To There logo.jpg">
 </head>
-<body>
-    <h1 class="demo-notice">SFSU Software Engineering Project CSC 648-848, Spring 2024. For Demonstration Only.</h1>
-    <header class="card-header">
-        <a href="Index.html">
-            <img src="../../public/images/From Here to There logo.jpg" class="logo"/>
-        </a>
-        <p id="welcome">Welcome SFSU students, faculty, and staff to</p>
-        <h1 class="title-text">From Here To There</h1>
-        <form id="searchForm">
-            <div id="txt-container">
-                <select id="category">
-                    <option value="default">Select Category</option>
-                    <option value="electronics">Electronics</option>
-                    <option value="books">Books</option>
-                    <option value="furniture">Furniture</option>
-                </select>
-                <input type="text" id="searchText" name="searchText">
-                <input type="submit" class="searchButton" value="Search">
-            </div>
-        </form>
-    </header>
-    <div class="nav-container">
-        <button class="btn btn-nav dropdown-toggle" type="button" id="aboutDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-            About
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
-            <li><a class="dropdown-item" href="about/Douglas.html">Douglas</a></li>
-            <li><a class="dropdown-item" href="about/GioJung.html">Gio Jung</a></li>
-            <li><a class="dropdown-item" href="about/Gurpreet.html">Gurpreet</a></li>
-            <li><a class="dropdown-item" href="about/Gursimran.html">Gursimran</a></li>
-            <li><a class="dropdown-item" href="about/Justin.html">Justin</a></li>
-            <li><a class="dropdown-item" href="about/Omar.html">Omar</a></li>
-        </ul>
-        <a href="Sell.html" class="btn btn-nav" type="button">Sell/Rent</a>
-        <a href="Dashboard.html" class="btn btn-nav" type="button">Dashboard</a>
 
-        <!-- Check if the user is logged in and display the appropriate link -->
-        {% if current_user.is_authenticated %}
-            <a href="{{ url_for('logout') }}" class="btn btn-nav btn-Login" type="button">Logout</a>
-        {% else %}
-            <a href="Login.html" class="btn btn-nav btn-Login" type="button">Login/Signup</a>
-        {% endif %}
-    </div>
-    
-    <div class="mobile">
-        <form id="searchForm2">
-            <div id="txt-container2">
+<body>
+	<h1 class="demo-notice">SFSU Software Engineering Project CSC 648-848, Spring 2024. For Demonstration Only.</h1>
+            <header class="card-header">
+                <a href="index2.html">
+		<img src="../images/From Here To There logo.jpg" class="logo"/>
+		</a>
+		<p id="welcome">Welcome SFSU students, faculty, and staff to</p>
+                <h1 class="title-text">From Here To There</h1>
+	    <form id="searchForm">
+     	    <div id="txt-container">
             <select id="category">
                 <option value="default">Select Category</option>
                     <option value="electronics">Electronics</option>
@@ -65,48 +28,83 @@
                 </select>
             <input type="text" id="searchText" name="searchText">
             <input type="submit" class="searchButton" value="Search">
-            </div>
+	    <div id="book-options"> <!--
+		<label for="subjectInput">Subject:</label>
+		<input type="text" id="subjectInput">
+		<label for="courseInput">Course Number:</label>
+		<input type="text" id="courseInput">
+		<label for="professorInput">Professor Name:</label>
+		<input type="text" id="professorInput">-->
+	    </div>
+	    </div>
         </form>
-        <button id="dropdownBtn" class="dropbtn">☰</button>
-        <div id="dropdownContent" class="dropdown-content">
-            <ul id="navblock">
-                <li><a href="index.html">Home</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropbtn">About</a>
-                    <div class="dropdown-content">
-                        <a href="about/Omar.html">Omar Dajani</a>
-                        <a href="about/GioJung.html">Gio Jung</a>
-                        <a href="about/Justin.html">Justin Isidro</a>
-                        <a href="about/Douglas.html">Douglas Cheung</a>
-                        <a href="about/Gurpreet.html">Gurpreet Natt</a>
-                        <a href="about/Gursimran.html">Gursimran Singh</a>
-                    </div>
-                </li>
-	        <li><a href="Sell.html">Sell/Rent</a></li>
-		<li><a href="Dashboard.html">Dashboard</a></li>
-		{% if current_user.is_authenticated %}
-		    <li><a href="{{ url_for('logout') }}">Logout</a></li>
-		{% else %}
-		    <li><a href="Login.html">Login/ Registration</a></li>
-		{% endif %}
-            </ul>
-        </div>
-    </div>
 
-    <div id="main-content" class="main-content">
-   
+            </header>
+            <div class="nav-container">
+				<button class="btn btn-nav dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button">About</button>
+				<div class="dropdown-menu">
+				<a class="dropdown-item" href="../html/Gurpreet.html">Gurpreet Natt</a>
+				<a class="dropdown-item" href="../html/Douglas.html">Douglas Cheung</a>
+				<a class="dropdown-item" href="../html/Gursimran.html">Gursimran Singh</a>
+				<a class="dropdown-item" href="../html/Omar.html">Omar Dajani</a>
+				<a class="dropdown-item" href="../html/Justin.html">Justin Isidro</a>
+				<a class="dropdown-item" href="../html/GioJung.html">Gio Jung</a>
+			</div>
+				<a href="SellRent.html" class="btn btn-nav btn-sell" type="button">
+					Sell/Rent </a>
+				<a href="Dashboard.html" class="btn btn-nav" type="button">
+					Dashboard </a>
+				<a href="Login.html" class="btn btn-nav btn-Login" type="button">
+					Login/Signup </a>
+			</div> 
+        <div class="main-content">
+	    <p id="tag">Recently Posted Items For Sale</p>
     </div>
-    <footer class="text-center py-4" id="footer">
+    <div id="display-range">
+	<div class="recent-area">
+	    <p>Name</p>
+	    <img src="../images/From Here to There logo.jpg" class="recents"/>
+	    <p class="description">Price</p>
+	    <p class="description">Category</p>
+		<a href="Compose.html" class="btn btn-nav btn-display" type="button">
+			Message Seller </a>
+	</div>
+	<div class="recent-area">
+	    <p>Name</p>
+	    <img src="../images/From Here to There logo.jpg" class="recents"/>
+	    <p class="description">Price</p>
+	    <p class="description">Category</p>
+		<a href="Compose.html" class="btn btn-nav btn-display" type="button">
+			Message Seller </a>
+	</div>
+	<div class="recent-area">
+	    <p>Name</p>
+	    <img src="../images/From Here to There logo.jpg" class="recents"/>
+	    <p class="description">Price</p>
+	    <p class="description">Category</p>
+		<a href="Compose.html" class="btn btn-nav btn-display" type="button">
+			Message Seller </a>
+	</div>
+	<div class="recent-area">
+	    <p>Name</p>
+	    <img src="../images/From Here to There logo.jpg" class="recents"/>
+	    <p class="description">Price</p>
+	    <p class="description">Category</p>
+		<a href="Compose.html" class="btn btn-nav btn-display" type="button">
+			Message Seller </a>
+	</div>
+    </div>
+    <footer class="text-center py-4">
 	<div class="container footer">
 	    <div class="row row-cols-1 row-cols-lg-3">
 		<div class="col-lg-4">
-		    <p class="text-muted my-2">Copyright&nbsp;© 2024 From Here to There</p>
+		    <p class="text-muted my-2">Copyright&nbsp;© 2024 From Here To There</p>
 		</div>
 		<div class="col">
 		    <ul class="list-inline my-2">
 			<li class="list-inline-item me-4">
 			    <a href="Index.html"> 
-			    <img src="../../public/images/From Here to There logo.jpg" class="logo"/>
+			    <img src="../images/From Here To There logo.jpg" class="logo"/>
 			</a>
 			</li>
 		    </ul>
@@ -120,6 +118,6 @@
 	    </div>
 	</div>
     </footer>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
