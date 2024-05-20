@@ -410,7 +410,7 @@ footer.text-center.py-4 {
     #dropdownContent.show {
 	display: inline-block;
 	width: 25%;
-	transform: translate3d(40%, 1.5%, 0);
+	transform: translate3d(100%, 4.5%, 0);
     }
     ul {
 	list-style: none;
