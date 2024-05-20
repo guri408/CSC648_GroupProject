@@ -8,4 +8,5 @@ class ComposeForm(FlaskForm):
     subject = StringField('Subject', validators=[DataRequired()])
     message = TextAreaField('Message', validators=[DataRequired()])
     receiver_id = HiddenField('Receiver ID', validators=[DataRequired()])
+    listing_id = HiddenField('ListingID', validators=[DataRequired()])
     submit = SubmitField('Send')

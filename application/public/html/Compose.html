@@ -32,6 +32,7 @@
                         <form class="p-3 p-xl-4 contact-form" method="post" action="{{ url_for('send_message') }}">
                             {{ form.hidden_tag() }} <!-- CSRF Token -->
                             {{ form.receiver_id(value=receiver_id) }} <!-- Receiver ID -->
+                            {{ form.listing_id(value=listing_id) }} <!-- Listing ID -->
 
                             <div class="mb-3">
                                 {{ form.name(class="form-control", id="name-1", placeholder="Name") }}

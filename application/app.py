@@ -262,6 +262,7 @@ def send_message():
         subject = form.subject.data
         message = form.message.data
         receiver_id = form.receiver_id.data
+        listing_id = form.listing_id.data
 
         try:
             conn = get_db_connection()
@@ -269,8 +270,8 @@ def send_message():
                 cursor = conn.cursor()
                 try:
                     cursor.execute(
-                        "INSERT INTO Message (SenderUserID, ReceiverUserID, SenderName, SenderEmail, MessageTitle, MessageText) VALUES (%s, %s, %s, %s, %s, %s)",
-                        (current_user.UserID, receiver_id, name, email, subject, message)
+                        "INSERT INTO Message (SenderUserID, ReceiverUserID, ListingID, SenderName, SenderEmail, MessageTitle, MessageText, MessageDateTime) VALUES (%s, %s, %s, %s, %s, %s, %s, NOW())",
+                        (current_user.UserID, receiver_id, listing_id, name, email, subject, message)
                     )
                     conn.commit()
                     flash('Message sent successfully!', 'success')
@@ -286,6 +287,8 @@ def send_message():
         except Exception as e:
             logging.error(f"Error: {e}")
             flash(f"Error: {e}", 'danger')
+    else:
+        flash('Form validation failed. Please check your input.', 'danger')
 
     return redirect(url_for('compose.compose_page'))
 
