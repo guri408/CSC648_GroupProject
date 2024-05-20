@@ -1,5 +1,3 @@
-k<!-- RecentItemResponse.html -->
-
 <p id="tag">Recently Posted Items For Sale</p>
 <div id="display-range2">
 {% for item in items %}
@@ -8,10 +6,9 @@ k<!-- RecentItemResponse.html -->
     <img src="{{ url_for('static', filename='Product_Images/Thumbnails/' ~ item.file_name) }}" class="recents" alt="{{ item.ItemName }}"/>
     <p class="description">{{ item.PostDate }}</p>
     <p class="description">{{ item.CategoryName }}</p>
-    <a href="Compose.html" class="btn btn-nav btn-display" type="button">
+    <a href="{{ url_for('compose.compose_page', receiver_id=item.UserID) }}" class="btn btn-nav btn-display" type="button">
         Message Seller
     </a>
 </div>
 {% endfor %}
 </div>
-

@@ -7,7 +7,9 @@
         <p class="description">{{ item.CategoryName }}</p>
         <p class="description price">Price: {{ item.Price }}</p>
         <p class="description rental-price">Rental Price: {{ item.RentalPrice }}</p>
-        <a href="Compose.html" class="btn btn-nav btn-display" type="button">Message Seller</a>
+        <a href="{{ url_for('compose.compose_page', receiver_id=item.UserID) }}" class="btn btn-nav btn-display" type="button">
+            Message Seller
+        </a>
     </div>
     {% endfor %}
 {% else %}

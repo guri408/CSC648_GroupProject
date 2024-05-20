@@ -16,7 +16,7 @@ from compose import compose
 from recent_items import recent_items
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
-
+from forms import ComposeForm
 
 # Set up logging
 logging.basicConfig(level=logging.DEBUG)
@@ -26,6 +26,7 @@ app = Flask(__name__, static_folder='./public', template_folder='./public/html')
 # Configuration settings
 app.config['SECRET_KEY'] = 'your_secret_key'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://username:newpassword@localhost/FromHereToThere'
+app.config['WTF_CSRF_ENABLED'] = True
 db.init_app(app)
 
 # Initialize extensions
@@ -250,6 +251,43 @@ def logout():
     logout_user()
     flash('You have been logged out.', 'success')
     return redirect(url_for('login'))
+
+@app.route('/send_message', methods=['POST'])
+@login_required
+def send_message():
+    form = ComposeForm()
+    if form.validate_on_submit():
+        name = form.name.data
+        email = form.email.data
+        subject = form.subject.data
+        message = form.message.data
+        receiver_id = form.receiver_id.data
+
+        try:
+            conn = get_db_connection()
+            if conn:
+                cursor = conn.cursor()
+                try:
+                    cursor.execute(
+                        "INSERT INTO Message (SenderUserID, ReceiverUserID, SenderName, SenderEmail, MessageTitle, MessageText) VALUES (%s, %s, %s, %s, %s, %s)",
+                        (current_user.UserID, receiver_id, name, email, subject, message)
+                    )
+                    conn.commit()
+                    flash('Message sent successfully!', 'success')
+                    return redirect(url_for('dashboard_page'))
+                except Exception as err:
+                    logging.error(f"Database error: {err}")
+                    flash(f"Database error: {err}", 'danger')
+                finally:
+                    cursor.close()
+                    conn.close()
+            else:
+                flash('Database connection failed', 'danger')
+        except Exception as e:
+            logging.error(f"Error: {e}")
+            flash(f"Error: {e}", 'danger')
+
+    return redirect(url_for('compose.compose_page'))
 
 if __name__ == '__main__':
     app.run(debug=True)
