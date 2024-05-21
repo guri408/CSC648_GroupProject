@@ -233,9 +233,15 @@ border-color: #6a5acd;
 margin-bottom: 5px;
 }
 
+#price {
+    width: 50%;
+    float: left;
+    margin-top: 10px;
+}
+
 .dropdown {
-margin-top: 10px;
-margin-bottom: 10px;
+    margin-top: 8.5px;
+    margin-bottom: 10px;
 }
 
 .dropdown-toggle {
