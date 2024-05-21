@@ -274,6 +274,14 @@ select {
     width: 200px;
 }
 
+#details {
+    display: none;
+}
+
+#details.show {
+    display: block;
+}
+
 .btn-display {
   margin-top: 10px;
   display: inline-block;
