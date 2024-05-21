@@ -1,5 +1,5 @@
 // Function to handle search
-$(document).ready(function () {
+$(document).ready(function () { 
     load_recents();
     load_initial_data();
 
