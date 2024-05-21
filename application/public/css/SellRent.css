@@ -242,6 +242,7 @@ margin-bottom: 5px;
 .dropdown {
     margin-top: 8.5px;
     margin-bottom: 10px;
+    float: right;
 }
 
 .dropdown-toggle {
