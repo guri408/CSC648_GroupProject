@@ -267,6 +267,9 @@ background-color: #6a5acd;
 
 .recent-area img {
   padding: 5px;
+    float: left;
+    max-height: none;
+    padding-bottom: 16%;
 }
 
 .recent-area p.description {
