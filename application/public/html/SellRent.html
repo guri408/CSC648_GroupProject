@@ -51,20 +51,35 @@
                                 </svg>
                             </div>
                             <form class="text-center" method="post">
-                                <div class="mb-3"></div>
-                                <input class="form-control" type="text" required placeholder="Enter Item Name">
-                                <input class="form-control" type="number" min="1" required placeholder="Enter Item Price">
-                                <input class="form-control" type="number" min="1" placeholder="Enter Rental Price">
-                                <div class="mb-3"></div>
-                                <div class="dropdown">
-                                    <button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button">Select a Category</button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">Electronics</a>
-                                        <a class="dropdown-item" href="#">Books</a>
-                                        <a class="dropdown-item" href="#">Furniture</a>
+                                <div class="mb-3">
+                                    <label for="itemName" class="form-label form-title-container">Title <span class="text-danger">*</span></label>
+                                    <input class="form-control" type="text" id="itemName" required placeholder="Enter Item Name">
+                                </div>
+                                <div class="mb-3 form-price-container">
+                                    <div>
+                                        <label for="itemPrice" class="form-label form-label-center form-title-container">Item Price <span class="text-danger">*</span></label>
+                                        <input class="form-control" type="number" min="1" id="itemPrice" required placeholder="Item Price">
+                                    </div>
+                                    <div>
+                                        <label for="rentalPrice" class="form-label form-label-center form-title-container">Rental Price </label>
+                                        <input class="form-control" type="number" min="1" id="rentalPrice" placeholder="Rental Price">
                                     </div>
                                 </div>
-                                <textarea class="form-control" type="text" placeholder="Enter Item Description"></textarea>
+                                <div class="mb-3">
+                                    <label for="category" class="form-label form-label-center">Category <span class="text-danger">*</span></label>
+                                    <div class="dropdown">
+                                        <button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button">Select a Category</button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="#">Electronics</a>
+                                            <a class="dropdown-item" href="#">Books</a>
+                                            <a class="dropdown-item" href="#">Furniture</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="itemDescription" class="form-label">Description <span class="text-danger">*</span></label>
+                                    <textarea class="form-control" id="itemDescription" type="text" placeholder="Enter Item Description" required></textarea>
+                                </div>
                                 <input class="form-control" type="file">
                                 <div class="mb-3">
                                     <button class="btn btn-primary btn-one" type="button">Cancel</button>

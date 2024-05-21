@@ -294,3 +294,39 @@ margin-bottom: 15px;
 .card {
 border-color: #6a5acd;
 }
+
+/* Item Price and Rental Price boxes*/
+.form-label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  text-align: left; /* Align labels to the left */
+}
+
+/* Add margin between the price input fields */
+.form-price-container {
+  display: flex;
+  justify-content: center; /* Center the input fields */
+  gap: 10px; /* Add space between the price input fields */
+  max-width: 70%; /* Set the width to 60% */
+  margin: 0 auto; /* Center the container */
+}
+
+.form-price-container div {
+  flex: 1;
+}
+
+.text-danger {
+  color: red;
+}
+
+/* Center the category label */
+.form-label-center {
+  text-align: center; /* Center the text */
+  display: block;
+}
+
+.form-title-container{
+  margin-bottom: -10px;
+  padding-top: 5px;
+}
