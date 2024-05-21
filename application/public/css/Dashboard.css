@@ -243,9 +243,6 @@ background-color: #6a5acd;
   font-weight: bold;
   margin: 10px; /* Uniform margin for spacing */
   padding: 10px; /* Padding inside each listing */
-  display: flex; /* Makes the inside of each listing a flex container */
-  flex-direction: column; /* Stacks child elements vertically */
-  align-items: center; /* Center-aligns children horizontally */
   text-align: center; /* Centers text */
 }
 
