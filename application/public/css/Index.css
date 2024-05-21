@@ -213,6 +213,11 @@ body, h1, p, ul {
   padding-left: 50px;
 }
 
+#display-range p {
+    width: 100%;
+    transform: translateY(-70px);
+}
+
 .filters {
     animation: flyInFromLeft 1.0s ease forwards;
     transform: translateX(-100%);
