@@ -97,6 +97,10 @@ $(document).ready(function () {
         window.location.href = searchURL;
     }
 
+    $('#showbutton').click(function () {
+        $('#details').toggleClass('show');
+    });
+
     $('#dropdownBtn').click(function () {
         $('#dropdownContent').toggleClass('show');
     });
