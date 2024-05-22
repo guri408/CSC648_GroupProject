@@ -339,7 +339,7 @@ border-color: #6a5acd;
 }
 
 @media (max-width: 768px) {
-    #logo{
+    .logo{
 	display: none;
     }
     /* Hide the original navbar */
