@@ -87,6 +87,18 @@ margin-left: auto; /* This will push the login button to the right if the nav-co
     background-color: #6a5acd;
   }
 
+  /* Mandatory Tittle */
+  .text-danger {
+    color: red;
+  }
+
+  .form-label {
+    text-align: left; 
+    display: block;
+    font-weight: 500;
+  }
+
+
 .alert {
 color: #721c24;
 background-color: #f8d7da;
