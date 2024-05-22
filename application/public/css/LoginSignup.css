@@ -472,3 +472,15 @@ footer.text-center.py-4 {
         width: 100%;
     }
 }
+
+/* Mandatory Tittle */
+  .text-danger {
+    color: red;
+  }
+  
+  .form-label {
+    text-align: left; 
+    display: block;
+    font-weight: 500;
+  }
+  
