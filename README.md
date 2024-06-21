@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 You may store all the required information in the README.md itself EXCEPT for SSH keys.
 These should be stored as files inside the credentials folder in your team’s repository.
 
@@ -15,3 +16,6 @@ These should be stored as files inside the credentials folder in your team’s r
 | Gursimran Singh     |        gsingh8@sfsu.edu       |         guri408        |
 
 ## NO code needs to be stored in the root of your repository. You may rename the application folder if you like to your team's application name. But all source code related to your team's application should be stored inside the application folder.
+=======
+# CSC648_GroupProject
+>>>>>>> f5002b064c73eb6159b9a28e417f372a7f81aa91
