@@ -14,4 +14,5 @@ These should be stored as files inside the credentials folder in your team’s r
 | Douglas Cheung  (Frontend)   |       dcheung5@sfsu.edu        |       NicholasRFrintz          |
 | Gursimran Singh (Frontend Lead + Backend)     |        gsingh8@sfsu.edu       |         guri408        |
 
-## NO code needs to be stored in the root of your repository. You may rename the application folder if you like to your team's application name. But all source code related to your team's application should be stored inside the application folder.
+Project Summary: 
+Welcome to From Here To There, an SFSU-exclusive site for buying and selling items. From Here To There is a unique marketplace that enables all of the SFSU community, whether it is students, faculty, or staff, to use a thorough search function. Through this functionality, users will be able to get precisely what they need when needed, creating an environment of respect, support, and mutual benefit. From class materials to office supplies, all of it is on From Here To There for your convenience. As long as you are affiliated with SFSU or have been in the past, you can use From Here To There with no issues.
